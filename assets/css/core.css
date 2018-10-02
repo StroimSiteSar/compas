@@ -1,0 +1,128 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "RobotoSlabRegular";
+  src: url("../fonts/RobotoSlabRegular/robotoslab-regular.eot");
+  src: url("../fonts/RobotoSlabRegular/robotoslab-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/RobotoSlabRegular/robotoslab-regular.woff") format("woff"), url("../fonts/RobotoSlabRegular/robotoslab-regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal; }
+@font-face {
+  font-family: "RobotoSlabBold";
+  src: url("../fonts/RobotoSlabBold/robotoslab-bold.eot");
+  src: url("../fonts/RobotoSlabBold/robotoslab-bold.eot?#iefix") format("embedded-opentype"), url("../fonts/RobotoSlabBold/robotoslab-bold.woff") format("woff"), url("../fonts/RobotoSlabBold/robotoslab-bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal; }
+@font-face {
+  font-family: "RobotoRegular";
+  src: url("../fonts/RobotoRegular/RobotoRegular.eot");
+  src: url("../fonts/RobotoRegular/RobotoRegular.eot?#iefix") format("embedded-opentype"), url("../fonts/RobotoRegular/RobotoRegular.woff") format("woff"), url("../fonts/RobotoRegular/RobotoRegular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal; }
+@font-face {
+  font-family: "RobotoLight";
+  src: url("../fonts/RobotoLight/roboto-light.eot");
+  src: url("../fonts/RobotoLight/roboto-light.eot?#iefix") format("embedded-opentype"), url("../fonts/RobotoLight/roboto-light.woff") format("woff"), url("../fonts/RobotoLight/roboto-light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal; }
+@font-face {
+  font-family: "RobotoBold";
+  src: url("../fonts/RobotoBold/RobotoBold.eot");
+  src: url("../fonts/RobotoBold/RobotoBold.eot?#iefix") format("embedded-opentype"), url("../fonts/RobotoBold/RobotoBold.woff") format("woff"), url("../fonts/RobotoBold/RobotoBold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal; }
+@font-face {
+  font-family: "MyriadProRegular";
+  src: url("../fonts/MyriadProRegular/myriadpro-regular.eot");
+  src: url("../fonts/MyriadProRegular/myriadpro-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/MyriadProRegular/myriadpro-regular.woff") format("woff"), url("../fonts/MyriadProRegular/myriadpro-regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal; }
+@font-face {
+  font-family: "Neucha";
+  src: url("../fonts/Neucha/neucha.eot");
+  src: url("../fonts/Neucha/neucha.eot?#iefix") format("embedded-opentype"), url("../fonts/Neucha/neucha.woff") format("woff"), url("../fonts/Neucha/neucha.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal; }
+@font-face {
+  font-family: "BickhamScriptOne";
+  src: url("../fonts/BickhamScriptOne/bickham-script-one.eot");
+  src: url("../fonts/BickhamScriptOne/bickham-script-one.eot?#iefix") format("embedded-opentype"), url("../fonts/BickhamScriptOne/bickham-script-one.woff") format("woff"), url("../fonts/BickhamScriptOne/bickham-script-one.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal; }
+/* Библиотека адаптивных шрифтов:
+---- Для того чтобы задать размер шрифта, необходимо:
+---- добавить миксин с набором в классу, в виде:
+
+@include fontSize10, 
+    где цирфа на конце указывает на размер шрифта при разрешении от 1200px
+
+На данный момент в библиотеке есть настройки под 9 актуальных размеров шрифта:
+@include fontSize11
+@include fontSize12
+@include fontSize14
+@include fontSize16
+@include fontSize18
+@include fontSize20
+@include fontSize22
+@include fontSize24
+@include fontSize28
+@include fontSize30
+@include fontSize36
+@include fontSize72
+@include fontSize120
+*/
+/* ======================== Заготовки и переменные ========================= */
+/* ============================== global css =============================== */
+h1 {
+  font-family: georgia;
+  font-style: italic;
+  text-align: left;
+  background: -webkit-gradient(linear, left top, right top, from(#f954e3), to(#5b2775));
+  background: linear-gradient(to right, #f954e3 0%, #5b2775 100%);
+  -webkit-background-clip: text;
+  /* подробнее про background-clip */
+  color: transparent;
+  margin: 15px 0; }
+  @media screen and (min-width: 768px) {
+    h1 {
+      font-size: 24px; } }
+  @media screen and (max-width: 576px) {
+    h1 {
+      font-size: 18px; } }
+  @media screen and (min-width: 576px) {
+    h1 {
+      font-size: 22px; } }
+  @media screen and (min-width: 768px) {
+    h1 {
+      font-size: 24px; } }
+  @media screen and (min-width: 992px) {
+    h1 {
+      font-size: 30px; } }
+  @media screen and (min-width: 1200px) {
+    h1 {
+      font-size: 36px; } }
+
+h2 {
+  font-size: 1.3em;
+  color: #5b2775;
+  margin: 1.3em 0; }
+
+body {
+  background: -webkit-gradient(linear, left top, left bottom, from(white), color-stop(10%, rgba(44, 180, 221, 0.8)), color-stop(25%, rgba(249, 249, 172, 0.4)), color-stop(60%, rgba(249, 249, 172, 0.2)), color-stop(85%, rgba(249, 249, 172, 0.4)), to(rgba(44, 180, 221, 0.7)));
+  background: linear-gradient(to bottom, white 0%, rgba(44, 180, 221, 0.8) 10%, rgba(249, 249, 172, 0.4) 25%, rgba(249, 249, 172, 0.2) 60%, rgba(249, 249, 172, 0.4) 85%, rgba(44, 180, 221, 0.7) 100%); }
+  @media screen and (min-width: 768px) {
+    body {
+      font-size: 15px; } }
+  @media screen and (max-width: 576px) {
+    body {
+      font-size: 13px; } }
+  @media screen and (min-width: 576px) {
+    body {
+      font-size: 14px; } }
+  @media screen and (min-width: 768px) {
+    body {
+      font-size: 15px; } }
+  @media screen and (min-width: 992px) {
+    body {
+      font-size: 16px; } }
+  @media screen and (min-width: 1200px) {
+    body {
+      font-size: 18px; } }

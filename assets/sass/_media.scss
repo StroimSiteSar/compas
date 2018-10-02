@@ -1,0 +1,39 @@
+$mobile: 425px;  
+$small: 576px;
+$medium: 768px;
+$large: 992px;
+$extral: 1200px;
+
+//// add inline media
+////   @media #{$pxs} {}
+//$pxs: "screen and (max-width: 425px)";
+////   @media #{$xs} {} 
+//$xs: "screen and (min-width: 425px)";
+////   @media #{$sm} {}
+//$sm: "screen and (min-width: 576px)";
+////   @media #{$md} {}
+//$md: "screen and (min-width: 768px)";
+////   @media #{$lg} {}
+//$lg: "screen and (min-width: 992px)";
+////   @media #{$xl} {}
+//$xl: "screen and (min-width: 1200px)";
+
+@media screen and (min-width: $mobile) {
+    
+}
+@media screen and (min-width: $small) {
+    
+}
+@media screen and (min-width: $medium) {
+    
+}
+@media screen and (min-width: $large) {
+    
+}
+@media screen and (min-width: $extral) {
+    
+}
+
+@media screen and (max-width: $medium) {
+      
+}

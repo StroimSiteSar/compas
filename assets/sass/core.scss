@@ -1,0 +1,76 @@
+@import 'fonts';
+@import 'colors';
+
+/* ======================== Заготовки и переменные ========================= */
+//@include center;       *** Центрование внутри flex блока ***
+@mixin center {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+//@include columnBetween;       *** Растянуть в столбец внутри flex блока ***
+@mixin columnBetween {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+//@include columnAround;       *** Растянуть в столбец внутри flex блока ***
+@mixin columnAround {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+//@include picture;      *** Стилизация круглого изображения ***
+@mixin picture {
+    @include center;
+    &-pic {
+        width: 100%;
+        border-radius: 50%;
+    }
+}
+//@include cube;         *** Квадратный блок относительно ширины ***
+@mixin cube {
+    &:before {
+        content: "";
+        padding-top: 100%;
+        float: left;
+    }
+}
+
+/* ============================== global css =============================== */
+h1 {
+    @include fontSize36;
+    font-family: georgia;
+    font-style: italic;
+    text-align: left;
+    background: linear-gradient(to right, rgba(249,84,227,1) 0%, rgba(91,39,117,1) 100%);
+    -webkit-background-clip: text;  /* подробнее про background-clip */ 
+    color: transparent;
+    margin: 15px 0;
+}
+
+h2 {
+    font-size: 1.3em;
+    color: $cl_purple;
+    margin: 1.3em 0;
+}
+
+body {
+    @include fontSize18;
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(44,180,221,0.8) 10%, rgba(249,249,172,0.4) 25%, rgba(249,249,172,0.2) 60%, rgba(249,249,172,0.4) 85%, rgba(44,180,221,0.7) 100%);
+}
+
+
+@import 'media';

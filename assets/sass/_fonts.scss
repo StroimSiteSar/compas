@@ -1,0 +1,567 @@
+@font-face {
+    font-family: "RobotoSlabRegular";
+    src: url("../fonts/RobotoSlabRegular/robotoslab-regular.eot");
+    src: url("../fonts/RobotoSlabRegular/robotoslab-regular.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/RobotoSlabRegular/robotoslab-regular.woff") format("woff"),
+    url("../fonts/RobotoSlabRegular/robotoslab-regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: "RobotoSlabBold";
+    src: url("../fonts/RobotoSlabBold/robotoslab-bold.eot");
+    src: url("../fonts/RobotoSlabBold/robotoslab-bold.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/RobotoSlabBold/robotoslab-bold.woff") format("woff"),
+    url("../fonts/RobotoSlabBold/robotoslab-bold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: "RobotoRegular";
+    src: url("../fonts/RobotoRegular/RobotoRegular.eot");
+    src: url("../fonts/RobotoRegular/RobotoRegular.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/RobotoRegular/RobotoRegular.woff") format("woff"),
+    url("../fonts/RobotoRegular/RobotoRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: "RobotoLight";
+    src: url("../fonts/RobotoLight/roboto-light.eot");
+    src: url("../fonts/RobotoLight/roboto-light.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/RobotoLight/roboto-light.woff") format("woff"),
+    url("../fonts/RobotoLight/roboto-light.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: "RobotoBold";
+    src: url("../fonts/RobotoBold/RobotoBold.eot");
+    src: url("../fonts/RobotoBold/RobotoBold.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/RobotoBold/RobotoBold.woff") format("woff"),
+    url("../fonts/RobotoBold/RobotoBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: "MyriadProRegular";
+    src: url("../fonts/MyriadProRegular/myriadpro-regular.eot");
+    src: url("../fonts/MyriadProRegular/myriadpro-regular.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/MyriadProRegular/myriadpro-regular.woff") format("woff"),
+    url("../fonts/MyriadProRegular/myriadpro-regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: "Neucha";
+    src: url("../fonts/Neucha/neucha.eot");
+    src: url("../fonts/Neucha/neucha.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/Neucha/neucha.woff") format("woff"),
+    url("../fonts/Neucha/neucha.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: "BickhamScriptOne";
+    src: url("../fonts/BickhamScriptOne/bickham-script-one.eot");
+    src: url("../fonts/BickhamScriptOne/bickham-script-one.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/BickhamScriptOne/bickham-script-one.woff") format("woff"),
+    url("../fonts/BickhamScriptOne/bickham-script-one.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+$Neucha: "Neucha", cursive;
+$RobSR: "RobotoSlabRegular", sans-serif;
+$RobSB: "RobotoSlabBold", sans-serif;
+$RobL: "RobotoLight", sans-serif;
+$RobR: "RobotoRegular", sans-serif;
+$RobB: "RobotoBold", sans-serif;
+$MyrPR: "MyriadProRegular", sans-serif;
+$BSO: "BickhamScriptOne", arial;
+
+$mobile: 425px;
+$small: 576px;
+$medium: 768px;
+$large: 992px;
+$extral: 1200px;
+
+/* Библиотека адаптивных шрифтов:
+---- Для того чтобы задать размер шрифта, необходимо:
+---- добавить миксин с набором в классу, в виде:
+
+@include fontSize10, 
+    где цирфа на конце указывает на размер шрифта при разрешении от 1200px
+
+На данный момент в библиотеке есть настройки под 9 актуальных размеров шрифта:
+@include fontSize11
+@include fontSize12
+@include fontSize14
+@include fontSize16
+@include fontSize18
+@include fontSize20
+@include fontSize22
+@include fontSize24
+@include fontSize28
+@include fontSize30
+@include fontSize36
+@include fontSize72
+@include fontSize120
+*/
+
+@mixin fontSize11 {
+    @include fs11(mobile);
+    @include fs11(exsmall);
+    @include fs11(small);
+    @include fs11(medium);
+    @include fs11(large);
+    @include fs11(extral);
+}
+
+@mixin fs11($scale) {
+    @if $scale == mobile {
+        @media screen and (max-width: $mobile) {
+            font-size: 8px;
+        }
+    } @else if $scale == exsmall {
+        @media screen and (max-width: $small) {
+            font-size: 8px;
+        }
+    } @else if $scale == small {
+        @media screen and (min-width: $small) {
+            font-size: 9px;
+        }
+    } @else if $scale == medium {
+        @media screen and (min-width: $medium) {
+            font-size: 9px;
+        }
+    } @else if $scale == large {
+        @media screen and (min-width: $large) {
+            font-size: 10px;
+        }
+    } @else if $scale == extral {
+        @media screen and (min-width: $extral) {
+            font-size: 11px;
+        }
+    }
+}
+
+@mixin fontSize12 {
+    @include fs12(mobile);
+    @include fs12(exsmall);
+    @include fs12(small);
+    @include fs12(medium);
+    @include fs12(large);
+    @include fs12(extral);
+}
+
+@mixin fs12($scale) {
+    @if $scale == mobile {
+        @media screen and (max-width: $mobile) {
+            font-size: 8px;
+        }
+    } @else if $scale == exsmall {
+        @media screen and (max-width: $small) {
+            font-size: 9px;
+        }
+    } @else if $scale == small {
+        @media screen and (min-width: $small) {
+            font-size: 10px;
+        }
+    } @else if $scale == medium {
+        @media screen and (min-width: $medium) {
+            font-size: 11px;
+        }
+    } @else if $scale == large {
+        @media screen and (min-width: $large) {
+            font-size: 12px;
+        }
+    } @else if $scale == extral {
+        @media screen and (min-width: $extral) {
+            font-size: 12px;
+        }
+    }
+}
+
+@mixin fontSize14 {
+    @include fs14(mobile);
+    @include fs14(exsmall);
+    @include fs14(small);
+    @include fs14(medium);
+    @include fs14(large);
+    @include fs14(extral);
+}
+
+@mixin fs14($scale) {
+    @if $scale == mobile {
+        @media screen and (max-width: $mobile) {
+            font-size: 9px;
+        }
+    } @else if $scale == exsmall {
+        @media screen and (max-width: $small) {
+            font-size: 10px;
+        }
+    } @else if $scale == small {
+        @media screen and (min-width: $small) {
+            font-size: 11px;
+        }
+    } @else if $scale == medium {
+        @media screen and (min-width: $medium) {
+            font-size: 12px;
+        }
+    } @else if $scale == large {
+        @media screen and (min-width: $large) {
+            font-size: 13px;
+        }
+    } @else if $scale == extral {
+        @media screen and (min-width: $extral) {
+            font-size: 14px;
+        }
+    }
+}
+@mixin fontSize16 {
+    @include fs16(medium);
+    @include fs16(exsmall);
+    @include fs16(small);
+    @include fs16(medium);
+    @include fs16(large);
+    @include fs16(extral);
+}
+@mixin fs16($scale) {
+    @if $scale == mobile {
+        @media screen and (max-width: $mobile) {
+            font-size: 10px;
+        }
+    } @else if $scale == exsmall {
+        @media screen and (max-width: $small) {
+            font-size: 11px;
+        }
+    } @else if $scale == small {
+        @media screen and (min-width: $small) {
+            font-size: 12px;
+        }
+    } @else if $scale == medium {
+        @media screen and (min-width: $medium) {
+            font-size: 14px;
+        }
+    } @else if $scale == large {
+        @media screen and (min-width: $large) {
+            font-size: 15px;
+        }
+    } @else if $scale == extral {
+        @media screen and (min-width: $extral) {
+            font-size: 16px;
+        }
+    }
+}
+@mixin fontSize18 {
+    @include fs18(medium);
+    @include fs18(exsmall);
+    @include fs18(small);
+    @include fs18(medium);
+    @include fs18(large);
+    @include fs18(extral);
+}
+@mixin fs18($scale) {
+    @if $scale == mobile {
+        @media screen and (max-width: $mobile) {
+            font-size: 12px;
+        }
+    } @else if $scale == exsmall {
+        @media screen and (max-width: $small) {
+            font-size: 13px;
+        }
+    } @else if $scale == small {
+        @media screen and (min-width: $small) {
+            font-size: 14px;
+        }
+    } @else if $scale == medium {
+        @media screen and (min-width: $medium) {
+            font-size: 15px;
+        }
+    } @else if $scale == large {
+        @media screen and (min-width: $large) {
+            font-size: 16px;
+        }
+    } @else if $scale == extral {
+        @media screen and (min-width: $extral) {
+            font-size: 18px;
+        }
+    }
+}
+@mixin fontSize20 {
+    @include fs20(medium);
+    @include fs20(exsmall);
+    @include fs20(small);
+    @include fs20(medium);
+    @include fs20(large);
+    @include fs20(extral);
+}
+@mixin fs20($scale) {
+    @if $scale == mobile {
+        @media screen and (max-width: $mobile) {
+            font-size: 14px;
+        }
+    } @else if $scale == exsmall {
+        @media screen and (max-width: $small) {
+            font-size: 15px;
+        }
+    } @else if $scale == small {
+        @media screen and (min-width: $small) {
+            font-size: 16px;
+        }
+    } @else if $scale == medium {
+        @media screen and (min-width: $medium) {
+            font-size: 18px;
+        }
+    } @else if $scale == large {
+        @media screen and (min-width: $large) {
+            font-size: 19px;
+        }
+    } @else if $scale == extral {
+        @media screen and (min-width: $extral) {
+            font-size: 20px;
+        }
+    }
+}
+@mixin fontSize22 {
+    @include fs22(medium);
+    @include fs22(exsmall);
+    @include fs22(small);
+    @include fs22(medium);
+    @include fs22(large);
+    @include fs22(extral);
+}
+@mixin fs22($scale) {
+    @if $scale == mobile {
+        @media screen and (max-width: $mobile) {
+            font-size: 15px;
+        }
+    } @else if $scale == exsmall {
+        @media screen and (max-width: $small) {
+            font-size: 17px;
+        }
+    } @else if $scale == small {
+        @media screen and (min-width: $small) {
+            font-size: 18px;
+        }
+    } @else if $scale == medium {
+        @media screen and (min-width: $medium) {
+            font-size: 20px;
+        }
+    } @else if $scale == large {
+        @media screen and (min-width: $large) {
+            font-size: 21px;
+        }
+    } @else if $scale == extral {
+        @media screen and (min-width: $extral) {
+            font-size: 22px;
+        }
+    }
+}
+@mixin fontSize24 {
+    @include fs24(medium);
+    @include fs24(exsmall);
+    @include fs24(small);
+    @include fs24(medium);
+    @include fs24(large);
+    @include fs24(extral);
+}
+@mixin fs24($scale) {
+    @if $scale == mobile {
+        @media screen and (max-width: $mobile) {
+            font-size: 17px;
+        }
+    } @else if $scale == exsmall {
+        @media screen and (max-width: $small) {
+            font-size: 19px;
+        }
+    } @else if $scale == small {
+        @media screen and (min-width: $small) {
+            font-size: 20px;
+        }
+    } @else if $scale == medium {
+        @media screen and (min-width: $medium) {
+            font-size: 22px;
+        }
+    } @else if $scale == large {
+        @media screen and (min-width: $large) {
+            font-size: 23px;
+        }
+    } @else if $scale == extral {
+        @media screen and (min-width: $extral) {
+            font-size: 24px;
+        }
+    }
+}
+@mixin fontSize28 {
+    @include fs28(medium);
+    @include fs28(exsmall);
+    @include fs28(small);
+    @include fs28(medium);
+    @include fs28(large);
+    @include fs28(extral);
+}
+@mixin fs28($scale) {
+    @if $scale == mobile {
+        @media screen and (max-width: $mobile) {
+            font-size: 19px;
+        }
+    } @else if $scale == exsmall {
+        @media screen and (max-width: $small) {
+            font-size: 21px;
+        }
+    } @else if $scale == small {
+        @media screen and (min-width: $small) {
+            font-size: 22px;
+        }
+    } @else if $scale == medium {
+        @media screen and (min-width: $medium) {
+            font-size: 24px;
+        }
+    } @else if $scale == large {
+        @media screen and (min-width: $large) {
+            font-size: 26px;
+        }
+    } @else if $scale == extral {
+        @media screen and (min-width: $extral) {
+            font-size: 28px;
+        }
+    }
+}
+@mixin fontSize30 {
+    @include fs30(medium);
+    @include fs30(exsmall);
+    @include fs30(small);
+    @include fs30(medium);
+    @include fs30(large);
+    @include fs30(extral);
+}
+@mixin fs30($scale) {
+    @if $scale == mobile {
+        @media screen and (max-width: $mobile) {
+            font-size: 16px;
+        }
+    } @else if $scale == exsmall {
+        @media screen and (max-width: $small) {
+            font-size: 18px;
+        }
+    } @else if $scale == small {
+        @media screen and (min-width: $small) {
+            font-size: 20px;
+        }
+    } @else if $scale == medium {
+        @media screen and (min-width: $medium) {
+            font-size: 22px;
+        }
+    } @else if $scale == large {
+        @media screen and (min-width: $large) {
+            font-size: 26px;
+        }
+    } @else if $scale == extral {
+        @media screen and (min-width: $extral) {
+            font-size: 30px;
+        }
+    }
+}
+@mixin fontSize36 {
+    @include fs36(medium);
+    @include fs36(exsmall);
+    @include fs36(small);
+    @include fs36(medium);
+    @include fs36(large);
+    @include fs36(extral);
+}
+@mixin fs36($scale) {
+    @if $scale == exsmall {
+        @media screen and (max-width: $small) {
+            font-size: 18px;
+        }
+    } @else if $scale == small {
+        @media screen and (min-width: $small) {
+            font-size: 22px;
+        }
+    } @else if $scale == medium {
+        @media screen and (min-width: $medium) {
+            font-size: 24px;
+        }
+    } @else if $scale == large {
+        @media screen and (min-width: $large) {
+            font-size: 30px;
+        }
+    } @else if $scale == extral {
+        @media screen and (min-width: $extral) {
+            font-size: 36px;
+        }
+    }
+}
+@mixin fontSize72 {
+    @include fs72(medium);
+    @include fs72(exsmall);
+    @include fs72(small);
+    @include fs72(medium);
+    @include fs72(large);
+    @include fs72(extral);
+}
+@mixin fs72($scale) {
+    @if $scale == mobile {
+        @media screen and (max-width: $mobile) {
+            font-size: 24px;
+        }
+    } @else if $scale == exsmall {
+        @media screen and (max-width: $small) {
+            font-size: 36px;
+        }
+    } @else if $scale == small {
+        @media screen and (min-width: $small) {
+            font-size: 48px;
+        }
+    } @else if $scale == medium {
+        @media screen and (min-width: $medium) {
+            font-size: 54px;
+        }
+    } @else if $scale == large {
+        @media screen and (min-width: $large) {
+            font-size: 60px;
+        }
+    } @else if $scale == extral {
+        @media screen and (min-width: $extral) {
+            font-size: 72px;
+        }
+    }
+}
+@mixin fontSize120 {
+    @include fs120(medium);
+    @include fs120(exsmall);
+    @include fs120(small);
+    @include fs120(medium);
+    @include fs120(large);
+    @include fs120(extral);
+}
+@mixin fs120($scale) {
+    @if $scale == mobile {
+        @media screen and (max-width: $mobile) {
+            font-size: 20px;
+        }
+    } @else if $scale == exsmall {
+        @media screen and (max-width: $small) {
+            font-size: 40px;
+        }
+    } @else if $scale == small {
+        @media screen and (min-width: $small) {
+            font-size: 60px;
+        }
+    } @else if $scale == medium {
+        @media screen and (min-width: $medium) {
+            font-size: 80px;
+        }
+    } @else if $scale == large {
+        @media screen and (min-width: $large) {
+            font-size: 100px;
+        }
+    } @else if $scale == extral {
+        @media screen and (min-width: $extral) {
+            font-size: 120px;
+        }
+    }
+}
