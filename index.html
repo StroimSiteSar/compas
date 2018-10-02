@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <title>Magic</title>
+    <title>Compas</title>
     
      <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap-grid.min.css" rel="stylesheet">
@@ -19,18 +19,123 @@
 <body>
     <header class="header">
         <div class="container">
-            
+            <div class="row">
+                <div class="col-sm-3 col-lg-5 border-right">
+                    <div class="header__logo">
+                        <img src="assets/img/logo.png" alt="logo" width="100%">
+                    </div>
+                </div>
+                <div class="col-sm-9 col-lg-7 header-top">
+                    <div>
+                        <div class="row">
+                            <div class="col d-flex justify-content-center">
+                                <div class="header__phones">
+                                    <div class="header__phones-item">+7987654321</div>
+                                    <div class="header__phones-item">+7987654321</div>
+                                </div>
+                            </div>
+                            <div class="col d-flex justify-content-center">
+                                <div class="header__worktime">
+                                    <div class="header__worktime-item">Работаем с 10:00 до 19:00</div>
+                                    <div class="header__worktime-item">без выходных</div>
+                                </div>
+                            </div>
+                            <div class="col d-flex justify-content-center">
+                                <a href="#" class="header__basket">
+                                    <span class="header__basket-icon"><i class="fal fa-shopping-basket"></i></span>
+                                    <span>Корзина</span>
+                                </a>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <ul class="header__nav d-flex justify-content-around">
+                        <li class="header__nav-item"><a href="#" class="header__nav-link">События</a></li>
+                        <li class="header__nav-item"><a href="#" class="header__nav-link">Статьи</a></li>
+                        <li class="header__nav-item"><a href="#" class="header__nav-link">Акции</a></li>
+                        <li class="header__nav-item"><a href="#" class="header__nav-link">доставка</a></li>
+                        <li class="header__nav-item"><a href="#" class="header__nav-link">Адреса и контакты</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-5 col-md-4 col-lg-3">
+                    <button class="header__catalog"><i class="fas fa-bars"></i> КАТАЛОГ</button>
+                </div>
+                <div class="col">
+                    <div class="header__search">
+                        <input type="text" class="header__search-input" placeholder="Поиск товара">
+                        <button class="header__search-btn">SEARCH</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
     <main>
-        <div class="container">
+        <section class="slider">
+            <div class="container d-flex">
+                <div class="slider__arrow slider__arrow-left">
+                    <i class="fal fa-chevron-left"></i>
+                </div>
+                <div class="slider-content">
+                    <div class="slider-content__item"></div>
+                </div>
+                <div class="slider__arrow slider__arrow-right">
+                    <i class="fal fa-chevron-right"></i>
+                </div>
+            </div>
+        </section>
+        <section class="special">
+            <div class="container">
+                <h2>спецпрелдожение</h2>
+                <div class="row">
+                    <div class="col-sm-6 col-md-5">
+                        <a class="special__hot">
+                            <img src="assets/img/special-hot-img.jpg" alt="hot_sale">
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-md-7">
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="categoryes">
+            <div class="container">
+                <h2>товары</h2>
+                
+            </div>
+        </section>
+        <section class="about">
+            <div class="container">
             
-        </div>
+            </div>
+        </section>
+        <section class="new-products">
+            <div class="container">
+            
+            </div>
+        </section>
+        <section class="events">
+            <div class="container">
+            
+            </div>
+        </section>
+        <section class="brands">
+            <div class="container">
+            
+            </div>
+        </section>
+        <section class="map">
+            <div class="container">
+            
+            </div>
+        </section>
     </main>
     <footer class="footer">
         
     </footer>
-    
+    <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/core.js"></script>
 </body>
 </html>
