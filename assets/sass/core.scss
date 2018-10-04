@@ -54,6 +54,7 @@
     display: inline-flex;
     padding: 0.5em 4em;
     width: auto;
+    max-width: 100%;
     box-shadow: 0 3px 9px 1px rgba(0, 0, 0, 0.09);
     border-radius: 5px;
     border: 1px solid #ffffff;
@@ -374,6 +375,7 @@ body {
                 
                 img {
                     width: auto;
+                    max-width: 100%;
                 }
             }
             
@@ -555,8 +557,52 @@ body {
     padding: 15px 0;
     
     &-container {
+        position: relative;
         display: flex;
+        justify-content: center;
         height: 100%;
+    }
+    
+    &-item {
+        height: 100px;
+        width: 130px;
+        @include center;
+        margin: 0 15px;
+        background-color: #f8f8f8;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        
+        img {
+            width: auto;
+            max-width: 90%;
+        }
+    }
+}
+
+.map {
+    text-align: center;
+    color: $cl_blue;
+}
+
+.footer {
+    padding: 30px 0 50px;
+    color: $cl_light-blue;
+    background-color: $cl_blue;
+    text-align: center;
+    
+    &-social {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        
+        &__icon {
+            border: 2px solid $cl_white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 25px;
+            @include center;
+        }
     }
 }
 

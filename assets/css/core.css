@@ -420,7 +420,8 @@ body a {
           -ms-flex-align: center;
               align-items: center; }
       .categoryes-desc__example-item img {
-        width: auto; }
+        width: auto;
+        max-width: 100%; }
     .categoryes-desc__example-link {
       font-size: 20px;
       color: white;
@@ -441,6 +442,7 @@ body a {
       display: inline-flex;
       padding: 0.5em 4em;
       width: auto;
+      max-width: 100%;
       -webkit-box-shadow: 0 3px 9px 1px rgba(0, 0, 0, 0.09);
               box-shadow: 0 3px 9px 1px rgba(0, 0, 0, 0.09);
       border-radius: 5px;
@@ -487,6 +489,7 @@ body a {
     display: inline-flex;
     padding: 0.5em 4em;
     width: auto;
+    max-width: 100%;
     -webkit-box-shadow: 0 3px 9px 1px rgba(0, 0, 0, 0.09);
             box-shadow: 0 3px 9px 1px rgba(0, 0, 0, 0.09);
     border-radius: 5px;
@@ -568,6 +571,7 @@ body a {
     display: inline-flex;
     padding: 0.5em 4em;
     width: auto;
+    max-width: 100%;
     -webkit-box-shadow: 0 3px 9px 1px rgba(0, 0, 0, 0.09);
             box-shadow: 0 3px 9px 1px rgba(0, 0, 0, 0.09);
     border-radius: 5px;
@@ -635,6 +639,7 @@ body a {
       display: inline-flex;
       padding: 0.5em 4em;
       width: auto;
+      max-width: 100%;
       -webkit-box-shadow: 0 3px 9px 1px rgba(0, 0, 0, 0.09);
               box-shadow: 0 3px 9px 1px rgba(0, 0, 0, 0.09);
       border-radius: 5px;
@@ -668,7 +673,68 @@ body a {
   height: 180px;
   padding: 15px 0; }
   .brands-container {
+    position: relative;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     height: 100%; }
+  .brands-item {
+    height: 100px;
+    width: 130px;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 0 15px;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 5px; }
+    .brands-item img {
+      width: auto;
+      max-width: 90%; }
+
+.map {
+  text-align: center;
+  color: #004d73; }
+
+.footer {
+  padding: 30px 0 50px;
+  color: #ccdbe3;
+  background-color: #004d73;
+  text-align: center; }
+  .footer-social {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around; }
+    .footer-social__icon {
+      border: 2px solid white;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      font-size: 25px;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; }
