@@ -12,7 +12,7 @@
     justify-content: center;
     align-items: center;
 }
-//@include columnBetween;       *** Растянуть в столбец внутри flex блока ***
+//@include columnBetween;       *** Растянуть в столбец внутри flex блока *** 
 @mixin columnBetween {
     display: -webkit-flex;
     display: -moz-flex;
