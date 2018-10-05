@@ -202,6 +202,28 @@ body {
     }
 }
 
+.footer {
+    padding: 30px 0 50px;
+    color: $cl_light-blue;
+    background-color: $cl_blue;
+    text-align: center;
+    
+    &-social {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        
+        &__icon {
+            border: 2px solid $cl_white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 25px;
+            @include center;
+        }
+    }
+}
+
 /* ============================== homepage =============================== */
 
 .slider {
@@ -584,27 +606,6 @@ body {
     color: $cl_blue;
 }
 
-.footer {
-    padding: 30px 0 50px;
-    color: $cl_light-blue;
-    background-color: $cl_blue;
-    text-align: center;
-    
-    &-social {
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
-        
-        &__icon {
-            border: 2px solid $cl_white;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            font-size: 25px;
-            @include center;
-        }
-    }
-}
 
 
 @import 'media';
