@@ -70,6 +70,51 @@
     font-style: normal;
     font-weight: normal;
 }
+@font-face {
+    font-family: "OpenSansRegular";
+    src: url("../fonts/OpenSansRegular/opensans-regular.eot");
+    src: url("../fonts/OpenSansRegular/opensans-regular.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/OpenSansRegular/opensans-regular.woff") format("woff"),
+    url("../fonts/OpenSansRegular/opensans-regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: "OpenSansLight";
+    src: url("../fonts/OpenSansLight/opensans-light.eot");
+    src: url("../fonts/OpenSansLight/opensans-light.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/OpenSansLight/opensans-light.woff") format("woff"),
+    url("../fonts/OpenSansLight/opensans-light.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: "OpenSansSemibold";
+    src: url("../fonts/OpenSansSemibold/opensans-semibold.eot");
+    src: url("../fonts/OpenSansSemibold/opensans-semibold.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/OpenSansSemibold/opensans-semibold.woff") format("woff"),
+    url("../fonts/OpenSansSemibold/opensans-semibold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: "OpenSansBold";
+    src: url("../fonts/OpenSansBold/opensans-bold.eot");
+    src: url("../fonts/OpenSansBold/opensans-bold.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/OpenSansBold/opensans-bold.woff") format("woff"),
+    url("../fonts/OpenSansBold/opensans-bold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: "OpenSansExtrabold";
+    src: url("../fonts/OpenSansExtrabold/opensans-extrabold.eot");
+    src: url("../fonts/OpenSansExtrabold/opensans-extrabold.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/OpenSansExtrabold/opensans-extrabold.woff") format("woff"),
+    url("../fonts/OpenSansExtrabold/opensans-extrabold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
 
 $Neucha: "Neucha", cursive;
 $RobSR: "RobotoSlabRegular", sans-serif;
@@ -79,6 +124,11 @@ $RobR: "RobotoRegular", sans-serif;
 $RobB: "RobotoBold", sans-serif;
 $MyrPR: "MyriadProRegular", sans-serif;
 $BSO: "BickhamScriptOne", arial;
+$OS-R: "OpenSansRegular", sans-serif;
+$OS-L: "OpenSansLight", sans-serif;
+$OS-B: "OpenSansBold", sans-serif;
+$OS-SB: "OpenSansSemibold", sans-serif;
+$OS-EB: "OpenSansExtrabold", sans-serif;
 
 $mobile: 425px;
 $small: 576px;
