@@ -242,8 +242,7 @@ body {
       right: -18px;
       z-index: 1001;
       background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.7)), color-stop(40%, #004d73), color-stop(60%, #004d73), to(rgba(255, 255, 255, 0)));
-      background: linear-gradient(left, rgba(255, 255, 255, 0.7) 0%, #004d73 40%, #004d73 60%, rgba(255, 255, 255, 0) 100%);
-      border-radius: 50%; }
+      background: linear-gradient(left, rgba(255, 255, 255, 0.7) 0%, #004d73 40%, #004d73 60%, rgba(255, 255, 255, 0) 100%); }
     .header-mobile__sidebar-btn {
       font-size: 1.2em;
       display: -moz-flex;
