@@ -413,6 +413,30 @@ body {
       background-color: #6694ab;
       color: white; }
 
+.catalog-menu {
+  position: absolute;
+  top: 100%;
+  left: 20px;
+  width: 84%;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 5%; }
+  .catalog-menu li {
+    list-style-type: none; }
+  .catalog-menu__item {
+    position: relative; }
+    .catalog-menu__item-title {
+      font-family: "OpenSansExtrabold", sans-serif; }
+    .catalog-menu__item:hover > ul {
+      display: block; }
+  .catalog-menu__submenu {
+    width: 100%;
+    position: absolute;
+    left: calc(110%);
+    top: 0;
+    padding: 10px;
+    display: none;
+    background-color: rgba(255, 255, 255, 0.7); }
+
 .footer {
   padding: 30px 0 50px;
   color: #ccdbe3;
