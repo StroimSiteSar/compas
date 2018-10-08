@@ -19,54 +19,92 @@
 
 <body>
     <header class="header">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3 col-lg-5 border-right">
-                    <div class="header__logo">
-                        <img src="assets/img/logo.png" alt="logo" width="100%">
-                    </div>
-                </div>
-                <div class="col-sm-9 col-lg-7 header-top">
-                    <div>
-                        <div class="row">
-                            <div class="col d-flex justify-content-center">
-                                <div class="header__phones">
-                                    <div class="header__phones-item">+7987654321</div>
-                                    <div class="header__phones-item">+7987654321</div>
-                                </div>
-                            </div>
-                            <div class="col d-flex justify-content-center">
-                                <div class="header__worktime">
-                                    <div class="header__worktime-item">Работаем с 10:00 до 19:00</div>
-                                    <div class="header__worktime-item">без выходных</div>
-                                </div>
-                            </div>
-                            <div class="col d-flex justify-content-center">
-                                <a href="#" class="header__basket">
-                                    <span class="header__basket-icon"><i class="fal fa-shopping-basket"></i></span>
-                                    <span>Корзина</span>
-                                </a>
-                            </div>
+        <div class="header-mobile d-md-none">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-4 col-sm-3 col-lg-5 border-right">
+                        <div class="header__logo">
+                            <img src="assets/img/logo.png" alt="logo" width="100%">
                         </div>
-                        <hr>
                     </div>
-                    <ul class="header__nav d-flex justify-content-around">
-                        <li class="header__nav-item"><a href="#" class="header__nav-link">События</a></li>
-                        <li class="header__nav-item"><a href="#" class="header__nav-link">Статьи</a></li>
-                        <li class="header__nav-item"><a href="#" class="header__nav-link">Акции</a></li>
-                        <li class="header__nav-item"><a href="#" class="header__nav-link">доставка</a></li>
-                        <li class="header__nav-item"><a href="#" class="header__nav-link">Адреса и контакты</a></li>
-                    </ul>
+                    <div class="col-8 col-sm-7 offset-sm-2 col-md-8 col-lg-9">
+                        <div class="header__search">
+                            <input type="text" class="header__search-input" placeholder="Поиск товара">
+                            <button class="header__search-btn"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-5 col-md-4 col-lg-3">
-                    <button class="header__catalog"><i class="fas fa-bars"></i> КАТАЛОГ</button>
+            <div class="header-mobile__sidebar">
+                <ul class="header-mobile__nav">
+                    <li class="header__nav-item"><a href="#" class="header__nav-link">События</a></li>
+                    <li class="header__nav-item"><a href="#" class="header__nav-link">Статьи</a></li>
+                    <li class="header__nav-item"><a href="#" class="header__nav-link">Акции</a></li>
+                    <li class="header__nav-item"><a href="#" class="header__nav-link">доставка</a></li>
+                    <li class="header__nav-item"><a href="#" class="header__nav-link">Адреса и контакты</a></li>
+                    <li class="header__nav-item"><a href="#" class="header__nav-link">Каталог</a></li>
+                </ul>
+                <div class="row justify-content-around">
+                    <div class="col-4">
+                        <a href="#" class="header-mobile__sidebar-btn call"><i class="fas fa-phone"></i></a>
+                    </div>
+                    <div class="col-4">
+                        <a href="#" class="header-mobile__sidebar-btn basket"><i class="fal fa-shopping-basket"></i></a>
+                    </div>
                 </div>
-                <div class="col">
-                    <div class="header__search">
-                        <input type="text" class="header__search-input" placeholder="Поиск товара">
-                        <button class="header__search-btn">SEARCH</button>
+                <div class="header-mobile__sidebar-toggle toggle"><i class="far fa-chevron-double-right"></i></div>
+            </div>
+        </div>
+        <div class="header-md d-none d-md-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3 col-lg-5 border-right">
+                        <div class="header__logo">
+                            <img src="assets/img/logo.png" alt="logo" width="100%">
+                        </div>
+                    </div>
+                    <div class="col-sm-9 col-lg-7 header-top">
+                        <div>
+                            <div class="row">
+                                <div class="col d-flex justify-content-center">
+                                    <div class="header__phones">
+                                        <div class="header__phones-item">+7987654321</div>
+                                        <div class="header__phones-item">+7987654321</div>
+                                    </div>
+                                </div>
+                                <div class="col d-flex justify-content-center">
+                                    <div class="header__worktime">
+                                        <div class="header__worktime-item">Работаем с 10:00 до 19:00</div>
+                                        <div class="header__worktime-item">без выходных</div>
+                                    </div>
+                                </div>
+                                <div class="col d-flex justify-content-center">
+                                    <a href="#" class="header__basket">
+                                        <span class="header__basket-icon"><i class="fal fa-shopping-basket"></i></span>
+                                        <span>Корзина</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                        <ul class="header__nav d-flex justify-content-around">
+                            <li class="header__nav-item"><a href="#" class="header__nav-link">События</a></li>
+                            <li class="header__nav-item"><a href="#" class="header__nav-link">Статьи</a></li>
+                            <li class="header__nav-item"><a href="#" class="header__nav-link">Акции</a></li>
+                            <li class="header__nav-item"><a href="#" class="header__nav-link">доставка</a></li>
+                            <li class="header__nav-item"><a href="#" class="header__nav-link">Адреса и контакты</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3 col-sm-5 col-md-4 col-lg-3">
+                        <button class="header__catalog"><i class="fas fa-bars"></i><span class="d-none d-sm-inline">&nbsp;КАТАЛОГ</span></button>
+                    </div>
+                    <div class="col-9 col-sm-7 col-md-8 col-lg-9">
+                        <div class="header__search">
+                            <input type="text" class="header__search-input" placeholder="Поиск товара">
+                            <button class="header__search-btn">SEARCH</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -90,27 +128,59 @@
             <div class="container">
                 <h2>спецпрелдожение</h2>
                 <div class="row">
-                    <div class="col-sm-6 col-md-5">
+                    <div class="col-7 col-md-5 d-flex justify-content-center">
                         <a class="special__hot">
                             <img src="assets/img/special-hot-img.jpg" alt="hot_sale">
                         </a>
                     </div>
-                    <div class="col-sm-6 col-md-7">
+                    <div class="col-5 col-md-7">
                         <div class="special-slider">
                             <div class="special-slider__content">
                                 <div class="special-slider__content-column">
                                     <div class="special-slider__item">
+                                        <div class="special-slider__item-desc">
+                                            <span class="special-slider__item-name">Шнур SUNLINE NEW SMALL GAME PE HG 150М 8lb/#0.5</span>
+                                            <div>
+                                                <span class="special-slider__item-price">старая цена  2 300 Р</span><br>
+                                                <span class="special-slider__item-sale">ЦЕНА 1 700 Р</span>
+                                            </div>
+                                            <a href="#" class="special-slider__item-link">подробнее</a>
+                                        </div>
                                         <img src="assets/img/product_img-3.jpg" alt="prod">
                                     </div>
                                     <div class="special-slider__item">
+                                        <div class="special-slider__item-desc">
+                                            <span class="special-slider__item-name">Шнур SUNLINE NEW SMALL GAME PE HG 150М 8lb/#0.5</span>
+                                            <div>
+                                                <span class="special-slider__item-price">старая цена  2 300 Р</span><br>
+                                                <span class="special-slider__item-sale">ЦЕНА 1 700 Р</span>
+                                            </div>
+                                            <a href="#" class="special-slider__item-link">подробнее</a>
+                                        </div>
                                         <img src="assets/img/product_img-6.png" alt="prod">
                                     </div>
                                 </div>
-                                <div class="special-slider__content-column">
+                                <div class="d-none d-md-block special-slider__content-column">
                                     <div class="special-slider__item">
+                                        <div class="special-slider__item-desc">
+                                            <span class="special-slider__item-name">Шнур SUNLINE NEW SMALL GAME PE HG 150М 8lb/#0.5</span>
+                                            <div>
+                                                <span class="special-slider__item-price">старая цена  2 300 Р</span><br>
+                                                <span class="special-slider__item-sale">ЦЕНА 1 700 Р</span>
+                                            </div>
+                                            <a href="#" class="special-slider__item-link">подробнее</a>
+                                        </div>
                                         <img src="assets/img/product_img-7.png" alt="prod">
                                     </div>
                                     <div class="special-slider__item">
+                                        <div class="special-slider__item-desc">
+                                            <span class="special-slider__item-name">Шнур SUNLINE NEW SMALL GAME PE HG 150М 8lb/#0.5</span>
+                                            <div>
+                                                <span class="special-slider__item-price">старая цена  2 300 Р</span><br>
+                                                <span class="special-slider__item-sale">ЦЕНА 1 700 Р</span>
+                                            </div>
+                                            <a href="#" class="special-slider__item-link">подробнее</a>
+                                        </div>
                                         <img src="assets/img/product_img-8.png" alt="prod">
                                     </div>
                                 </div>
@@ -355,36 +425,37 @@
         </section>
         <section class="map">
             <h2>Как нас найти</h2>
-            вставить яндекс карту
+            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A9b84c2db5e8481418a4ca12f3a96474fe21da6d922efd5b2e4ef03c5eda2ca08&amp;width=100%25&amp;height=350&amp;lang=ru_RU&amp;scroll=false"></script>
         </section>
     </main>
     <footer class="footer">
-       <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-lg-4">
-                <p>г. Саратов, ул. Огородняя 142, литер А1</p>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <p>Эkектронная почта: kompas142@yandex.ru</p>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <p>+7 917 023 00 83</p>
-                <p>+7 937 265 33 47</p>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <p>&copy; 2015-2018 «Компас»</p>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="footer-social">
-                    <span class="footer-social__icon"><i class="fab fa-odnoklassniki"></i></span>
-                    <span class="footer-social__icon"><i class="fab fa-instagram"></i></span>
-                    <span class="footer-social__icon"><i class="fab fa-vk"></i></span>
+        <div class="container">
+            <div class="row footer-container">
+                <div class="col-md-6 col-lg-4">
+                    <p>г. Саратов, ул. Огородняя 142, литер А1</p>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <p>Эkектронная почта: <a href="#">kompas142@yandex.ru</a></p>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="#" style="font-size: 1.5em">+7 917 023 00 83</a><br>
+                    <a href="#" style="font-size: 1.5em">+7 937 265 33 47</a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <p>&copy; 2015-2018 <a href="#">«Компас»</a></p>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="footer-social">
+                        <a href="#" class="footer-social__icon"><i class="fab fa-odnoklassniki"></i></a>
+                        <a href="#" class="footer-social__icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-social__icon"><i class="fab fa-vk"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <p>Работаем без выходных</p>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
-                <p>Работаем без выходных</p>
-            </div>
-        </div></div>
+        </div>
     </footer>
     <script src="assets/js/core.js"></script>
 </body>
