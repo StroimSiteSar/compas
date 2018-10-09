@@ -1307,6 +1307,38 @@ main {
   margin-top: 2em;
 }
 
+/* ============================== articles =============================== */
+.articles h2 {
+  color: #ff0000;
+  margin-top: 0;
+}
+.articles__img {
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.articles__img img {
+  width: auto;
+  max-width: 100%;
+}
+.articles__text {
+  color: #004d73;
+  text-align: justify;
+}
+.articles__link {
+  float: right;
+  text-decoration: underline;
+}
+
 @media screen and (min-width: 425px) {
   .categoryes-menu {
     height: 35vw;

@@ -867,5 +867,31 @@ main {
     }
 }
 
+/* ============================== articles =============================== */
+
+.articles {
+    h2 {
+        color: $cl_red;
+        margin-top: 0;
+    }
+    
+    &__img{
+        @include center;
+        img{
+            width: auto;
+            max-width: 100%;
+        }
+    } 
+    
+    &__text {
+        color: $cl_blue;
+        text-align: justify;
+    }
+    
+    &__link {
+        float: right;
+        text-decoration: underline;
+    }
+}
 
 @import 'media';
