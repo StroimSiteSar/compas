@@ -842,7 +842,7 @@ main {
     color: $cl_blue;
 }
 
-/* ============================== delivery =============================== */
+/* =============================== delivery ================================ */
 
 .delivery {
     color: $cl_blue;
@@ -867,7 +867,7 @@ main {
     }
 }
 
-/* ============================== articles =============================== */
+/* =============================== articles ================================ */
 
 .articles {
     h2 {
@@ -893,5 +893,47 @@ main {
         text-decoration: underline;
     }
 }
+
+/* ================================ sales ================================== */
+
+.sales {
+    color: $cl_blue;
+    
+    &-point {
+        margin: 15px;
+    }
+    
+    h2 {
+        color: $cl_red;
+        margin: 1em 0;
+    }
+    
+    &__img{
+        @include center;
+        border: 3px solid $cl_blue;
+        
+        img{
+            width: auto;
+            max-width: 100%;
+        }
+    }
+    
+    &-container {
+        @include columnBetween;
+    }
+    
+    p {
+        color: $cl_blue;
+        text-align: justify;
+        font-family: $OS-R;
+    }
+    
+    &__date {
+        font-family: $OS-B;
+        margin: 1em 0;
+    }
+}
+
+/* ============================== sales =============================== */
 
 @import 'media';
