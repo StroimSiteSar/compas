@@ -71,21 +71,23 @@
 }
 
 h1 {
-    
+    margin: 1em 0;
+    font-family: $OS-B;
+    font-size: 2em;
 }
 
 h2 {
     text-transform: uppercase;
-    margin: 2em 0;
+    margin: 1em 0;
     font-family: $OS-B;
-    @include fontSize30;
+    font-size: 1.8em;
 }
 
 h3 {
     text-transform: uppercase;
-    margin: 2em 0;
+    margin: 1em 0;
     font-family: $OS-B;
-    @include fontSize24;
+    font-size: 1.6em;
     position: relative;
     z-index: 200;
 }
@@ -313,6 +315,7 @@ body {
     width: 84%;
     background-color: rgba(255, 255, 255, 0.7);
     padding: 5%;
+    display: none;
     
     li {
         list-style-type: none;
@@ -370,6 +373,24 @@ body {
             border-radius: 50%;
             font-size: 25px;
             @include center;
+        }
+    }
+}
+
+main {
+    padding: 1.5vw 0;
+}
+
+.breadcrumbs {
+    color: $cl_blue;
+    
+    &-line {
+        display: inline-flex;
+        align-items: center;
+        
+        &__item-home {
+            display: inline-flex;
+            align-items: center;
         }
     }
 }
@@ -821,4 +842,102 @@ body {
     color: $cl_blue;
 }
 
+<<<<<<< HEAD
 @import 'media';
+=======
+/* =============================== delivery ================================ */
+
+.delivery {
+    color: $cl_blue;
+    padding-bottom: 30px;
+    
+    &-point{
+        &__title {
+            display: flex;
+            align-items: center;
+            &-icon {
+                margin-right: 3vw;
+                width: 3em;
+                min-width: 3em;
+                &>img {
+                    width: 100%;
+                }
+            }
+            h3 {
+                margin-top: 2em;
+            }
+        }
+    }
+}
+
+/* =============================== articles ================================ */
+
+.articles {
+    h2 {
+        color: $cl_red;
+        margin-top: 0;
+    }
+    
+    &__img{
+        @include center;
+        img{
+            width: auto;
+            max-width: 100%;
+        }
+    } 
+    
+    &__text {
+        color: $cl_blue;
+        text-align: justify;
+    }
+    
+    &__link {
+        float: right;
+        text-decoration: underline;
+    }
+}
+
+/* ================================ sales ================================== */
+
+.sales {
+    color: $cl_blue;
+    
+    &-point {
+        margin: 15px;
+    }
+    
+    h2 {
+        color: $cl_red;
+        margin: 1em 0;
+    }
+    
+    &__img{
+        @include center;
+        border: 3px solid $cl_blue;
+        
+        img{
+            width: auto;
+            max-width: 100%;
+        }
+    }
+    
+    &-container {
+        @include columnBetween;
+    }
+    
+    p {
+        color: $cl_blue;
+        text-align: justify;
+        font-family: $OS-R;
+    }
+    
+    &__date {
+        font-family: $OS-B;
+        margin: 1em 0;
+    }
+}
+
+/* ============================== sales =============================== */
+
+@import 'media';
+>>>>>>> 0e96a0077c2e0656d145792f146194a364817a08
