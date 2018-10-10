@@ -934,6 +934,114 @@ main {
     }
 }
 
-/* ============================== sales =============================== */
+/* ============================== basket =============================== */
+
+.basket {
+    &-progress {
+        position: relative;
+        height: 72px;
+        background-color: $cl_disable;
+        
+        &__box {
+            position: absolute;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+            height: 100%;
+            
+            &-item {
+                width: 40%;
+                height: 100%;
+                position: relative;
+                border-radius: 0 36px 36px 0;
+                background-color: $cl_disable;
+                display: inline-block;
+                
+                &:first-child {
+                    z-index: 4;
+                    left: 0;
+                }
+                
+                &:nth-child(2) {
+                    left: -10%;
+                    max-width: 600px;
+                    z-index: 3;
+                }
+                
+                &:last-child {
+                    width: 100%;
+                    left: -20%;
+                    border-radius: 0;
+                    z-index: 2;
+                }
+                
+                &:hover {
+                    background-color: $cl_blue;
+                }
+            }
+        }
+        
+        &__text {
+            color: $cl_white;
+            height: 100%;
+        }
+        
+        &__item {
+            position: relative;
+            z-index: 5;
+            @include columnAround;
+            
+            &-path {
+                color: $cl_light-blue;
+                font-size: 0.7em;
+            }
+            
+            &-title {
+            }
+        }
+    }
+    
+    &-table {
+        font-size: 0.7em;
+        
+        &__item {
+            &-row { 
+                padding: 10px 0;
+                min-height: 80px;
+                border-bottom: 1px solid $cl_black;
+            }
+            
+            &-cell {
+                @include center;
+                padding: 0 1vw;
+            }
+            
+            &-img {
+                img {
+                    width: auto;
+                    max-width: 100%;
+                }
+            }
+        }
+        
+        
+        &__title {
+            height: 50px;
+            border-bottom: 1px solid $cl_black;
+        }
+    }
+    
+    .counter {
+        &-box {
+            @include center;
+            padding: 0 0.5em; 
+            border: 2px solid $cl_disable;
+        }
+        &-tablet {
+            margin: 0 3px;
+        }
+    }
+}
+
 
 @import 'media';

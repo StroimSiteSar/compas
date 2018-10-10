@@ -176,34 +176,66 @@
                 </div>
             </div>
         </section>
-        <section class="sales">
+        <section class="basket">
             <div class="container">
-                <h1>Акции</h1>
-                <div class="sales-point row">
-                    <div class="col-md-5 sales__img">
-                        <img src="assets/img/sales-img-1.jpg" alt="img">
-                    </div>
-                    <div class="col sales-container">
-                        <h2>Распродажа обуви EDITEX</h2>
-                        <div class="sales__text">
-                            <p>Скидка 35% на летнюю коллекцию!</p>
+                <h1>Корзина</h1>
+            </div>
+            <div class="basket-progress">
+                <div class="basket-progress__box">
+                    <div class="basket-progress__box-item"></div>
+                    <div class="basket-progress__box-item"></div>
+                    <div class="basket-progress__box-item"></div>
+                </div>
+                <div class="container basket-progress__text">
+                    <div class="row" style="height: 100%">
+                        <div class="col-5 basket-progress__item">
+                            <div class="basket-progress__item-path">Шаг 1</div>
+                            <div class="basket-progress__item-title">Корзина - N товара</div>
                         </div>
-                        <span class="sales__date">Сроки проведения: с 02.02.2018 по 02.03.2018</span>
+                        <div class="col-4 basket-progress__item">
+                            <div class="basket-progress__item-path">Шаг 2</div>
+                            <div class="basket-progress__item-title">Ваши данные</div>
+                        </div>
+                        <div class="col-3 basket-progress__item">
+                            <div class="basket-progress__item-path">Шаг 3</div>
+                            <div class="basket-progress__item-title">Заказ оформлен</div>
+                        </div>
                     </div>
                 </div>
-                <div class="sales-point row">
-                    <div class="col-md-5 sales__img">
-                        <img src="assets/img/sales-img-2.jpg" alt="img">
-                    </div>
-                    <div class="col sales-container">
-                        <h2>Бесплатная доставка</h2>
-                        <div class="sales__text">
-                            <p>В нашем магазине действует акция: при заказе товара на сумму 3000 рублей или более, мы доставим ваш заказ бесплатно (акция действует только для клиентов из города Саратов).</p>
-                            <p>Для жителей других городов России доставка до транспортной компании осуществляется бесплатно при заказе от 1000 рублей.</p>
+            </div>
+            <div class="container">
+                <div class="basket-container basket-pull">
+                    <div class="container">
+                        <div class="basket-table">
+                            <div class="row basket-table__title">
+                                <div class="col-2 basket-table__item-cell">Товар</div>
+                                <div class="col-3 basket-table__item-cell"></div>
+                                <div class="col-2 basket-table__item-cell">Количество</div>
+                                <div class="col-2 basket-table__item-cell">Цена</div>
+                                <div class="col-2 basket-table__item-cell">Сумма</div>
+                                <div class="col basket-table__item-cell"></div>
+                            </div>
+                            <div class="row basket-table__item-row">
+                                <div class="col-2 basket-table__item-cell basket-table__item-img">
+                                    <img src="assets/img/basket-product-img-1.jpg" alt="test">
+                                </div>
+                                <div class="col-3 basket-table__item-cell basket-table__item-name">Спиннинг SWD Crocodile 1,2 м 50-100 г монолит</div>
+                                <div class="col-2 basket-table__item-cell basket-table__item-counter">
+                                    <span class="counter-minus counter-box">-</span>
+                                    <span class="counter-tablet counter-box">2</span>
+                                    <span class="counter-plus counter-box">+</span>
+                                </div>
+                                <div class="col-2 basket-table__item-cell basket-table__item-price">500</div>
+                                <div class="col-2 basket-table__item-cell basket-table__item-cost">1000</div>
+                                <div class="col basket-table__item-cell">
+                                    <span class="cbasket-table__item-cansel">X</span>
+                                </div>
+                            </div>
                         </div>
-                        <span class="sales__date">Сроки проведения: с 02.02.2018 по 02.03.2018</span>
                     </div>
                 </div>
+                <div class="basket-container basket-data"></div>
+                <div class="basket-container basket-complete"></div>
             </div>
         </section>
     </main>
