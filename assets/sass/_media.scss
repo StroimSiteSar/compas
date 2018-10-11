@@ -27,6 +27,16 @@ $extral: 1200px;
     }
 }
 @media screen and (min-width: $small) {
+    .basket{
+        &-table__item-cansel {
+            font-size: 1.5em;
+        }
+        
+        &-bottom__container {
+            flex-direction: row;
+        }
+    }
+    
     .categoryes-menu {
         height: 190px;
         &__item {

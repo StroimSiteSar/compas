@@ -115,7 +115,7 @@
                                     <li class="catalog-menu__submenu-item"><a href="#">оптика</a></li>
                                     <li class="catalog-menu__submenu-item"><a href="#">кронштейны и крепления</a></li>
                                     <li class="catalog-menu__submenu-item"><a href="#">манки, приманки и маскировка</li>
-                                        <li class="catalog-menu__submenu-item"><a href="#">ножи</a></li>
+                                    <li class="catalog-menu__submenu-item"><a href="#">ножи</a></li>
                                     <li class="catalog-menu__submenu-item"><a href="#">пневматика</a></li>
                                     <li class="catalog-menu__submenu-item"><a href="#">чехлы и кейсы</a></li>
                                     <li class="catalog-menu__submenu-item"><a href="#">чучело</a></li>
@@ -171,7 +171,7 @@
                     </span>
                     <span class="breadcrumbs-line__dash">&nbsp;&mdash;&nbsp;</span>
                     <span class="breadcrumbs-line__item">
-                        Акции
+                        Корзина
                     </span>
                 </div>
             </div>
@@ -225,17 +225,104 @@
                                     <span class="counter-tablet counter-box">2</span>
                                     <span class="counter-plus counter-box">+</span>
                                 </div>
-                                <div class="col-2 basket-table__item-cell basket-table__item-price">500</div>
-                                <div class="col-2 basket-table__item-cell basket-table__item-cost">1000</div>
+                                <div class="col-2 basket-table__item-cell basket-table__item-price">500 P</div>
+                                <div class="col-2 basket-table__item-cell basket-table__item-cost">1000 P</div>
                                 <div class="col basket-table__item-cell">
-                                    <span class="cbasket-table__item-cansel">X</span>
+                                    <span class="basket-table__item-cansel">X</span>
+                                </div>
+                            </div>
+
+                            <div class="row basket-table__item-row">
+                                <div class="col-2 basket-table__item-cell basket-table__item-img">
+                                    <img src="assets/img/basket-product-img-2.jpg" alt="test">
+                                </div>
+                                <div class="col-3 basket-table__item-cell basket-table__item-name">Карабин СКС к.7,62*39 ложа</div>
+                                <div class="col-2 basket-table__item-cell basket-table__item-counter">
+                                    <span class="counter-minus counter-box">-</span>
+                                    <span class="counter-tablet counter-box">1</span>
+                                    <span class="counter-plus counter-box">+</span>
+                                </div>
+                                <div class="col-2 basket-table__item-cell basket-table__item-price">9 999 999 Р</div>
+                                <div class="col-2 basket-table__item-cell basket-table__item-cost">9 999 999 Р</div>
+                                <div class="col basket-table__item-cell">
+                                    <span class="basket-table__item-cansel">X</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="basket-container basket-data"></div>
+                <div class="basket-container basket-data">
+                    <div class="basket-data__radio">
+                        <div class="basket-data__head">Способ доставки</div>
+                        <div class="row">
+                            <div class="col col-sm-4 col-md-3 d-flex">
+                                <input class="basket-data__radio-btn" type="radio" name="delivery">
+                                <div class="basket-data__radio-desc">
+                                    <div class="basket-data__radio-title">Самовывоз</div>
+                                    <div class="basket-data__radio-days">От 2 дней</div>
+                                    <div class="basket-data__radio-comment">Срок формирования заказа уточнит менеджер после оформления</div>
+                                </div>
+                            </div>
+                            <div class="col col-sm-4 col-md-3 d-flex">
+                                <input class="basket-data__radio-btn" type="radio" name="delivery">
+                                <div class="basket-data__radio-desc">
+                                    <div class="basket-data__radio-title">Курьером</div>
+                                        <div class="basket-data__radio-days">От 2 до 7 дней</div>
+                                        <div class="basket-data__radio-comment">Быстрая доставка на дом или в офис</div>
+                                </div>
+                            </div>
+                            <div class="col col-sm-4 col-md-3 d-flex">
+                                <input class="basket-data__radio-btn" type="radio" name="delivery">
+                                <div class="basket-data__radio-desc">
+                                    <div class="basket-data__radio-title">Почта России</div>
+                                    <div class="basket-data__radio-days">От 4 до 14 дней</div>
+                                    <div class="basket-data__radio-comment">Стандартный вариант</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="basket-data__form">
+                        <div class="basket-data__head">Информация о получателе</div>
+                        <div class="row">
+                            <div class="col basket-data__form-col">
+                                <span class="basket-data__form-label basket-data__form-line">Ф.И.О.*</span>
+                                <span class="basket-data__form-label basket-data__form-line">E-mail**</span>
+                                <span class="basket-data__form-label basket-data__form-line">Контактный телефон*</span>
+                                <span class="basket-data__form-label basket-data__form-line">Адрес доставки*</span>
+                                <span class="basket-data__form-label basket-data__form-line">Коментарий к заказу</span>
+                            </div>
+                            <div class="col basket-data__form-col">
+                                <input type="text" class="basket-data__form-input basket-data__form-line">
+                                <input type="text" class="basket-data__form-input basket-data__form-line">
+                                <input type="text" class="basket-data__form-input basket-data__form-line">
+                                <input type="text" class="basket-data__form-input basket-data__form-line">
+                                <input type="text" class="basket-data__form-input basket-data__form-line">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="basket-data__conf">
+                        <input type="radio" class="basket-data__conf-radio" name="confidance">
+                        <label for="confidance" class="basket-data__conf-label">Согласен на обработку персональных данных</label>
+                    </div>
+                </div>
                 <div class="basket-container basket-complete"></div>
+            </div>
+            <div class="basket-bottom">
+                <div class="container basket-bottom__container">
+                    <button class="basket-bottom__btn basket-bottom__btn basket-bottom__btn basket-bottom__btn-back">Продолжить покупки</button>
+                    <div class="basket-bottom__container-right">
+                        <div class="basket-bottom__info">
+                            <div class="basket-bottom__info-img">
+                                <img src="assets/img/bacsket-hand-img.png" alt="hand">
+                            </div>
+                            <div class="d-flex justify-content-between flex-column">
+                                <div class="basket-bottom__info-quality">3 товара на сумму</div>
+                                <div class="basket-bottom__info-cost">5 715 Р</div>
+                            </div>
+                        </div>
+                        <button class="basket-bottom__btn basket-bottom__btn basket-bottom__btn basket-bottom__btn-next">Оформить заказ</button>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
