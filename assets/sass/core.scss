@@ -92,7 +92,8 @@ h3 {
     z-index: 200;
 }
 
-input[type="radio"] {
+input[type="radio"],
+input[type="checkbox"] {
     -webkit-appearance: none;
     -moz-appearance: none;
     @include center;
@@ -107,9 +108,8 @@ input[type="radio"] {
     
     &:checked::before
     {
-        transform: translateY(-10%);
-        font: 10px/1 'Open Sans', sans-serif;
-        content: '0';
+        font: 30px/1 'Open Sans', sans-serif;
+        content: '•';
     }
 }
 
@@ -1132,8 +1132,15 @@ main {
             padding: 1em 0;
             border-bottom: 1px solid $cl_blue;
             
+            &-col {
+                padding: 0 1vw;
+            }
+            
             &-btn {
-                margin-right: 2px;
+                margin-right: 1vw;
+                min-width: 13px;
+                position: relative;
+                top: 10px;
             }
             &-days {
                 font-family: $OS_B;
@@ -1164,12 +1171,14 @@ main {
             
             &-input {
                 background-color: $cl_light-blue;
+                padding: 0 15px;
             }
         }
         
         &__conf {
             display: inline-flex;
             align-items: center;
+            height: 30px;
             
             &-radio {
                 margin-right: 5px;
@@ -1185,6 +1194,44 @@ main {
         }
         &-tablet {
             margin: 0 3px;
+        }
+    }
+    
+    .press-to-end {
+        background-color: $cl_red;
+        content: 'Завершить заказ';
+    }
+    
+    &-complete {
+        &__head {
+            margin-left: 15px;
+        }
+        &__text {
+            font-size: 0.9em;
+            font-family: $OS-R;
+            color: $cl_gray;
+            margin-bottom: 20px;
+            
+            &-bold {
+                font-size: 1.2em;
+                font-family: $OS_B;
+                color: $cl_black;
+            }
+        }
+        
+        &__datas {
+            color: $cl_blue;
+            &-number {
+                font-size: 1.5em;
+            }
+            &-person {
+                font-size: 1.1em;
+            }
+            &-pack {
+                font-size: 0.9em;
+                font-family: $OS-R;
+                color: $cl_gray;
+            }
         }
     }
 }

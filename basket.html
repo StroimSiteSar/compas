@@ -255,7 +255,7 @@
                     <div class="basket-data__radio">
                         <div class="basket-data__head">Способ доставки</div>
                         <div class="row">
-                            <div class="col col-sm-4 col-md-3 d-flex">
+                            <div class="col col-sm-4 col-md-3 d-flex basket-data__radio-col">
                                 <input class="basket-data__radio-btn" type="radio" name="delivery">
                                 <div class="basket-data__radio-desc">
                                     <div class="basket-data__radio-title">Самовывоз</div>
@@ -263,7 +263,7 @@
                                     <div class="basket-data__radio-comment">Срок формирования заказа уточнит менеджер после оформления</div>
                                 </div>
                             </div>
-                            <div class="col col-sm-4 col-md-3 d-flex">
+                            <div class="col col-sm-4 col-md-3 d-flex basket-data__radio-col">
                                 <input class="basket-data__radio-btn" type="radio" name="delivery">
                                 <div class="basket-data__radio-desc">
                                     <div class="basket-data__radio-title">Курьером</div>
@@ -271,7 +271,7 @@
                                         <div class="basket-data__radio-comment">Быстрая доставка на дом или в офис</div>
                                 </div>
                             </div>
-                            <div class="col col-sm-4 col-md-3 d-flex">
+                            <div class="col col-sm-4 col-md-3 d-flex basket-data__radio-col">
                                 <input class="basket-data__radio-btn" type="radio" name="delivery">
                                 <div class="basket-data__radio-desc">
                                     <div class="basket-data__radio-title">Почта России</div>
@@ -301,11 +301,37 @@
                         </div>
                     </div>
                     <div class="basket-data__conf">
-                        <input type="radio" class="basket-data__conf-radio" name="confidance">
+                        <input type="checkbox" class="basket-data__conf-radio" name="confidance">
                         <label for="confidance" class="basket-data__conf-label">Согласен на обработку персональных данных</label>
                     </div>
                 </div>
-                <div class="basket-container basket-complete"></div>
+                <div class="basket-container basket-complete">
+                    <div class="basket-data__head">Готово! Ваш заказ успешно создан</div>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="basket-complete__text">Наш менеджер свяжется с вами в ближайшее время. <br>Если у вас остались какие-то вопросы, мы будем рады ответить на них по телефону  <span class="basket-complete__text-bold">8 (987) 654-32-10</span></div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="row">
+                                    <div class="col-4 basket-complete__label">Номер заказа:</div>
+                                    <div class="col-8 basket-complete__datas basket-complete__datas-number">№  023</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4 basket-complete__label">Получатель:</div>
+                                    <div class="col-8 basket-complete__datas basket-complete__datas-person d-flex flex-column">
+                                        <span>Филатов Кирилл Мирославович</span>
+                                        <span>+7 (905) 388-83-81</span>
+                                        <span>ox.arts@yandex.ru</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4 basket-complete__label">Состав заказа:</div>
+                                    <div class="col-8 basket-complete__datas basket-complete__datas-pack">3 товара + доставка</div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
             </div>
             <div class="basket-bottom">
                 <div class="container basket-bottom__container">
@@ -320,7 +346,7 @@
                                 <div class="basket-bottom__info-cost">5 715 Р</div>
                             </div>
                         </div>
-                        <button class="basket-bottom__btn basket-bottom__btn basket-bottom__btn basket-bottom__btn-next">Оформить заказ</button>
+                        <button class="basket-bottom__btn basket-bottom__btn basket-bottom__btn basket-bottom__btn-next press-to-end">Оформить заказ</button>
                     </div>
                 </div>
             </div>

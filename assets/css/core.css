@@ -125,7 +125,8 @@ h3 {
   position: relative;
   z-index: 200; }
 
-input[type="radio"] {
+input[type="radio"],
+input[type="checkbox"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   display: -moz-flex;
@@ -148,11 +149,10 @@ input[type="radio"] {
   border-radius: 50%;
   cursor: pointer;
   outline: none; }
-  input[type="radio"]:checked::before {
-    -webkit-transform: translateY(-10%);
-            transform: translateY(-10%);
-    font: 10px/1 'Open Sans', sans-serif;
-    content: '0'; }
+  input[type="radio"]:checked::before,
+  input[type="checkbox"]:checked::before {
+    font: 30px/1 'Open Sans', sans-serif;
+    content: '•'; }
 
 .border-right {
   border-right: none; }
@@ -1391,8 +1391,13 @@ main {
 .basket-data__radio {
   padding: 1em 0;
   border-bottom: 1px solid #004d73; }
+  .basket-data__radio-col {
+    padding: 0 1vw; }
   .basket-data__radio-btn {
-    margin-right: 2px; }
+    margin-right: 1vw;
+    min-width: 13px;
+    position: relative;
+    top: 10px; }
   .basket-data__radio-days {
     font-family: "OpenSansBold", sans-serif; }
   .basket-data__radio-comment {
@@ -1432,14 +1437,16 @@ main {
     .basket-data__form-line {
       font-size: 14px; } }
 .basket-data__form-input {
-  background-color: #ccdbe3; }
+  background-color: #ccdbe3;
+  padding: 0 15px; }
 .basket-data__conf {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
-          align-items: center; }
+          align-items: center;
+  height: 30px; }
   .basket-data__conf-radio {
     margin-right: 5px; }
 .basket .counter-box {
@@ -1459,6 +1466,30 @@ main {
   border: 2px solid #5b8da6; }
 .basket .counter-tablet {
   margin: 0 3px; }
+.basket .press-to-end {
+  background-color: #ff0000;
+  content: 'Завершить заказ'; }
+.basket-complete__head {
+  margin-left: 15px; }
+.basket-complete__text {
+  font-size: 0.9em;
+  font-family: "OpenSansRegular", sans-serif;
+  color: #626262;
+  margin-bottom: 20px; }
+  .basket-complete__text-bold {
+    font-size: 1.2em;
+    font-family: "OpenSansBold", sans-serif;
+    color: black; }
+.basket-complete__datas {
+  color: #004d73; }
+  .basket-complete__datas-number {
+    font-size: 1.5em; }
+  .basket-complete__datas-person {
+    font-size: 1.1em; }
+  .basket-complete__datas-pack {
+    font-size: 0.9em;
+    font-family: "OpenSansRegular", sans-serif;
+    color: #626262; }
 
 @media screen and (min-width: 425px) {
   .categoryes-menu {
