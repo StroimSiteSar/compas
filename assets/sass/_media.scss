@@ -37,6 +37,15 @@ $extral: 1200px;
         }
     }
     
+    .catalog {
+        &-menu {
+            background-image: url(../img/catalog-side-img.jpg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center bottom;
+        }
+    }
+    
     .categoryes-menu {
         height: 190px;
         &__item {
@@ -181,6 +190,22 @@ $extral: 1200px;
         height: 220px;
         &__container {
             padding: 70px 0 35px;
+        }
+    }
+    .catalog {
+        &-content {
+            &__item {
+                &-price {
+                    .price {
+                        &-btn-buy {
+                            display: none;
+                            font-size: 0.7em;
+                            padding: 1em;
+                            border-radius: 5px;   
+                        }
+                    }
+                }
+            }
         }
     }
 }

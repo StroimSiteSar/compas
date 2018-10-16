@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Compas</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-grid.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/core.css" rel="stylesheet">
+    <link href="assets/fonts/fontawesome/fontawesome-all.css" rel="stylesheet">
+    <script defer src="assets/fonts/fontawesome/fontawesome-all.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-mobile d-md-none">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-4 col-sm-3 col-lg-5 border-right">
+                        <a href="index.html" class="header__logo">
+                            <img src="assets/img/logo.png" alt="logo" width="100%">
+                        </a>
+                    </div>
+                    <div class="col-8 col-sm-7 offset-sm-2 col-md-8 col-lg-9">
+                        <div class="header__search">
+                            <input type="text" class="header__search-input" placeholder="Поиск товара">
+                            <button class="header__search-btn"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-mobile__sidebar">
+                <ul class="header-mobile__nav">
+                    <li class="header__nav-item"><a href="articles.html" class="header__nav-link">События</a></li>
+                    <li class="header__nav-item"><a href="articles.html" class="header__nav-link">Статьи</a></li>
+                    <li class="header__nav-item"><a href="sales.html" class="header__nav-link">Акции</a></li>
+                    <li class="header__nav-item"><a href="delivery.html" class="header__nav-link">доставка</a></li>
+                    <li class="header__nav-item"><a href="delivery.html" class="header__nav-link">Адреса и контакты</a></li>
+                    <li class="header__nav-item"><a href="catalog.html" class="header__nav-link">Каталог</a></li>
+                </ul>
+                <div class="row justify-content-around">
+                    <div class="col-4">
+                        <a href="#" class="header-mobile__sidebar-btn call"><i class="fas fa-phone"></i></a>
+                    </div>
+                    <div class="col-4">
+                        <a href="#" class="header-mobile__sidebar-btn basket"><i class="fal fa-shopping-basket"></i></a>
+                    </div>
+                </div>
+                <div class="header-mobile__sidebar-toggle toggle"><i class="far fa-chevron-double-right"></i></div>
+            </div>
+        </div>
+        <div class="header-md d-none d-md-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3 col-lg-5 border-right">
+                        <div class="header__logo">
+                            <img src="assets/img/logo.png" alt="logo" width="100%">
+                        </div>
+                    </div>
+                    <div class="col-sm-9 col-lg-7 header-top">
+                        <div>
+                            <div class="row align-items-center">
+                                <div class="col d-flex justify-content-center">
+                                    <div class="header__phones">
+                                        <div class="header__phones-item">+7987654321</div>
+                                        <div class="header__phones-item">+7987654321</div>
+                                    </div>
+                                </div>
+                                <div class="col d-flex justify-content-center">
+                                    <div class="header__worktime">
+                                        <div class="header__worktime-item">Работаем с 10:00 до 19:00</div>
+                                        <div class="header__worktime-item">без выходных</div>
+                                    </div>
+                                </div>
+                                <div class="col d-flex justify-content-center">
+                                    <a href="#" class="header__basket">
+                                        <span class="header__basket-icon"><i class="fal fa-shopping-basket"></i></span>
+                                        <span>Корзина</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                        <ul class="header__nav d-flex justify-content-around">
+                            <li class="header__nav-item"><a href="articles.html" class="header__nav-link">События</a></li>
+                            <li class="header__nav-item"><a href="articles.html" class="header__nav-link">Статьи</a></li>
+                            <li class="header__nav-item"><a href="sales.html" class="header__nav-link">Акции</a></li>
+                            <li class="header__nav-item"><a href="delivery.html" class="header__nav-link">доставка</a></li>
+                            <li class="header__nav-item"><a href="delivery.html" class="header__nav-link">Адреса и контакты</a></li>
+                            <li class="header__nav-item"><a href="catalog.html" class="header__nav-link">Каталог</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3 col-sm-5 col-md-4 col-lg-3">
+                        <button class="header__catalog"><i class="fas fa-bars"></i><span class="d-none d-sm-inline">&nbsp;КАТАЛОГ</span></button>
+                        <ul class="header__catalog-menu">
+                            <li class="header__catalog-menu__item">
+                                <span class="header__catalog-menu__item-title">Рыбалка</span>
+                                <ul class="header__catalog-menu__submenu">
+                                    <li class="header__catalog-menu__submenu-item"><a href="#">летняя</a></li>
+                                    <li class="header__catalog-menu__submenu-item"><a href="#">зимняя</a></li>
+                                    <li class="header__catalog-menu__submenu-item"><a href="#">все товары</a></li>
+                                </ul>
+                            </li>
+                            <li class="header__catalog-menu__item">
+                                <span class="header__catalog-menu__item-title">Охота</span>
+                                <ul class="header__catalog-menu__submenu">
+                                    <li class="header__catalog-menu__submenu-item"><a href="#">оптика</a></li>
+                                    <li class="header__catalog-menu__submenu-item"><a href="#">кронштейны и крепления</a></li>
+                                    <li class="header__catalog-menu__submenu-item"><a href="#">манки, приманки и маскировка</li>
+                                        <li class="header__catalog-menu__submenu-item"><a href="#">ножи</a></li>
+                                    <li class="header__catalog-menu__submenu-item"><a href="#">пневматика</a></li>
+                                    <li class="header__catalog-menu__submenu-item"><a href="#">чехлы и кейсы</a></li>
+                                    <li class="header__catalog-menu__submenu-item"><a href="#">чучело</a></li>
+                                    <li class="header__catalog-menu__submenu-item"><a href="#">все товары</a></li>
+                                </ul>
+                            </li>
+                            <li class="header__catalog-menu__item">
+                                <span class="header__catalog-menu__item-title">Туризм</span>
+                                <ul class="header__catalog-menu__submenu">
+                                    <li class="header__catalog-menu__submenu-item"><a href="#">лодки и принадлежности</a></li>
+                                    <li class="header__catalog-menu__submenu-item"><a href="#">палатки</a></li>
+                                    <li class="header__catalog-menu__submenu-item"><a href="#">туристическая мебель</a></li>
+                                    <li class="header__catalog-menu__submenu-item"><a href="#">навигаторы</a></li>
+                                    <li class="header__catalog-menu__submenu-item"><a href="#">все товары</a></li>
+                                </ul>
+                            </li>
+                            <li class="header__catalog-menu__item">
+                                <span class="header__catalog-menu__item-title">Одежда</span>
+                                <ul class="header__catalog-menu__submenu">
+                                    <li class="header__catalog-menu__submenu-item"><a href="#">летняя</a></li>
+                                    <li class="header__catalog-menu__submenu-item"><a href="#">зимняя</a></li>
+                                    <li class="header__catalog-menu__submenu-item"><a href="#">демисизонная</a></li>
+                                    <li class="header__catalog-menu__submenu-item"><a href="#">все товары</a></li>
+                                </ul>
+                            </li>
+                            <li class="header__catalog-menu__item">
+                                <span class="header__catalog-menu__item-title">Обувь</span>
+                                <ul class="header__catalog-menu__submenu">
+                                    <li class="header__catalog-menu__submenu-item"><a href="#">летняя</a></li>
+                                    <li class="header__catalog-menu__submenu-item"><a href="#">зимняя</a></li>
+                                    <li class="header__catalog-menu__submenu-item"><a href="#">демисизонная</a></li>
+                                    <li class="header__catalog-menu__submenu-item"><a href="#">все товары</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-9 col-sm-7 col-md-8 col-lg-9">
+                        <div class="header__search">
+                            <input type="text" class="header__search-input" placeholder="Поиск товара">
+                            <button class="header__search-btn">SEARCH</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="breadcrumbs-line">
+                    <span class="breadcrumbs-line__item-home">
+                        <img src="assets/img/homepage-icon.png" alt="icon">
+                    </span>
+                    <span class="breadcrumbs-line__dash">&nbsp;&mdash;&nbsp;</span>
+                    <span class="breadcrumbs-line__item">
+                        Каталог
+                    </span>
+                </div>
+            </div>
+        </section>
+        <section class="catalog">
+            <div class="container">
+                <div class="row">
+                    <ul class="col-sm-4 col-md-3 catalog-menu">
+                        <li class="catalog-menu__item">
+                            <div class="catalog-menu__item-title"><span class="arrow"></span>охота</div>
+                            <ul class="catalog-menu__submenu">
+                                <li class="catalog-menu__submenu-item">
+                                    <div class="catalog-menu__group-name">items_group_1</div>
+                                    <ul class="catalog-menu__group">
+                                        <li class="catalog-menu__group-item">item_1</li>
+                                        <li class="catalog-menu__group-item">item_2</li>
+                                        <li class="catalog-menu__group-item">item_3</li>
+                                        <li class="catalog-menu__group-item">item_4</li>
+                                        <li class="catalog-menu__group-item">item_5</li>
+                                    </ul>
+                                </li>
+                                <li class="catalog-menu__submenu-item">
+                                    <div class="catalog-menu__group-name">items_group_2</div>
+                                    <ul class="catalog-menu__group">
+                                        <li class="catalog-menu__group-item">item_1</li>
+                                        <li class="catalog-menu__group-item">item_2</li>
+                                        <li class="catalog-menu__group-item">item_3</li>
+                                        <li class="catalog-menu__group-item">item_4</li>
+                                        <li class="catalog-menu__group-item">item_5</li>
+                                    </ul>
+                                </li>
+                                <li class="catalog-menu__submenu-item">
+                                    <div class="catalog-menu__group-name">items_group_3</div>
+                                    <ul class="catalog-menu__group">
+                                        <li class="catalog-menu__group-item">item_1</li>
+                                        <li class="catalog-menu__group-item">item_2</li>
+                                        <li class="catalog-menu__group-item">item_3</li>
+                                        <li class="catalog-menu__group-item">item_4</li>
+                                        <li class="catalog-menu__group-item">item_5</li>
+                                    </ul>
+                                </li>
+                                <li class="catalog-menu__submenu-item">
+                                    <div class="catalog-menu__group-name">items_group_4</div>
+                                    <ul class="catalog-menu__group">
+                                        <li class="catalog-menu__group-item">item_1</li>
+                                        <li class="catalog-menu__group-item">item_2</li>
+                                        <li class="catalog-menu__group-item">item_3</li>
+                                        <li class="catalog-menu__group-item">item_4</li>
+                                        <li class="catalog-menu__group-item">item_5</li>
+                                    </ul>
+                                </li>
+                                <li class="catalog-menu__submenu-item">
+                                    <div class="catalog-menu__group-name">items_group_5</div>
+                                    <ul class="catalog-menu__group">
+                                        <li class="catalog-menu__group-item">item_1</li>
+                                        <li class="catalog-menu__group-item">item_2</li>
+                                        <li class="catalog-menu__group-item">item_3</li>
+                                        <li class="catalog-menu__group-item">item_4</li>
+                                        <li class="catalog-menu__group-item">item_5</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="catalog-menu__item">
+                            <div class="catalog-menu__item-title"><span class="arrow"></span>рыбалка</div>
+                            <ul class="catalog-menu__submenu">
+                                <li class="catalog-menu__submenu-item">
+                                    <div class="catalog-menu__group-name">items_group_1</div>
+                                    <ul class="catalog-menu__group">
+                                        <li class="catalog-menu__group-item">item_1</li>
+                                        <li class="catalog-menu__group-item">item_2</li>
+                                        <li class="catalog-menu__group-item">item_3</li>
+                                        <li class="catalog-menu__group-item">item_4</li>
+                                        <li class="catalog-menu__group-item">item_5</li>
+                                    </ul>
+                                </li>
+                                <li class="catalog-menu__submenu-item">
+                                    <div class="catalog-menu__group-name">items_group_2</div>
+                                    <ul class="catalog-menu__group">
+                                        <li class="catalog-menu__group-item">item_1</li>
+                                        <li class="catalog-menu__group-item">item_2</li>
+                                        <li class="catalog-menu__group-item">item_3</li>
+                                        <li class="catalog-menu__group-item">item_4</li>
+                                        <li class="catalog-menu__group-item">item_5</li>
+                                    </ul>
+                                </li>
+                                <li class="catalog-menu__submenu-item">
+                                    <div class="catalog-menu__group-name">items_group_3</div>
+                                    <ul class="catalog-menu__group">
+                                        <li class="catalog-menu__group-item">item_1</li>
+                                        <li class="catalog-menu__group-item">item_2</li>
+                                        <li class="catalog-menu__group-item">item_3</li>
+                                        <li class="catalog-menu__group-item">item_4</li>
+                                        <li class="catalog-menu__group-item">item_5</li>
+                                    </ul>
+                                </li>
+                                <li class="catalog-menu__submenu-item">
+                                    <div class="catalog-menu__group-name">items_group_4</div>
+                                    <ul class="catalog-menu__group">
+                                        <li class="catalog-menu__group-item">item_1</li>
+                                        <li class="catalog-menu__group-item">item_2</li>
+                                        <li class="catalog-menu__group-item">item_3</li>
+                                        <li class="catalog-menu__group-item">item_4</li>
+                                        <li class="catalog-menu__group-item">item_5</li>
+                                    </ul>
+                                </li>
+                                <li class="catalog-menu__submenu-item">
+                                    <div class="catalog-menu__group-name">items_group_5</div>
+                                    <ul class="catalog-menu__group">
+                                        <li class="catalog-menu__group-item">item_1</li>
+                                        <li class="catalog-menu__group-item">item_2</li>
+                                        <li class="catalog-menu__group-item">item_3</li>
+                                        <li class="catalog-menu__group-item">item_4</li>
+                                        <li class="catalog-menu__group-item">item_5</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="catalog-menu__item">
+                            <div class="catalog-menu__item-title"><span class="arrow"></span>тУризМ</div>
+                            <ul class="catalog-menu__submenu">
+                                <li class="catalog-menu__submenu-item">
+                                    <div class="catalog-menu__group-name">items_group_1</div>
+                                    <ul class="catalog-menu__group">
+                                        <li class="catalog-menu__group-item">item_1</li>
+                                        <li class="catalog-menu__group-item">item_2</li>
+                                        <li class="catalog-menu__group-item">item_3</li>
+                                        <li class="catalog-menu__group-item">item_4</li>
+                                        <li class="catalog-menu__group-item">item_5</li>
+                                    </ul>
+                                </li>
+                                <li class="catalog-menu__submenu-item">
+                                    <div class="catalog-menu__group-name">items_group_2</div>
+                                    <ul class="catalog-menu__group">
+                                        <li class="catalog-menu__group-item">item_1</li>
+                                        <li class="catalog-menu__group-item">item_2</li>
+                                        <li class="catalog-menu__group-item">item_3</li>
+                                        <li class="catalog-menu__group-item">item_4</li>
+                                        <li class="catalog-menu__group-item">item_5</li>
+                                    </ul>
+                                </li>
+                                <li class="catalog-menu__submenu-item">
+                                    <div class="catalog-menu__group-name">items_group_3</div>
+                                    <ul class="catalog-menu__group">
+                                        <li class="catalog-menu__group-item">item_1</li>
+                                        <li class="catalog-menu__group-item">item_2</li>
+                                        <li class="catalog-menu__group-item">item_3</li>
+                                        <li class="catalog-menu__group-item">item_4</li>
+                                        <li class="catalog-menu__group-item">item_5</li>
+                                    </ul>
+                                </li>
+                                <li class="catalog-menu__submenu-item">
+                                    <div class="catalog-menu__group-name">items_group_4</div>
+                                    <ul class="catalog-menu__group">
+                                        <li class="catalog-menu__group-item">item_1</li>
+                                        <li class="catalog-menu__group-item">item_2</li>
+                                        <li class="catalog-menu__group-item">item_3</li>
+                                        <li class="catalog-menu__group-item">item_4</li>
+                                        <li class="catalog-menu__group-item">item_5</li>
+                                    </ul>
+                                </li>
+                                <li class="catalog-menu__submenu-item">
+                                    <div class="catalog-menu__group-name">items_group_5</div>
+                                    <ul class="catalog-menu__group">
+                                        <li class="catalog-menu__group-item">item_1</li>
+                                        <li class="catalog-menu__group-item">item_2</li>
+                                        <li class="catalog-menu__group-item">item_3</li>
+                                        <li class="catalog-menu__group-item">item_4</li>
+                                        <li class="catalog-menu__group-item">item_5</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="catalog-menu__item">
+                            <div class="catalog-menu__item-title"><span class="arrow"></span>одежда</div>
+                            <ul class="catalog-menu__submenu">
+                                <li class="catalog-menu__submenu-item">
+                                    <div class="catalog-menu__group-name">items_group_1</div>
+                                    <ul class="catalog-menu__group">
+                                        <li class="catalog-menu__group-item">item_1</li>
+                                        <li class="catalog-menu__group-item">item_2</li>
+                                        <li class="catalog-menu__group-item">item_3</li>
+                                        <li class="catalog-menu__group-item">item_4</li>
+                                        <li class="catalog-menu__group-item">item_5</li>
+                                    </ul>
+                                </li>
+                                <li class="catalog-menu__submenu-item">
+                                    <div class="catalog-menu__group-name">items_group_2</div>
+                                    <ul class="catalog-menu__group">
+                                        <li class="catalog-menu__group-item">item_1</li>
+                                        <li class="catalog-menu__group-item">item_2</li>
+                                        <li class="catalog-menu__group-item">item_3</li>
+                                        <li class="catalog-menu__group-item">item_4</li>
+                                        <li class="catalog-menu__group-item">item_5</li>
+                                    </ul>
+                                </li>
+                                <li class="catalog-menu__submenu-item">
+                                    <div class="catalog-menu__group-name">items_group_3</div>
+                                    <ul class="catalog-menu__group">
+                                        <li class="catalog-menu__group-item">item_1</li>
+                                        <li class="catalog-menu__group-item">item_2</li>
+                                        <li class="catalog-menu__group-item">item_3</li>
+                                        <li class="catalog-menu__group-item">item_4</li>
+                                        <li class="catalog-menu__group-item">item_5</li>
+                                    </ul>
+                                </li>
+                                <li class="catalog-menu__submenu-item">
+                                    <div class="catalog-menu__group-name">items_group_4</div>
+                                    <ul class="catalog-menu__group">
+                                        <li class="catalog-menu__group-item">item_1</li>
+                                        <li class="catalog-menu__group-item">item_2</li>
+                                        <li class="catalog-menu__group-item">item_3</li>
+                                        <li class="catalog-menu__group-item">item_4</li>
+                                        <li class="catalog-menu__group-item">item_5</li>
+                                    </ul>
+                                </li>
+                                <li class="catalog-menu__submenu-item">
+                                    <div class="catalog-menu__group-name">items_group_5</div>
+                                    <ul class="catalog-menu__group">
+                                        <li class="catalog-menu__group-item">item_1</li>
+                                        <li class="catalog-menu__group-item">item_2</li>
+                                        <li class="catalog-menu__group-item">item_3</li>
+                                        <li class="catalog-menu__group-item">item_4</li>
+                                        <li class="catalog-menu__group-item">item_5</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="catalog-menu__item">
+                            <div class="catalog-menu__item-title"><span class="arrow"></span>ОбувЬ</div>
+                            <ul class="catalog-menu__submenu">
+                                <li class="catalog-menu__submenu-item">
+                                    <div class="catalog-menu__group-name">items_group_1</div>
+                                    <ul class="catalog-menu__group">
+                                        <li class="catalog-menu__group-item">item_1</li>
+                                        <li class="catalog-menu__group-item">item_2</li>
+                                        <li class="catalog-menu__group-item">item_3</li>
+                                        <li class="catalog-menu__group-item">item_4</li>
+                                        <li class="catalog-menu__group-item">item_5</li>
+                                    </ul>
+                                </li>
+                                <li class="catalog-menu__submenu-item">
+                                    <div class="catalog-menu__group-name">items_group_2</div>
+                                    <ul class="catalog-menu__group">
+                                        <li class="catalog-menu__group-item">item_1</li>
+                                        <li class="catalog-menu__group-item">item_2</li>
+                                        <li class="catalog-menu__group-item">item_3</li>
+                                        <li class="catalog-menu__group-item">item_4</li>
+                                        <li class="catalog-menu__group-item">item_5</li>
+                                    </ul>
+                                </li>
+                                <li class="catalog-menu__submenu-item">
+                                    <div class="catalog-menu__group-name">items_group_3</div>
+                                    <ul class="catalog-menu__group">
+                                        <li class="catalog-menu__group-item">item_1</li>
+                                        <li class="catalog-menu__group-item">item_2</li>
+                                        <li class="catalog-menu__group-item">item_3</li>
+                                        <li class="catalog-menu__group-item">item_4</li>
+                                        <li class="catalog-menu__group-item">item_5</li>
+                                    </ul>
+                                </li>
+                                <li class="catalog-menu__submenu-item">
+                                    <div class="catalog-menu__group-name">items_group_4</div>
+                                    <ul class="catalog-menu__group">
+                                        <li class="catalog-menu__group-item">item_1</li>
+                                        <li class="catalog-menu__group-item">item_2</li>
+                                        <li class="catalog-menu__group-item">item_3</li>
+                                        <li class="catalog-menu__group-item">item_4</li>
+                                        <li class="catalog-menu__group-item">item_5</li>
+                                    </ul>
+                                </li>
+                                <li class="catalog-menu__submenu-item">
+                                    <div class="catalog-menu__group-name">items_group_5</div>
+                                    <ul class="catalog-menu__group">
+                                        <li class="catalog-menu__group-item">item_1</li>
+                                        <li class="catalog-menu__group-item">item_2</li>
+                                        <li class="catalog-menu__group-item">item_3</li>
+                                        <li class="catalog-menu__group-item">item_4</li>
+                                        <li class="catalog-menu__group-item">item_5</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="col-sm-8 col-md-9 catalog-content">
+                        <div class="catalog-content__banner"></div>
+                        <section class="catalog-content__category">
+                            <div class="catalog-content__category-top">
+                                <div class="d-flex align-items-center">
+                                    <h2 class="catalog-content__category-name">охота</h2>
+                                    <a href="#" class="catalog-content__category-more">все товары</a>
+                                </div>
+                                <div class="catalog-content__category-arrows">
+                                    <span class="arrow arrow-left"><i class="fas fa-caret-left"></i></span>
+                                    <span class="arrow arrow-right"><i class="fas fa-caret-right"></i></span>
+                                </div>
+                            </div>
+                            <div class="container-fluid catalog-content__category-group">
+                                <div class="row">
+                                    <a href="productpage.html" class="catalog-content__item col-6 col-md-4">
+                                        <div class="catalog-content__item-img">
+                                            <span class="item-img__marker">Спецпредложение</span>
+                                            <img src="assets/img/catalog-item-img-1.jpg" alt="item">
+                                        </div>
+                                        <div class="catalog-content__item-name">Супер блесна у которой ооооочень длинное название, интересно как себя поведет?</div>
+                                        <div class="catalog-content__item-price">
+                                            <div class="price">
+                                                <div class="price-cost">100 руб</div>
+                                                <div class="price-sale">150 руб</div>
+                                            </div>
+                                            <button class="price-btn-buy"><span class="d-none d-lg-inline">купить</span><span class="d-inline d-lg-none"><i class="fal fa-shopping-basket"></i></span></button>
+                                        </div>
+                                    </a>
+                                    <a href="productpage.html" class="catalog-content__item col-6 col-md-4">
+                                        <div class="catalog-content__item-img">
+                                            <span class="item-img__marker">Спецпредложение</span>
+                                            <img src="assets/img/catalog-item-img-2.jpg" alt="item">
+                                        </div>
+                                        <div class="catalog-content__item-name">Супер блесна</div>
+                                        <div class="catalog-content__item-price">
+                                            <div class="price">
+                                                <div class="price-cost">100 руб</div>
+                                                <div class="price-sale">150 руб</div>
+                                            </div>
+                                            <button class="price-btn-buy"><span class="d-none d-lg-inline">купить</span><span class="d-inline d-lg-none"><i class="fal fa-shopping-basket"></i></span></button>
+                                        </div>
+                                    </a>
+                                    <a href="productpage.html" class="catalog-content__item d-none d-md-flex col-4">
+                                        <div class="catalog-content__item-img">
+                                            <span class="item-img__marker">Спецпредложение</span>
+                                            <img src="assets/img/catalog-item-img-3.jpg" alt="item">
+                                        </div>
+                                        <div class="catalog-content__item-name">Супер блесна</div>
+                                        <div class="catalog-content__item-price">
+                                            <div class="price">
+                                                <div class="price-cost">100 руб</div>
+                                                <div class="price-sale">150 руб</div>
+                                            </div>
+                                            <button class="price-btn-buy"><span class="d-none d-lg-inline">купить</span><span class="d-inline d-lg-none"><i class="fal fa-shopping-basket"></i></span></button>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="catalog-content__category">
+                            <div class="catalog-content__category-top">
+                                <div class="d-flex align-items-center">
+                                    <h2 class="catalog-content__category-name">РЫБАЛКА</h2>
+                                    <a href="#" class="catalog-content__category-more">все товары</a>
+                                </div>
+                                <div class="catalog-content__category-arrows">
+                                    <span class="arrow arrow-left"><i class="fas fa-caret-left"></i></span>
+                                    <span class="arrow arrow-right"><i class="fas fa-caret-right"></i></span>
+                                </div>
+                            </div>
+                            <div class="container-fluid catalog-content__category-group">
+                                <div class="row">
+                                    <a href="productpage.html" class="catalog-content__item col-6 col-md-4">
+                                        <div class="catalog-content__item-img">
+                                            <span class="item-img__marker">Спецпредложение</span>
+                                            <img src="assets/img/catalog-item-img-4.jpg" alt="item">
+                                        </div>
+                                        <div class="catalog-content__item-name">Супер блесна у которой ооооочень длинное название, интересно как себя поведет?</div>
+                                        <div class="catalog-content__item-price">
+                                            <div class="price">
+                                                <div class="price-cost">100 руб</div>
+                                                <div class="price-sale">150 руб</div>
+                                            </div>
+                                            <button class="price-btn-buy"><span class="d-none d-lg-inline">купить</span><span class="d-inline d-lg-none"><i class="fal fa-shopping-basket"></i></span></button>
+                                        </div>
+                                    </a>
+                                    <a href="productpage.html" class="catalog-content__item col-6 col-md-4">
+                                        <div class="catalog-content__item-img">
+                                            <span class="item-img__marker">Спецпредложение</span>
+                                            <img src="assets/img/catalog-item-img-5.jpg" alt="item">
+                                        </div>
+                                        <div class="catalog-content__item-name">Супер блесна</div>
+                                        <div class="catalog-content__item-price">
+                                            <div class="price">
+                                                <div class="price-cost">100 руб</div>
+                                                <div class="price-sale">150 руб</div>
+                                            </div>
+                                            <button class="price-btn-buy"><span class="d-none d-lg-inline">купить</span><span class="d-inline d-lg-none"><i class="fal fa-shopping-basket"></i></span></button>
+                                        </div>
+                                    </a>
+                                    <a href="productpage.html" class="catalog-content__item d-none d-md-flex col-4">
+                                        <div class="catalog-content__item-img">
+                                            <span class="item-img__marker">Спецпредложение</span>
+                                            <img src="assets/img/catalog-item-img-6.jpg" alt="item">
+                                        </div>
+                                        <div class="catalog-content__item-name">Супер блесна</div>
+                                        <div class="catalog-content__item-price">
+                                            <div class="price">
+                                                <div class="price-cost">100 руб</div>
+                                                <div class="price-sale">150 руб</div>
+                                            </div>
+                                            <button class="price-btn-buy"><span class="d-none d-lg-inline">купить</span><span class="d-inline d-lg-none"><i class="fal fa-shopping-basket"></i></span></button>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="catalog-content__category">
+                            <div class="catalog-content__category-top">
+                                <div class="d-flex align-items-center">
+                                    <h2 class="catalog-content__category-name">Туризм</h2>
+                                    <a href="#" class="catalog-content__category-more">все товары</a>
+                                </div>
+                                <div class="catalog-content__category-arrows">
+                                    <span class="arrow arrow-left"><i class="fas fa-caret-left"></i></span>
+                                    <span class="arrow arrow-right"><i class="fas fa-caret-right"></i></span>
+                                </div>
+                            </div>
+                            <div class="container-fluid catalog-content__category-group">
+                                <div class="row">
+                                    <a href="productpage.html" class="catalog-content__item col-6 col-md-4">
+                                        <div class="catalog-content__item-img">
+                                            <span class="item-img__marker">Спецпредложение</span>
+                                            <img src="assets/img/catalog-item-img-7.jpg" alt="item">
+                                        </div>
+                                        <div class="catalog-content__item-name">Супер блесна у которой ооооочень длинное название, интересно как себя поведет?</div>
+                                        <div class="catalog-content__item-price">
+                                            <div class="price">
+                                                <div class="price-cost">100 руб</div>
+                                                <div class="price-sale">150 руб</div>
+                                            </div>
+                                            <button class="price-btn-buy"><span class="d-none d-lg-inline">купить</span><span class="d-inline d-lg-none"><i class="fal fa-shopping-basket"></i></span></button>
+                                        </div>
+                                    </a>
+                                    <a href="productpage.html" class="catalog-content__item col-6 col-md-4">
+                                        <div class="catalog-content__item-img">
+                                            <span class="item-img__marker">Спецпредложение</span>
+                                            <img src="assets/img/catalog-item-img-8.jpg" alt="item">
+                                        </div>
+                                        <div class="catalog-content__item-name">Супер блесна</div>
+                                        <div class="catalog-content__item-price">
+                                            <div class="price">
+                                                <div class="price-cost">100 руб</div>
+                                                <div class="price-sale">150 руб</div>
+                                            </div>
+                                            <button class="price-btn-buy"><span class="d-none d-lg-inline">купить</span><span class="d-inline d-lg-none"><i class="fal fa-shopping-basket"></i></span></button>
+                                        </div>
+                                    </a>
+                                    <a href="productpage.html" class="catalog-content__item d-none d-md-flex col-4">
+                                        <div class="catalog-content__item-img">
+                                            <span class="item-img__marker">Спецпредложение</span>
+                                            <img src="assets/img/catalog-item-img-9.jpg" alt="item">
+                                        </div>
+                                        <div class="catalog-content__item-name">Супер блесна</div>
+                                        <div class="catalog-content__item-price">
+                                            <div class="price">
+                                                <div class="price-cost">100 руб</div>
+                                                <div class="price-sale">150 руб</div>
+                                            </div>
+                                            <button class="price-btn-buy"><span class="d-none d-lg-inline">купить</span><span class="d-inline d-lg-none"><i class="fal fa-shopping-basket"></i></span></button>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="catalog-content__category">
+                            <div class="catalog-content__category-top">
+                                <div class="d-flex align-items-center">
+                                    <h2 class="catalog-content__category-name">одежда</h2>
+                                    <a href="#" class="catalog-content__category-more">все товары</a>
+                                </div>
+                                <div class="catalog-content__category-arrows">
+                                    <span class="arrow arrow-left"><i class="fas fa-caret-left"></i></span>
+                                    <span class="arrow arrow-right"><i class="fas fa-caret-right"></i></span>
+                                </div>
+                            </div>
+                            <div class="container-fluid catalog-content__category-group">
+                                <div class="row">
+                                    <a href="productpage.html" class="catalog-content__item col-6 col-md-4">
+                                        <div class="catalog-content__item-img">
+                                            <span class="item-img__marker">Спецпредложение</span>
+                                            <img src="assets/img/catalog-item-img-10.jpg" alt="item">
+                                        </div>
+                                        <div class="catalog-content__item-name">Супер блесна у которой ооооочень длинное название, интересно как себя поведет?</div>
+                                        <div class="catalog-content__item-price">
+                                            <div class="price">
+                                                <div class="price-cost">100 руб</div>
+                                                <div class="price-sale">150 руб</div>
+                                            </div>
+                                            <button class="price-btn-buy"><span class="d-none d-lg-inline">купить</span><span class="d-inline d-lg-none"><i class="fal fa-shopping-basket"></i></span></button>
+                                        </div>
+                                    </a>
+                                    <a href="productpage.html" class="catalog-content__item col-6 col-md-4">
+                                        <div class="catalog-content__item-img">
+                                            <span class="item-img__marker">Спецпредложение</span>
+                                            <img src="assets/img/catalog-item-img-11.jpg" alt="item">
+                                        </div>
+                                        <div class="catalog-content__item-name">Супер блесна</div>
+                                        <div class="catalog-content__item-price">
+                                            <div class="price">
+                                                <div class="price-cost">100 руб</div>
+                                                <div class="price-sale">150 руб</div>
+                                            </div>
+                                            <button class="price-btn-buy"><span class="d-none d-lg-inline">купить</span><span class="d-inline d-lg-none"><i class="fal fa-shopping-basket"></i></span></button>
+                                        </div>
+                                    </a>
+                                    <a href="productpage.html" class="catalog-content__item d-none d-md-flex col-4">
+                                        <div class="catalog-content__item-img">
+                                            <span class="item-img__marker">Спецпредложение</span>
+                                            <img src="assets/img/catalog-item-img-12.jpg" alt="item">
+                                        </div>
+                                        <div class="catalog-content__item-name">Супер блесна</div>
+                                        <div class="catalog-content__item-price">
+                                            <div class="price">
+                                                <div class="price-cost">100 руб</div>
+                                                <div class="price-sale">150 руб</div>
+                                            </div>
+                                            <button class="price-btn-buy"><span class="d-none d-lg-inline">купить</span><span class="d-inline d-lg-none"><i class="fal fa-shopping-basket"></i></span></button>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="catalog-content__category">
+                            <div class="catalog-content__category-top">
+                                <div class="d-flex align-items-center">
+                                    <h2 class="catalog-content__category-name">Обувь</h2>
+                                    <a href="#" class="catalog-content__category-more">все товары</a>
+                                </div>
+                                <div class="catalog-content__category-arrows">
+                                    <span class="arrow arrow-left"><i class="fas fa-caret-left"></i></span>
+                                    <span class="arrow arrow-right"><i class="fas fa-caret-right"></i></span>
+                                </div>
+                            </div>
+                            <div class="container-fluid catalog-content__category-group">
+                                <div class="row">
+                                    <a href="productpage.html" class="catalog-content__item col-6 col-md-4">
+                                        <div class="catalog-content__item-img">
+                                            <span class="item-img__marker">Спецпредложение</span>
+                                            <img src="assets/img/catalog-item-img-13.jpg" alt="item">
+                                        </div>
+                                        <div class="catalog-content__item-name">Супер блесна у которой ооооочень длинное название, интересно как себя поведет?</div>
+                                        <div class="catalog-content__item-price">
+                                            <div class="price">
+                                                <div class="price-cost">100 руб</div>
+                                                <div class="price-sale">150 руб</div>
+                                            </div>
+                                            <button class="price-btn-buy"><span class="d-none d-lg-inline">купить</span><span class="d-inline d-lg-none"><i class="fal fa-shopping-basket"></i></span></button>
+                                        </div>
+                                    </a>
+                                    <a href="productpage.html" class="catalog-content__item col-6 col-md-4">
+                                        <div class="catalog-content__item-img">
+                                            <span class="item-img__marker">Спецпредложение</span>
+                                            <img src="assets/img/catalog-item-img-14.jpg" alt="item">
+                                        </div>
+                                        <div class="catalog-content__item-name">Супер блесна</div>
+                                        <div class="catalog-content__item-price">
+                                            <div class="price">
+                                                <div class="price-cost">100 руб</div>
+                                                <div class="price-sale">150 руб</div>
+                                            </div>
+                                            <button class="price-btn-buy"><span class="d-none d-lg-inline">купить</span><span class="d-inline d-lg-none"><i class="fal fa-shopping-basket"></i></span></button>
+                                        </div>
+                                    </a>
+                                    <a href="productpage.html" class="catalog-content__item d-none d-md-flex col-4">
+                                        <div class="catalog-content__item-img">
+                                            <span class="item-img__marker">Спецпредложение</span>
+                                            <img src="assets/img/catalog-item-img-15.jpg" alt="item">
+                                        </div>
+                                        <div class="catalog-content__item-name">Супер блесна</div>
+                                        <div class="catalog-content__item-price">
+                                            <div class="price">
+                                                <div class="price-cost">100 руб</div>
+                                                <div class="price-sale">150 руб</div>
+                                            </div>
+                                            <button class="price-btn-buy"><span class="d-none d-lg-inline">купить</span><span class="d-inline d-lg-none"><i class="fal fa-shopping-basket"></i></span></button>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <div class="catalog-seo">
+                <div class="container">
+                   <div class="row">
+                    <div class="col-md-9 offset-md-3">
+                        <p>Это компания профессионалов, любящих своё дело. Мы работаем в сфере продажи товаров для охоты, рыбалки и туризма уже более 165 лет. У нас большой опыт продаж и в розничных магазинах, и через интернет. Ранее мы работали под другим брендом и являлись владельцами одного из самых известных интернет-магазинов товаров для охоты и туризма.</p>
+                        <p>В 20хх году было принято решение о значительном расширении ассортимента и открытии нового интернет-магазина с крупнейшим выбором одежды, обуви, экипировки и сопутствующих товаров для активного отдыха. По этой причине произошел ребрендинг организации и открытие нового интернет-магазина , но команда опытных профессионалов осталась прежней.</p>
+                        <a href="index.html">Читать полностью</a>
+                    </div>
+                </div></div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="row footer-container">
+                <div class="col-md-6 col-lg-4">
+                    <p>г. Саратов, ул. Огородняя 142, литер А1</p>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <p>Эkектронная почта: <a href="#">kompas142@yandex.ru</a></p>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="#" style="font-size: 1.5em">+7 917 023 00 83</a><br>
+                    <a href="#" style="font-size: 1.5em">+7 937 265 33 47</a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <p>&copy; 2015-2018 <a href="#">«Компас»</a></p>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="footer-social">
+                        <a href="#" class="footer-social__icon"><i class="fab fa-odnoklassniki"></i></a>
+                        <a href="#" class="footer-social__icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-social__icon"><i class="fab fa-vk"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <p>Работаем без выходных</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/core.js"></script>
+</body>
+
+</html>
