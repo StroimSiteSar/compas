@@ -62,6 +62,14 @@
     font-family: $OS-B;
     cursor: pointer;
 }
+//@include img-inside;    *** Блок с изображение по центру ***
+@mixin img-inside {
+    @include center;
+    img {
+        width: auto;
+        max-width: 90%;
+    }
+}
 
 /* ============================== global css =============================== */
 * {
@@ -1392,15 +1400,10 @@ main {
             
             &-img {
                 width: 100%;
-                @include center;
                 position: relative;
                 height: 150px;
                 overflow: hidden;
-                
-                img {
-                    width: auto;
-                    max-width: 90%;
-                }
+                @include img-inside;
                 
                 span {
                     position: absolute;
@@ -1482,5 +1485,93 @@ main {
 }
 
 /* ============================== productpage ============================== */
+
+.productpage {
+    h1 {
+        color: $cl_blue;
+    }
+    &-img {
+        @include img-inside;
+        position: relative;
+    }
+    &-desc {
+        border: 2px solid $cl_blue;
+        color: $cl_blue;
+        
+        &__props {
+            margin: 30px 10% 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-content: center;
+            
+            &-item {
+                &:first-child {
+                    width: 50%;
+                    background-color: $cl_blue;
+                    color: $cl_white;
+                    text-align: center;
+                }
+                &:last-child {
+                    width: 30%;
+                }
+            }
+            
+            &-number {
+                font-size: 0.8em;
+                font-family: $OS_R;
+                line-height: 3em;
+            }
+            
+            &-price {
+                font-size: 1.6em;
+                line-height: 2em;
+            }
+            
+            &-btn {
+                @include link-btn;
+                font-size: 1.33em;
+                font-family: $OS_R;
+                border: 2px solid $cl_blue;
+                box-shadow: none;
+                padding: 0 1em;
+            }
+            
+            &-counter {
+                @include center;
+            }
+            
+            .counter {
+                &-box {
+                    @include center;
+                    width: 30%;
+                    height: 100%;
+                    @include cube;
+                    border: 2px solid $cl_blue;
+                    font-family: $OS_R;
+                    font-size: 1.7em;
+                }
+                &-tablet {
+                    margin: 0 5%;
+                }
+            }
+        }
+        
+        &__sup {
+            padding: 20px;
+            
+            p {
+                color: $cl_blue;
+                font-size: 0.8em;
+            }
+            
+            &-phone {
+                color: $cl_black;
+                text-align: center;
+                margin-top: 0.5em;
+            }
+        }
+    }
+}
+
 
 @import 'media';
