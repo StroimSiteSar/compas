@@ -1493,8 +1493,26 @@ main {
     &-img {
         @include img-inside;
         position: relative;
+        height: 100%;
+        width: 100%;
+        &__btn {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2.5vw;
+            height: 2.5vw;
+            font-size: 3em;
+            line-height: 0;
+            color: $cl_blue-2;
+            font-family: $OS_L;
+            border: 2px solid $cl_blue-2;
+            border-radius: 50%;
+            outline: none;
+            background-color: transparent;
+        }
     }
-    &-desc {
+    
+    &-panel {
         border: 2px solid $cl_blue;
         color: $cl_blue;
         
@@ -1531,7 +1549,7 @@ main {
                 @include link-btn;
                 font-size: 1.33em;
                 font-family: $OS_R;
-                border: 2px solid $cl_blue;
+                border: 2px solid $cl_blue-2;
                 box-shadow: none;
                 padding: 0 1em;
             }
@@ -1546,7 +1564,7 @@ main {
                     width: 30%;
                     height: 100%;
                     @include cube;
-                    border: 2px solid $cl_blue;
+                    border: 2px solid $cl_blue-2;
                     font-family: $OS_R;
                     font-size: 1.7em;
                 }
@@ -1560,7 +1578,7 @@ main {
             padding: 20px;
             
             p {
-                color: $cl_blue;
+                color: $cl_blue-2;
                 font-size: 0.8em;
             }
             
@@ -1568,6 +1586,44 @@ main {
                 color: $cl_black;
                 text-align: center;
                 margin-top: 0.5em;
+            }
+        }
+    }
+    
+    &-desc {
+        margin: 5vw 0 2vw;
+        
+        &__points {
+            color: $cl_disable;
+            
+            &-item {
+                margin-bottom: 2px;
+                
+                &:hover {
+                    color: $cl_blue-2;
+                    border-bottom: 2px solid $cl_blue-2;
+                    margin-bottom: 0;
+                }
+            }
+        }
+        
+        &__line {
+            position: relative;
+            left: -100vw;
+            width: 200vw;
+            height: 0;
+            border-top: 2px solid $cl_blue;
+        }
+        
+        &__text {
+            color: $cl_blue-2;
+            
+            &-item {
+                padding: 1em 0;
+                
+                &>p {
+                    margin: 1em 0;
+                }
             }
         }
     }

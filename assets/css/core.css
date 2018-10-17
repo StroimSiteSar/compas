@@ -1767,14 +1767,30 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: relative; }
+  position: relative;
+  height: 100%;
+  width: 100%; }
   .productpage-img img {
     width: auto;
     max-width: 90%; }
-.productpage-desc {
+  .productpage-img__btn {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2.5vw;
+    height: 2.5vw;
+    font-size: 3em;
+    line-height: 0;
+    color: #0f587c;
+    font-family: "OpenSansLight", sans-serif;
+    border: 2px solid #0f587c;
+    border-radius: 50%;
+    outline: none;
+    background-color: transparent; }
+.productpage-panel {
   border: 2px solid #004d73;
   color: #004d73; }
-  .productpage-desc__props {
+  .productpage-panel__props {
     margin: 30px 10% 0 0;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1784,21 +1800,21 @@ main {
             justify-content: space-between;
     -ms-flex-line-pack: center;
         align-content: center; }
-    .productpage-desc__props-item:first-child {
+    .productpage-panel__props-item:first-child {
       width: 50%;
       background-color: #004d73;
       color: white;
       text-align: center; }
-    .productpage-desc__props-item:last-child {
+    .productpage-panel__props-item:last-child {
       width: 30%; }
-    .productpage-desc__props-number {
+    .productpage-panel__props-number {
       font-size: 0.8em;
       font-family: "OpenSansRegular", sans-serif;
       line-height: 3em; }
-    .productpage-desc__props-price {
+    .productpage-panel__props-price {
       font-size: 1.6em;
       line-height: 2em; }
-    .productpage-desc__props-btn {
+    .productpage-panel__props-btn {
       display: -moz-flex;
       display: -ms-flex;
       display: -o-flex;
@@ -1826,11 +1842,11 @@ main {
       cursor: pointer;
       font-size: 1.33em;
       font-family: "OpenSansRegular", sans-serif;
-      border: 2px solid #004d73;
+      border: 2px solid #0f587c;
       -webkit-box-shadow: none;
               box-shadow: none;
       padding: 0 1em; }
-    .productpage-desc__props-counter {
+    .productpage-panel__props-counter {
       display: -moz-flex;
       display: -ms-flex;
       display: -o-flex;
@@ -1843,7 +1859,7 @@ main {
       -webkit-box-align: center;
           -ms-flex-align: center;
               align-items: center; }
-    .productpage-desc__props .counter-box {
+    .productpage-panel__props .counter-box {
       display: -moz-flex;
       display: -ms-flex;
       display: -o-flex;
@@ -1858,24 +1874,46 @@ main {
               align-items: center;
       width: 30%;
       height: 100%;
-      border: 2px solid #004d73;
+      border: 2px solid #0f587c;
       font-family: "OpenSansRegular", sans-serif;
       font-size: 1.7em; }
-      .productpage-desc__props .counter-box:before {
+      .productpage-panel__props .counter-box:before {
         content: "";
         padding-top: 100%;
         float: left; }
-    .productpage-desc__props .counter-tablet {
+    .productpage-panel__props .counter-tablet {
       margin: 0 5%; }
-  .productpage-desc__sup {
+  .productpage-panel__sup {
     padding: 20px; }
-    .productpage-desc__sup p {
-      color: #004d73;
+    .productpage-panel__sup p {
+      color: #0f587c;
       font-size: 0.8em; }
-    .productpage-desc__sup-phone {
+    .productpage-panel__sup-phone {
       color: black;
       text-align: center;
       margin-top: 0.5em; }
+.productpage-desc {
+  margin: 5vw 0 2vw; }
+  .productpage-desc__points {
+    color: #5b8da6; }
+    .productpage-desc__points-item {
+      margin-bottom: 2px; }
+      .productpage-desc__points-item:hover {
+        color: #0f587c;
+        border-bottom: 2px solid #0f587c;
+        margin-bottom: 0; }
+  .productpage-desc__line {
+    position: relative;
+    left: -100vw;
+    width: 200vw;
+    height: 0;
+    border-top: 2px solid #004d73; }
+  .productpage-desc__text {
+    color: #0f587c; }
+    .productpage-desc__text-item {
+      padding: 1em 0; }
+      .productpage-desc__text-item > p {
+        margin: 1em 0; }
 
 @media screen and (min-width: 425px) {
   .categoryes-menu {
