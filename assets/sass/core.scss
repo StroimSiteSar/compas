@@ -347,7 +347,6 @@ body {
     width: 84%;
     background-color: rgba(255, 255, 255, 0.7);
     padding: 5%;
-    display: none;
     
     li {
         list-style-type: none;
@@ -486,8 +485,12 @@ main {
             display: flex;
             justify-content: space-between;
             &-column {
+                display: none;
                 height: 100%;
                 width: 100%;
+                &.active {
+                    display: block;
+                }
             }
         }
         &__item {
@@ -534,6 +537,7 @@ main {
                 max-width: 100%;
                 transition: 0.5s;
                 position: absolute;
+                max-height: 100%;
             }
             
             &:first-child {
@@ -616,7 +620,7 @@ main {
                 transition: .3s;
             }
             
-            &:hover {
+            &.active {
                 div {
                     opacity: 0;
                 }
@@ -628,6 +632,10 @@ main {
     }
     
     &-desc {
+        display: none;
+        &.active {
+            display: block;
+        }
         &__text {
             margin-bottom: 50px;
         }

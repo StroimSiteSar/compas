@@ -417,8 +417,7 @@ body {
   left: 20px;
   width: 84%;
   background-color: rgba(255, 255, 255, 0.7);
-  padding: 5%;
-  display: none; }
+  padding: 5%; }
   .header__catalog-menu li {
     list-style-type: none; }
   .header__catalog-menu__item {
@@ -569,8 +568,11 @@ main {
           -ms-flex-pack: justify;
               justify-content: space-between; }
       .special-slider__content-column {
+        display: none;
         height: 100%;
         width: 100%; }
+        .special-slider__content-column.active {
+          display: block; }
     .special-slider__item {
       display: -moz-flex;
       display: -ms-flex;
@@ -631,7 +633,8 @@ main {
         max-width: 100%;
         -webkit-transition: 0.5s;
         transition: 0.5s;
-        position: absolute; }
+        position: absolute;
+        max-height: 100%; }
       .special-slider__item:first-child {
         margin-bottom: 10%; }
       .special-slider__item:hover div {
@@ -731,77 +734,81 @@ main {
         z-index: 98;
         -webkit-transition: .3s;
         transition: .3s; }
-      .categoryes-menu__item:hover div {
+      .categoryes-menu__item.active div {
         opacity: 0; }
-  .categoryes-desc__text {
-    margin-bottom: 50px; }
-  .categoryes-desc__example-item {
-    width: 100%;
-    height: 130px;
-    background-color: white;
-    position: relative;
-    overflow: hidden;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    margin: 15px 0; }
-    .categoryes-desc__example-item img {
+  .categoryes-desc {
+    display: none; }
+    .categoryes-desc.active {
+      display: block; }
+    .categoryes-desc__text {
+      margin-bottom: 50px; }
+    .categoryes-desc__example-item {
+      width: 100%;
+      height: 130px;
+      background-color: white;
+      position: relative;
+      overflow: hidden;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      margin: 15px 0; }
+      .categoryes-desc__example-item img {
+        width: auto;
+        max-width: 100%; }
+    .categoryes-desc__example-link {
+      color: white;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      display: -webkit-inline-box;
+      display: -ms-inline-flexbox;
+      display: inline-flex;
+      padding: 0.5em 4em;
       width: auto;
-      max-width: 100%; }
-  .categoryes-desc__example-link {
-    color: white;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    padding: 0.5em 4em;
-    width: auto;
-    max-width: 100%;
-    -webkit-box-shadow: 0 3px 9px 1px rgba(0, 0, 0, 0.09);
-            box-shadow: 0 3px 9px 1px rgba(0, 0, 0, 0.09);
-    border-radius: 5px;
-    border: 1px solid #ffffff;
-    text-transform: uppercase;
-    font-family: "OpenSansBold", sans-serif;
-    cursor: pointer; }
-    @media screen and (min-width: 768px) {
-      .categoryes-desc__example-link {
-        font-size: 18px; } }
-    @media screen and (max-width: 576px) {
-      .categoryes-desc__example-link {
-        font-size: 15px; } }
-    @media screen and (min-width: 576px) {
-      .categoryes-desc__example-link {
-        font-size: 16px; } }
-    @media screen and (min-width: 768px) {
-      .categoryes-desc__example-link {
-        font-size: 18px; } }
-    @media screen and (min-width: 992px) {
-      .categoryes-desc__example-link {
-        font-size: 19px; } }
-    @media screen and (min-width: 1200px) {
-      .categoryes-desc__example-link {
-        font-size: 20px; } }
+      max-width: 100%;
+      -webkit-box-shadow: 0 3px 9px 1px rgba(0, 0, 0, 0.09);
+              box-shadow: 0 3px 9px 1px rgba(0, 0, 0, 0.09);
+      border-radius: 5px;
+      border: 1px solid #ffffff;
+      text-transform: uppercase;
+      font-family: "OpenSansBold", sans-serif;
+      cursor: pointer; }
+      @media screen and (min-width: 768px) {
+        .categoryes-desc__example-link {
+          font-size: 18px; } }
+      @media screen and (max-width: 576px) {
+        .categoryes-desc__example-link {
+          font-size: 15px; } }
+      @media screen and (min-width: 576px) {
+        .categoryes-desc__example-link {
+          font-size: 16px; } }
+      @media screen and (min-width: 768px) {
+        .categoryes-desc__example-link {
+          font-size: 18px; } }
+      @media screen and (min-width: 992px) {
+        .categoryes-desc__example-link {
+          font-size: 19px; } }
+      @media screen and (min-width: 1200px) {
+        .categoryes-desc__example-link {
+          font-size: 20px; } }
 
 .about {
   margin: 50px 0;
@@ -2007,11 +2014,11 @@ main {
       .categoryes-menu__item img {
         width: 100%;
         z-index: 98; }
-      .categoryes-menu__item:hover {
+      .categoryes-menu__item.active {
         width: 25%; }
-        .categoryes-menu__item:hover div {
+        .categoryes-menu__item.active div {
           opacity: 0; }
-        .categoryes-menu__item:hover img {
+        .categoryes-menu__item.active img {
           position: absolute;
           -webkit-transform: scale(1.2);
                   transform: scale(1.2);
