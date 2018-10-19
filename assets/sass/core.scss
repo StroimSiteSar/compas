@@ -71,6 +71,8 @@
     }
 }
 
+
+
 /* ============================== global css =============================== */
 * {
     margin: 0;
@@ -471,9 +473,26 @@ main {
         @include center;
         overflow: hidden;
         box-shadow: 0 3px 9px 1px rgba(0, 0, 0, 0.11);
+        transition: 1s;
         
         img {
             max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .back {
+            transform: rotate3d(0,1,0, 180deg);
+            display: none;
+        }
+        
+        &:focus {
+            transform: rotate3d(0,1,0, 180deg);
+            img {
+                display: none;
+            }
+            .back {
+                display: block;
+            }
         }
     }
     
