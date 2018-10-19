@@ -79,6 +79,9 @@ $extral: 1200px;
                 &-column {
                     height: 100%;
                     width: 45%;
+                    &.active + & {
+                        display: block;
+                    }
                 }
             }
             &__item {

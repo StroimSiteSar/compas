@@ -59,30 +59,23 @@ function Slider(quantity, number = 0) {
 //JS для главной страницы
 document.addEventListener('DOMContentLoaded', function () {
     "use strict";
-    //Блок "Спецпредложение"
-    let specialSlides = document.querySelectorAll('.special-slider__content-column');
-    let specialSliderPrev = document.querySelector('.special-slider__arrows-left');
-    let specialSliderNext = document.querySelector('.special-slider__arrows-right');
-    
-    
     //В данном слайдере используется:
     //1) кнопочное переключение, 2) автопереключение 3) возможность задать стартовый итем
     //Подается: коллекция слайдов, первичный слайд, таймер(в секундах), и кнопочки переключения 
-    function SpecialSlider(items, number = 0, time, btnPrev, btnNext) {
+    function EasySlider(items, number = 0, time, btnPrev, btnNext) {
         Slider.apply(this, [items.length, number]);
+        const that = this;
         
         this.display = function() {
-            accordeonClass(items, items[that.getCount()]);
-            if(window.matchMedia('(min-width: 768px)').matches) {
-                if (that.show() >= items.length-1) {
-                    items[0].classList.add('active');
-                } else {
-                    items[that.show()+1].classList.add('active');
-                }
-            }
+            accordeonClass(items, items[that.show()]);
+//            if(window.matchMedia('(min-width: 768px)').matches) {
+//                if (that.show() >= items.length-1) {
+//                    items[0].classList.add('active');
+//                } else {
+//                    items[that.show()+1].classList.add('active');
+//                }
+//            }
         }
-        
-        const that = this;
         
         btnPrev.onclick = function() {
             that.prev();
@@ -99,10 +92,33 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
     
-    const specialSlider = new SpecialSlider(
+    //Главный слайдер на главной странице
+    let sliderSlides = document.querySelectorAll('.slider-content__item');
+    let sliderSliderPrev = document.querySelector('.slider__arrow-left');
+    let sliderSliderNext = document.querySelector('.slider__arrow-right');
+    
+    const sliderSlider = new EasySlider(
+        sliderSlides, 
+        2,
+        3,
+        sliderSliderPrev, 
+        sliderSliderNext
+    );
+    
+    sliderSlider.display();
+    
+    //Блок "Спецпредложение"
+    let specialSlides = document.querySelectorAll('.special-slider__content-column');
+    let specialSliderPrev = document.querySelector('.special-slider__arrows-left');
+    let specialSliderNext = document.querySelector('.special-slider__arrows-right');
+    
+    let clone = specialSlides[0].cloneNode(true);
+    specialSlides[0].parentNode.appendChild(clone);
+    
+    const specialSlider = new EasySlider(
         specialSlides, 
         2,
-        1,
+        6,
         specialSliderPrev, 
         specialSliderNext
     );
