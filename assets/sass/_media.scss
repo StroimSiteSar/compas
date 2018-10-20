@@ -58,16 +58,38 @@ $extral: 1200px;
         border-right: 1px solid $cl_white;    
     }
     .header {
+        background: -webkit-linear-gradient(rgba(255,255,255, 1) 10%, rgba(0, 77, 115, 0.5) 60%, $cl_blue 100%);
+        background: -o-linear-gradient(rgba(255,255,255, 1) 10%, rgba(0, 77, 115, 0.5) 60%, $cl_blue 100%);
+        background: linear-gradient(rgba(255,255,255, 1) 10%, rgba(0, 77, 115, 0.5) 60%, $cl_blue 100%);
         padding: 5px 0 15px;
+        
+        &-bottom {
+            background-color: transparent;
+        }
         &__logo {
             width: 60%;
             margin: 15px auto;
         }
         &__nav {
             font-size: inherit;
+            flex-direction: row;
+            align-items: center;
+            padding-bottom: 0;
+            &-item {
+                margin: 0;
+                list-style-type: none;
+            }
+            &-link {
+                border-bottom: 1px solid $cl_white;
+                text-transform: uppercase;
+            }
         }
         &__catalog {
             height: 63px;
+            color: $cl_blue;
+            background-color: $cl_white;
+            font-size: 30px;
+            text-align: center;
         }
         &__search {
             height: 63px;

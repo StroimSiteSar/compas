@@ -6,6 +6,10 @@ function accordeonClass(collection, item) {
     })
     item.classList.add('active');
 }
+//Функция переключения toggle
+function toggle(selector) {
+}
+
 //Счетчик, на вход которого можно подавать стартовое значение
 //По умолчанию стартовое значение равно нулю
 function Counter(number) {
@@ -54,8 +58,22 @@ function Slider(quantity, number = 0) {
     
     this.timer = (time) => setInterval(() => that.next(), time*1000);
 }
-
-
+//JS для шапки
+document.addEventListener('DOMContentLoaded', function () {
+    let headerCatalogBtn = document.querySelector('.header__catalog');
+    
+    headerCatalogBtn.onclick = function() {
+        this.classList.toggle('active');
+    }
+    
+    let sandwich = document.querySelector('.header__sandwich');
+    let headerNav = document.querySelector('.header__nav');
+    
+    sandwich.onclick = function() {
+        headerNav.classList.toggle('d-none');
+    }
+    
+});
 //JS для главной страницы
 document.addEventListener('DOMContentLoaded', function () {
     "use strict";
@@ -68,13 +86,6 @@ document.addEventListener('DOMContentLoaded', function () {
         
         this.display = function() {
             accordeonClass(items, items[that.show()]);
-//            if(window.matchMedia('(min-width: 768px)').matches) {
-//                if (that.show() >= items.length-1) {
-//                    items[0].classList.add('active');
-//                } else {
-//                    items[that.show()+1].classList.add('active');
-//                }
-//            }
         }
         
         btnPrev.onclick = function() {
@@ -112,6 +123,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let specialSliderPrev = document.querySelector('.special-slider__arrows-left');
     let specialSliderNext = document.querySelector('.special-slider__arrows-right');
     
+    //Добавляем первый элемент в конец родителя, без внесения в келлекцию
+    //Делается для того что бы последним элементом показывался первый без разрыва
     let clone = specialSlides[0].cloneNode(true);
     specialSlides[0].parentNode.appendChild(clone);
     
