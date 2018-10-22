@@ -82,6 +82,7 @@ $extral: 1200px;
             &-link {
                 border-bottom: 1px solid $cl_white;
                 text-transform: uppercase;
+                font-family: $OS_R;
             }
         }
         &__catalog {
@@ -90,6 +91,25 @@ $extral: 1200px;
             background-color: $cl_white;
             font-size: 30px;
             text-align: center;
+            &-menu {
+                width: calc(100% - 30px);
+                left: auto;
+                &__item {
+                    &-title {
+                        font-size: 1em;
+                    }
+                }
+                &__submenu {
+                    width: calc(200% + 60px);
+                    left: 100%;
+                    top: 10%;
+                    position: absolute;
+                    columns: 2;
+                    &-item {
+                        font-size: 1em;
+                    }
+                }
+            }
         }
         &__search {
             height: 63px;
@@ -211,6 +231,10 @@ $extral: 1200px;
     }   
 }
 @media screen and (min-width: $large) {
+    .header__catalog-menu__submenu {
+        width: calc(300% + 90px);
+        columns: 3;
+    }
     .categoryes-menu {
         height: 220px;
         &__container {
