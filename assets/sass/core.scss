@@ -164,9 +164,11 @@ body {
     
     &-bottom {
         background-color: $cl_blue;
+        position: relative;
         
         &__icon {
             @include center;
+            position: static;
             
             &-btn {
                 color: $cl_white;
@@ -267,7 +269,7 @@ body {
         }
         
         &-menu {
-            width: 100vw;
+            width: 200%;
             position: absolute;
             top: 100%;
             left: 0;
@@ -417,13 +419,57 @@ main {
 }
 
 .search {
-    position: absolute;
-    padding: 0;
-    width: 100vw;
-    justify-content: space-between;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    
+    &.active {
+        position: absolute;
+        right: 0;
+        width: 100%;
+        justify-content: space-between;
+        padding: 0;
+        
+        .search-panel {
+            width: 100%;
+            position: relative;
+        }
+    }
     
     &-panel {
         display: flex;
+        position: absolute;
+        width: 0;
+        transition: 0.6s;
+        right: 0;
+        overflow: hidden;
+        
+        &__input {
+            width: 100%;
+            height: 44px;
+            border: none;
+            background-color: $cl_gray-blue;
+            padding: 10px 20px;
+            
+            &::placeholder {
+                color: $cl_white;
+            }
+        }
+        
+        &__go, &__close {
+            width: 20vw;
+            max-width: 44px;
+            height: 100%;
+        }
+        
+        &__go {
+            background-color: $cl_blue;
+        }
+        
+        &__close {
+            background-color: $cl_gray-blue;
+            height: 44px;
+        }
     }
 }
 
@@ -1309,7 +1355,7 @@ main {
                 }
             }
             
-            &:hover {
+            &.active {
                 height: auto;
                 &>div {
                     height: 3vw;
@@ -1337,11 +1383,11 @@ main {
             margin: 0;
             
             &-item {
-                margin: 5px 10px;
+                padding: 5px 10px;
                 color: $cl_blue;
                 font-family: $OS_B;
                 
-                &:hover {
+                &.active {
                     height: auto;
 
                     &>ul {
@@ -1618,7 +1664,7 @@ main {
             &-item {
                 margin-bottom: 2px;
                 
-                &:hover {
+                &.active {
                     color: $cl_blue-2;
                     border-bottom: 2px solid $cl_blue-2;
                     margin-bottom: 0;
@@ -1638,8 +1684,13 @@ main {
             color: $cl_blue-2;
             
             &-item {
+                display: none;
                 padding: 1em 0;
                 
+                &.active {
+                    display: block;
+                }
+            
                 &>p {
                     margin: 1em 0;
                 }

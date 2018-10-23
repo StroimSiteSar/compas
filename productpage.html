@@ -121,7 +121,13 @@
                     <a href="#" class="header-bottom__icon-btn"><i class="fal fa-phone"></i></a>
                 </div>
                 <div class="col-2 col-md-8 col-lg-9 header-bottom__icon">
-                    <button class="d-md-none header-bottom__icon-btn"><i class="fal fa-search"></i></button>
+                    <div class="search">
+                        <button class="d-md-none header-bottom__icon-btn search-panel__go"><i class="fal fa-search"></i></button>
+                        <div class="search-panel d-md-none">
+                            <input type="text" class="search-panel__input" placeholder="Поиск среди 100 500 товаров">
+                            <button class="search-panel__close header-bottom__icon-btn"><i class="fal fa-times"></i></button>
+                        </div>
+                    </div>
                     <div class="d-none d-md-flex header__search">
                         <input type="text" class="header__search-input" placeholder="Поиск товара">
                         <button class="header__search-btn">SEARCH</button>
@@ -190,13 +196,13 @@
                 </div>
                 <div class="productpage-desc">
                     <div class="productpage-desc__points row">
-                        <div class="col-auto productpage-desc__points-item">Описание</div>
+                        <div class="col-auto productpage-desc__points-item active">Описание</div>
                         <div class="col-auto productpage-desc__points-item">Характеристики</div>
                         <div class="col-auto productpage-desc__points-item">Информация о производителе</div>
                     </div>
                     <div class="productpage-desc__line"></div>
                     <div class="productpage-desc__text">
-                        <div class="productpage-desc__text-item">
+                        <div class="productpage-desc__text-item active">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, nulla porro maiores explicabo libero rem, eius tempore aliquid laboriosam, quas assumenda eos quia ut quasi nesciunt! Quisquam illum, quam non!</p>
                             <p>Odit voluptatibus mollitia perferendis voluptatum qui ducimus excepturi quidem quam nemo corrupti, provident delectus impedit omnis rerum debitis harum repellat deserunt laudantium doloribus optio cumque cupiditate. Neque vero, impedit quas.</p>
                             <p>Impedit distinctio illum sit blanditiis modi labore eos est fuga laudantium explicabo ipsam ut omnis dignissimos quia quis natus perspiciatis saepe fugit sequi, ex. Temporibus minima blanditiis repudiandae assumenda quo?</p>

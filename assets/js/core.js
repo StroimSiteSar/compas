@@ -6,9 +6,6 @@ function accordeonClass(collection, item) {
     })
     item.classList.add('active');
 }
-//Функция переключения toggle
-function toggle(selector) {
-}
 
 //Счетчик, на вход которого можно подавать стартовое значение
 //По умолчанию стартовое значение равно нулю
@@ -58,8 +55,55 @@ function Slider(quantity, number = 0) {
     
     this.timer = (time) => setInterval(() => that.next(), time*1000);
 }
-//JS для шапки
+
+//В данном слайдере используется:
+//1) кнопочное переключение, 2) автопереключение 3) возможность задать стартовый итем
+//Подается: коллекция слайдов, первичный слайд, таймер(в секундах), и кнопочки переключения
+//На выходе получаем самый просто слайдер где один блок получает класс active, а остльное поведение описывает css
+function EasySlider(items, number = 0, time, btnPrev, btnNext) {
+    Slider.apply(this, [items.length, number]);
+    const that = this;
+
+    this.display = function() {
+        accordeonClass(items, items[that.show()]);
+    }
+
+    btnPrev.onclick = function() {
+        that.prev();
+        that.display();
+    }
+    btnNext.onclick = function() {
+        that.next();
+        that.display();
+    }
+
+    if(time) {
+        this.timer(time);
+        setInterval(() => this.display(), time*1000);
+    }
+}
+
+function EasyCounter(number, display, btnPlus, btnMinus) {
+    Counter.apply(this, [number]);
+    const that = this;
+    
+    btnPlus.onclick = function() {
+        that.plus();
+        that.display();
+    }
+    
+    btnMinus.onclick = function() {
+        that.minus();
+        that.display();
+    }
+    
+    this.display = () => (that.getCount() >= 0) ? display.innerText = that.getCount() : display.innerText = '0';
+}
+
+
+//Для всех страниц
 document.addEventListener('DOMContentLoaded', function () {
+    //Обработка событий на шапке
     let headerCatalogBtn = document.querySelector('.header__catalog');
     
     headerCatalogBtn.onclick = function() {
@@ -73,35 +117,82 @@ document.addEventListener('DOMContentLoaded', function () {
         headerNav.classList.toggle('d-none');
     }
     
+    let search = document.querySelector('.search');
+    let searchGo = document.querySelector('.search-panel__go');
+    let searchClose = document.querySelector('.search-panel__close');
+    let searchActive = false;
+    
+    searchGo.onclick = function () {
+        if (searchActive) {
+            return console.log('searching...');
+        } else {
+            search.classList.add('active');
+            return searchActive = true;
+        }
+    }
+    
+    searchClose.onclick = function () {
+        search.classList.remove('active');
+        return searchActive = false;
+    }
+    
+    
+    
+    //Счетчики
+    let counterTablets = document.querySelectorAll('.counter-tablet');
+    
+    for (let i = 0; i < counterTablets.length; i++ ) {
+        let counterPlus = counterTablets[i].nextElementSibling;
+        let counterMinus = counterTablets[i].previousElementSibling;
+        
+        console.log(counterTablets, counterPlus, counterMinus);
+        
+        var counter = new EasyCounter(counterTablets[i].innerHTML, counterTablets[i], counterPlus, counterMinus);
+    }
 });
+
+//JS for catalog
+document.addEventListener('DOMContentLoaded', function () {
+    "use strict";
+    let catalogMenuItems = document.querySelectorAll('.catalog-menu__item');
+    let catalogSubmenuItems = document.querySelectorAll('.catalog-menu__submenu-item');
+        
+    for (let i = 0; i < catalogMenuItems.length; i++ ) {
+        catalogMenuItems[i].id = i;
+        catalogMenuItems[i].onclick = function() {
+            if (this.classList.contains('active')) {
+                return this.classList.remove('active');
+            }
+            accordeonClass(catalogMenuItems, this);
+        }
+    }
+    
+    for (let i = 0; i < catalogSubmenuItems.length; i++ ) {
+        catalogSubmenuItems[i].id = i;
+        catalogSubmenuItems[i].onclick = function(ev) {
+            accordeonClass(catalogSubmenuItems, this);
+            ev.stopPropagation();
+        }
+    }
+});
+
+//JS for productpage
+document.addEventListener('DOMContentLoaded', function () {
+    let descBtns = document.querySelectorAll('.productpage-desc__points-item');
+    let descText = document.querySelectorAll('.productpage-desc__text-item');
+    
+    for (let i = 0; i < descBtns.length; i++ ) {
+        descBtns[i].id = i;
+        descBtns[i].onclick = function() {
+            accordeonClass(descBtns, this);
+            accordeonClass(descText, descText[this.id]);
+        }
+    } 
+});
+
 //JS для главной страницы
 document.addEventListener('DOMContentLoaded', function () {
     "use strict";
-    //В данном слайдере используется:
-    //1) кнопочное переключение, 2) автопереключение 3) возможность задать стартовый итем
-    //Подается: коллекция слайдов, первичный слайд, таймер(в секундах), и кнопочки переключения 
-    function EasySlider(items, number = 0, time, btnPrev, btnNext) {
-        Slider.apply(this, [items.length, number]);
-        const that = this;
-        
-        this.display = function() {
-            accordeonClass(items, items[that.show()]);
-        }
-        
-        btnPrev.onclick = function() {
-            that.prev();
-            that.display();
-        }
-        btnNext.onclick = function() {
-            that.next();
-            that.display();
-        }
-        
-        if(time) {
-            this.timer(time);
-            setInterval(() => this.display(), time*1000);
-        }
-    }
     
     //Главный слайдер на главной странице
     let sliderSlides = document.querySelectorAll('.slider-content__item');
@@ -149,4 +240,4 @@ document.addEventListener('DOMContentLoaded', function () {
             accordeonClass(categoryesText, categoryesText[this.id]);
         }
     }
-})
+});

@@ -20,148 +20,125 @@
 
 <body>
     <header class="header">
-        <div class="header-mobile d-md-none">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-4 col-sm-3 col-lg-5 border-right">
-                        <a href="index.html" class="header__logo">
-                            <img src="assets/img/logo.png" alt="logo" width="100%">
-                        </a>
-                    </div>
-                    <div class="col-8 col-sm-7 offset-sm-2 col-md-8 col-lg-9">
-                        <div class="header__search">
-                            <input type="text" class="header__search-input" placeholder="Поиск товара">
-                            <button class="header__search-btn"><i class="fas fa-search"></i></button>
-                        </div>
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-3 col-lg-5 border-right">
+                    <div class="header__logo">
+                        <img src="assets/img/logo.png" alt="logo" width="100%">
                     </div>
                 </div>
-            </div>
-            <div class="header-mobile__sidebar">
-                <ul class="header-mobile__nav">
-                    <li class="header__nav-item"><a href="articles.html" class="header__nav-link">События</a></li>
-                    <li class="header__nav-item"><a href="articles.html" class="header__nav-link">Статьи</a></li>
-                    <li class="header__nav-item"><a href="sales.html" class="header__nav-link">Акции</a></li>
-                    <li class="header__nav-item"><a href="delivery.html" class="header__nav-link">доставка</a></li>
-                    <li class="header__nav-item"><a href="delivery.html" class="header__nav-link">Адреса и контакты</a></li>
-                    <li class="header__nav-item"><a href="catalog.html" class="header__nav-link">Каталог</a></li>
-                </ul>
-                <div class="row justify-content-around">
-                    <div class="col-4">
-                        <a href="#" class="header-mobile__sidebar-btn call"><i class="fas fa-phone"></i></a>
-                    </div>
-                    <div class="col-4">
-                        <a href="#" class="header-mobile__sidebar-btn basket"><i class="fal fa-shopping-basket"></i></a>
-                    </div>
-                </div>
-                <div class="header-mobile__sidebar-toggle toggle"><i class="far fa-chevron-double-right"></i></div>
-            </div>
-        </div>
-        <div class="header-md d-none d-md-block">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-3 col-lg-5 border-right">
-                        <div class="header__logo">
-                            <img src="assets/img/logo.png" alt="logo" width="100%">
-                        </div>
-                    </div>
-                    <div class="col-sm-9 col-lg-7 header-top">
-                        <div>
-                            <div class="row align-items-center">
-                                <div class="col d-flex justify-content-center">
-                                    <div class="header__phones">
-                                        <div class="header__phones-item">+7987654321</div>
-                                        <div class="header__phones-item">+7987654321</div>
-                                    </div>
-                                </div>
-                                <div class="col d-flex justify-content-center">
-                                    <div class="header__worktime">
-                                        <div class="header__worktime-item">Работаем с 10:00 до 19:00</div>
-                                        <div class="header__worktime-item">без выходных</div>
-                                    </div>
-                                </div>
-                                <div class="col d-flex justify-content-center">
-                                    <a href="#" class="header__basket">
-                                        <span class="header__basket-icon"><i class="fal fa-shopping-basket"></i></span>
-                                        <span>Корзина</span>
-                                    </a>
+                <div class="col-2 d-md-none header__sandwich"><i class="fal fa-bars"></i></div>
+                <div class="d-md-block col-sm-9 col-lg-7 header-top">
+                    <div class="d-none d-md-block">
+                        <div class="row align-items-center">
+                            <div class="col d-flex justify-content-center">
+                                <div class="header__phones">
+                                    <div class="header__phones-item">+7987654321</div>
+                                    <div class="header__phones-item">+7987654321</div>
                                 </div>
                             </div>
-                            <hr>
+                            <div class="col d-flex justify-content-center">
+                                <div class="header__worktime">
+                                    <div class="header__worktime-item">Работаем с 10:00 до 19:00</div>
+                                    <div class="header__worktime-item">без выходных</div>
+                                </div>
+                            </div>
+                            <div class="col d-flex justify-content-center">
+                                <a href="#" class="header__basket">
+                                    <span class="header__basket-icon"><i class="fal fa-shopping-basket"></i></span>
+                                    <span>Корзина</span>
+                                </a>
+                            </div>
                         </div>
-                        <ul class="header__nav d-flex justify-content-around">
-                            <li class="header__nav-item"><a href="articles.html" class="header__nav-link">События</a></li>
-                            <li class="header__nav-item"><a href="articles.html" class="header__nav-link">Статьи</a></li>
-                            <li class="header__nav-item"><a href="sales.html" class="header__nav-link">Акции</a></li>
-                            <li class="header__nav-item"><a href="delivery.html" class="header__nav-link">доставка</a></li>
-                            <li class="header__nav-item"><a href="delivery.html" class="header__nav-link">Адреса и контакты</a></li>
-                            <li class="header__nav-item"><a href="catalog.html" class="header__nav-link">Каталог</a></li>
-                        </ul>
+                        <hr>
+                    </div>
+                    <ul class="header__nav d-none d-md-flex">
+                        <li class="header__nav-item"><a href="articles.html" class="header__nav-link">События</a></li>
+                        <li class="header__nav-item"><a href="articles.html" class="header__nav-link">Статьи</a></li>
+                        <li class="header__nav-item"><a href="sales.html" class="header__nav-link">Акции</a></li>
+                        <li class="header__nav-item"><a href="delivery.html" class="header__nav-link">доставка</a></li>
+                        <li class="header__nav-item"><a href="delivery.html" class="header__nav-link">Адреса и контакты</a></li>
+                        <li class="header__nav-item"><a href="catalog.html" class="header__nav-link">Каталог</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row header-bottom">
+                <div class="col-6 col-md-4 col-lg-3">
+                    <button class="header__catalog"><i class="fas fa-bars d-none d-md-inline"></i><i class="fas fa-caret-down d-md-none"></i><span class="">&nbsp;КАТАЛОГ</span></button>
+                    <ul class="header__catalog-menu">
+                        <li class="header__catalog-menu__item">
+                            <span class="header__catalog-menu__item-title">Рыбалка<i class="fal fa-chevron-right open"></i></span>
+                            <ul class="header__catalog-menu__submenu">
+                                <li class="header__catalog-menu__submenu-item"><a href="#">летняя</a></li>
+                                <li class="header__catalog-menu__submenu-item"><a href="#">зимняя</a></li>
+                                <li class="header__catalog-menu__submenu-item"><a href="#">все товары</a></li>
+                            </ul>
+                        </li>
+                        <li class="header__catalog-menu__item">
+                            <span class="header__catalog-menu__item-title">Охота<i class="fal fa-chevron-right open"></i></span>
+                            <ul class="header__catalog-menu__submenu">
+                                <li class="header__catalog-menu__submenu-item"><a href="#">оптика</a></li>
+                                <li class="header__catalog-menu__submenu-item"><a href="#">кронштейны и крепления</a></li>
+                                <li class="header__catalog-menu__submenu-item"><a href="#">манки, приманки и маскировка</li>
+                                <li class="header__catalog-menu__submenu-item"><a href="#">ножи</a></li>
+                                <li class="header__catalog-menu__submenu-item"><a href="#">пневматика</a></li>
+                                <li class="header__catalog-menu__submenu-item"><a href="#">чехлы и кейсы</a></li>
+                                <li class="header__catalog-menu__submenu-item"><a href="#">чучело</a></li>
+                                <li class="header__catalog-menu__submenu-item"><a href="#">все товары</a></li>
+                            </ul>
+                        </li>
+                        <li class="header__catalog-menu__item">
+                            <span class="header__catalog-menu__item-title">Туризм<i class="fal fa-chevron-right open"></i></span>
+                            <ul class="header__catalog-menu__submenu">
+                                <li class="header__catalog-menu__submenu-item"><a href="#">лодки и принадлежности</a></li>
+                                <li class="header__catalog-menu__submenu-item"><a href="#">палатки</a></li>
+                                <li class="header__catalog-menu__submenu-item"><a href="#">туристическая мебель</a></li>
+                                <li class="header__catalog-menu__submenu-item"><a href="#">навигаторы</a></li>
+                                <li class="header__catalog-menu__submenu-item"><a href="#">все товары</a></li>
+                            </ul>
+                        </li>
+                        <li class="header__catalog-menu__item">
+                            <span class="header__catalog-menu__item-title">Одежда<i class="fal fa-chevron-right open"></i></span>
+                            <ul class="header__catalog-menu__submenu">
+                                <li class="header__catalog-menu__submenu-item"><a href="#">летняя</a></li>
+                                <li class="header__catalog-menu__submenu-item"><a href="#">зимняя</a></li>
+                                <li class="header__catalog-menu__submenu-item"><a href="#">демисизонная</a></li>
+                                <li class="header__catalog-menu__submenu-item"><a href="#">все товары</a></li>
+                            </ul>
+                        </li>
+                        <li class="header__catalog-menu__item">
+                            <span class="header__catalog-menu__item-title">Обувь<i class="fal fa-chevron-right open"></i></span>
+                            <ul class="header__catalog-menu__submenu">
+                                <li class="header__catalog-menu__submenu-item"><a href="#">летняя</a></li>
+                                <li class="header__catalog-menu__submenu-item"><a href="#">зимняя</a></li>
+                                <li class="header__catalog-menu__submenu-item"><a href="#">демисизонная</a></li>
+                                <li class="header__catalog-menu__submenu-item"><a href="#">все товары</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-2 d-md-none header-bottom__icon">
+                    <a href="#" class="header-bottom__icon-btn"><i class="fal fa-phone"></i></a>
+                </div>
+                <div class="col-2 col-md-8 col-lg-9 header-bottom__icon">
+                    <div class="search">
+                        <button class="d-md-none header-bottom__icon-btn search-panel__go"><i class="fal fa-search"></i></button>
+                        <div class="search-panel d-md-none">
+                            <input type="text" class="search-panel__input" placeholder="Поиск среди 100 500 товаров">
+                            <button class="search-panel__close header-bottom__icon-btn"><i class="fal fa-times"></i></button>
+                        </div>
+                    </div>
+                    <div class="d-none d-md-flex header__search">
+                        <input type="text" class="header__search-input" placeholder="Поиск товара">
+                        <button class="header__search-btn">SEARCH</button>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-3 col-sm-5 col-md-4 col-lg-3">
-                        <button class="header__catalog"><i class="fas fa-bars"></i><span class="d-none d-sm-inline">&nbsp;КАТАЛОГ</span></button>
-                        <ul class="header__catalog-menu">
-                            <li class="header__catalog-menu__item">
-                                <span class="header__catalog-menu__item-title">Рыбалка</span>
-                                <ul class="header__catalog-menu__submenu">
-                                    <li class="header__catalog-menu__submenu-item"><a href="#">летняя</a></li>
-                                    <li class="header__catalog-menu__submenu-item"><a href="#">зимняя</a></li>
-                                    <li class="header__catalog-menu__submenu-item"><a href="#">все товары</a></li>
-                                </ul>
-                            </li>
-                            <li class="header__catalog-menu__item">
-                                <span class="header__catalog-menu__item-title">Охота</span>
-                                <ul class="header__catalog-menu__submenu">
-                                    <li class="header__catalog-menu__submenu-item"><a href="#">оптика</a></li>
-                                    <li class="header__catalog-menu__submenu-item"><a href="#">кронштейны и крепления</a></li>
-                                    <li class="header__catalog-menu__submenu-item"><a href="#">манки, приманки и маскировка</li>
-                                        <li class="header__catalog-menu__submenu-item"><a href="#">ножи</a></li>
-                                    <li class="header__catalog-menu__submenu-item"><a href="#">пневматика</a></li>
-                                    <li class="header__catalog-menu__submenu-item"><a href="#">чехлы и кейсы</a></li>
-                                    <li class="header__catalog-menu__submenu-item"><a href="#">чучело</a></li>
-                                    <li class="header__catalog-menu__submenu-item"><a href="#">все товары</a></li>
-                                </ul>
-                            </li>
-                            <li class="header__catalog-menu__item">
-                                <span class="header__catalog-menu__item-title">Туризм</span>
-                                <ul class="header__catalog-menu__submenu">
-                                    <li class="header__catalog-menu__submenu-item"><a href="#">лодки и принадлежности</a></li>
-                                    <li class="header__catalog-menu__submenu-item"><a href="#">палатки</a></li>
-                                    <li class="header__catalog-menu__submenu-item"><a href="#">туристическая мебель</a></li>
-                                    <li class="header__catalog-menu__submenu-item"><a href="#">навигаторы</a></li>
-                                    <li class="header__catalog-menu__submenu-item"><a href="#">все товары</a></li>
-                                </ul>
-                            </li>
-                            <li class="header__catalog-menu__item">
-                                <span class="header__catalog-menu__item-title">Одежда</span>
-                                <ul class="header__catalog-menu__submenu">
-                                    <li class="header__catalog-menu__submenu-item"><a href="#">летняя</a></li>
-                                    <li class="header__catalog-menu__submenu-item"><a href="#">зимняя</a></li>
-                                    <li class="header__catalog-menu__submenu-item"><a href="#">демисизонная</a></li>
-                                    <li class="header__catalog-menu__submenu-item"><a href="#">все товары</a></li>
-                                </ul>
-                            </li>
-                            <li class="header__catalog-menu__item">
-                                <span class="header__catalog-menu__item-title">Обувь</span>
-                                <ul class="header__catalog-menu__submenu">
-                                    <li class="header__catalog-menu__submenu-item"><a href="#">летняя</a></li>
-                                    <li class="header__catalog-menu__submenu-item"><a href="#">зимняя</a></li>
-                                    <li class="header__catalog-menu__submenu-item"><a href="#">демисизонная</a></li>
-                                    <li class="header__catalog-menu__submenu-item"><a href="#">все товары</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-9 col-sm-7 col-md-8 col-lg-9">
-                        <div class="header__search">
-                            <input type="text" class="header__search-input" placeholder="Поиск товара">
-                            <button class="header__search-btn">SEARCH</button>
-                        </div>
-                    </div>
+                <div class="col-2 d-md-none header-bottom__icon">
+                    <a href="basket.html" class="header-bottom__icon-btn"><i class="fal fa-shopping-basket"></i></a>
                 </div>
             </div>
         </div>
+        
     </header>
     <main>
         <section class="breadcrumbs">
