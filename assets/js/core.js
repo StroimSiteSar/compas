@@ -22,7 +22,6 @@ function Counter(number) {
 }
 
 //Класс Слайдер, на вход которого подаются: количество слайдов, стартовое значение
-//
 //Таймер: автопереключение В СЕКУНДАХ(если не нужен, просто подать 0)!!!
 function Slider(quantity, number = 0) {
     Counter.apply(this);
@@ -82,7 +81,10 @@ function EasySlider(items, number = 0, time, btnPrev, btnNext) {
         setInterval(() => this.display(), time*1000);
     }
 }
-
+//В данном счетчике используется:
+//1) кнопочное переключение, 2) возможность задать стартовое значение
+//Подается: первичный итем, инпут отображения, и кнопочки итерации
+//На выходе получаем самый простой счетчик, который при необходимости может отдавать команду при изменении значения
 function EasyCounter(number, display, btnPlus, btnMinus) {
     Counter.apply(this, [number]);
     const that = this;
@@ -97,26 +99,30 @@ function EasyCounter(number, display, btnPlus, btnMinus) {
         that.display();
     }
     
-    this.display = () => (that.getCount() >= 0) ? display.innerText = that.getCount() : display.innerText = '0';
+    this.display = function() {
+        (that.getCount() >= 0) ? display.value = that.getCount() : display.value = '0';
+        display.onchange();
+    }
 }
 
 
 //Для всех страниц
 document.addEventListener('DOMContentLoaded', function () {
     //Обработка событий на шапке
+    //Кнопка "Каталог"
     let headerCatalogBtn = document.querySelector('.header__catalog');
     
     headerCatalogBtn.onclick = function() {
         this.classList.toggle('active');
     }
-    
+    //Сэндвич меню в шапке мобильной версии
     let sandwich = document.querySelector('.header__sandwich');
     let headerNav = document.querySelector('.header__nav');
     
     sandwich.onclick = function() {
         headerNav.classList.toggle('d-none');
     }
-    
+    //Поисковая строка в мобильной версии
     let search = document.querySelector('.search');
     let searchGo = document.querySelector('.search-panel__go');
     let searchClose = document.querySelector('.search-panel__close');
@@ -138,16 +144,15 @@ document.addEventListener('DOMContentLoaded', function () {
     
     
     
-    //Счетчики
+    //Счетчики: определяем все счетчики на странице.
     let counterTablets = document.querySelectorAll('.counter-tablet');
     
     for (let i = 0; i < counterTablets.length; i++ ) {
         let counterPlus = counterTablets[i].nextElementSibling;
         let counterMinus = counterTablets[i].previousElementSibling;
+        counterTablets[i].onchange = function() {return null}
         
-        console.log(counterTablets, counterPlus, counterMinus);
-        
-        var counter = new EasyCounter(counterTablets[i].innerHTML, counterTablets[i], counterPlus, counterMinus);
+        const counter = new EasyCounter(counterTablets[i].value, counterTablets[i], counterPlus, counterMinus);
     }
 });
 
@@ -178,6 +183,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
 //JS for productpage
 document.addEventListener('DOMContentLoaded', function () {
+    //Геллерея
+    let galleryModal = document.querySelector('.productpage-gallery');
+    let galleryBtnOpen = document.querySelector('.productpage-img__btn');
+    let galleryWrapper = document.querySelector('.productpage-gallery__wrapper');
+    let galleryItems = document.querySelectorAll('.productpage-gallery__item');
+    let galleryBtnClose = document.querySelector('.productpage-gallery__btn-close');
+    let galleryBtnLeft = document.querySelector('.productpage-gallery__arrows-left');
+    let galleryBtnRight = document.querySelector('.productpage-gallery__arrows-right');
+    
+    galleryBtnOpen.onclick = () => galleryModal.style.display = 'flex';
+    galleryModal.onclick = () => galleryModal.style.display = 'none';
+    galleryBtnClose.onclick = () => galleryModal.style.display = 'none';
+    galleryWrapper.onclick = (ev) => ev.stopPropagation();
+    
+    const productSlider = new EasySlider(galleryItems, 0, 0, galleryBtnLeft, galleryBtnRight);
+    
+    //Описание товара
     let descBtns = document.querySelectorAll('.productpage-desc__points-item');
     let descText = document.querySelectorAll('.productpage-desc__text-item');
     
@@ -187,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function () {
             accordeonClass(descBtns, this);
             accordeonClass(descText, descText[this.id]);
         }
-    } 
+    }
 });
 
 //JS для главной страницы
@@ -240,4 +262,59 @@ document.addEventListener('DOMContentLoaded', function () {
             accordeonClass(categoryesText, categoryesText[this.id]);
         }
     }
+});
+
+//JS for basket
+document.addEventListener('DOMContentLoaded', function () {
+    let counterTablets = document.querySelectorAll('.counter-tablet');
+    let totalCost = document.querySelector('.basket-bottom__info-cost .num');
+    let localCost = document.querySelectorAll('.basket-table__item-cost .num');
+    
+    function totalSum() {
+        totalCost.innerText = '0';
+        for (let i = 0; i < localCost.length; i++ ) {
+            totalCost.innerText = +totalCost.innerText + +localCost[i].innerText;
+        }
+    }
+    
+    counterTablets.forEach(function(item) {
+        let priceNum = item.parentNode.parentNode.querySelector('.basket-table__item-price .num');
+        let costNum = item.parentNode.parentNode.querySelector('.basket-table__item-cost .num');
+        
+        if (costNum) {
+            item.onchange = function() {
+                let quantity = +item.value;
+                costNum.innerText = +priceNum.innerText * quantity;
+                totalSum();
+            }
+        }
+    });
+    
+    totalSum();
+    
+    let basketDropBtns = document.querySelectorAll('.basket-table__item-cansel');
+    let quantityOfProducts = basketDropBtns.length;
+    
+    basketDropBtns.forEach(function(item){
+        item.onclick = function(){
+            this.parentNode.parentNode.remove();
+            quantityOfProducts--;
+            console.log(quantityOfProducts);
+            totalSum();
+        } 
+//        item.onclick = () => this.parentNode.parentNode.delete();
+    });
+    
+    let basketProgressFields = document.querySelectorAll('.basket-progress__box-item');
+    let basketContainers = document.querySelectorAll('.basket-container');
+    let basketBtnNext = document.querySelector('.basket-bottom__btn-next');
+    
+    basketBtnNext.number = 1;
+    
+    basketBtnNext.onclick = function() {
+        accordeonClass(basketProgressFields, basketProgressFields[basketBtnNext.number]);
+        accordeonClass(basketContainers, basketContainers[basketBtnNext.number]);
+        basketBtnNext.number++;
+    }
+    
 });
