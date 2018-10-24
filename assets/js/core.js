@@ -119,9 +119,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let sandwich = document.querySelector('.header__sandwich');
     let headerNav = document.querySelector('.header__nav');
     
-    sandwich.onclick = function() {
-        headerNav.classList.toggle('d-none');
-    }
+    sandwich.onclick = () => headerNav.classList.toggle('d-none');
+    
     //Поисковая строка в мобильной версии
     let search = document.querySelector('.search');
     let searchGo = document.querySelector('.search-panel__go');
@@ -199,6 +198,12 @@ document.addEventListener('DOMContentLoaded', function () {
     
     const productSlider = new EasySlider(galleryItems, 0, 0, galleryBtnLeft, galleryBtnRight);
     
+    //Кнопочка купить
+    
+    let galleryBtnBuy = document.querySelector('.productpage-panel__props-btn');
+    
+    galleryBtnBuy.onclick =() => alert('Добавлено в корзину!');
+    
     //Описание товара
     let descBtns = document.querySelectorAll('.productpage-desc__points-item');
     let descText = document.querySelectorAll('.productpage-desc__text-item');
@@ -221,13 +226,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let sliderSliderPrev = document.querySelector('.slider__arrow-left');
     let sliderSliderNext = document.querySelector('.slider__arrow-right');
     
-    const sliderSlider = new EasySlider(
-        sliderSlides, 
-        2,
-        3,
-        sliderSliderPrev, 
-        sliderSliderNext
-    );
+    const sliderSlider = new EasySlider(sliderSlides, 2, 3, sliderSliderPrev, sliderSliderNext);
     
     sliderSlider.display();
     
@@ -241,13 +240,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let clone = specialSlides[0].cloneNode(true);
     specialSlides[0].parentNode.appendChild(clone);
     
-    const specialSlider = new EasySlider(
-        specialSlides, 
-        2,
-        6,
-        specialSliderPrev, 
-        specialSliderNext
-    );
+    const specialSlider = new EasySlider(specialSlides, 2, 6, specialSliderPrev, specialSliderNext);
     
     specialSlider.display();
     
@@ -264,6 +257,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+
+//НЕОБХОДИМЫ СЕРЕЗНЫЕ РАБОТЫ ПО СОЗДАНИЮ ОБЪЕКТА КОРЗИНЫ
 //JS for basket
 document.addEventListener('DOMContentLoaded', function () {
     let counterTablets = document.querySelectorAll('.counter-tablet');
@@ -299,10 +294,8 @@ document.addEventListener('DOMContentLoaded', function () {
         item.onclick = function(){
             this.parentNode.parentNode.remove();
             quantityOfProducts--;
-            console.log(quantityOfProducts);
             totalSum();
-        } 
-//        item.onclick = () => this.parentNode.parentNode.delete();
+        }
     });
     
     let basketProgressFields = document.querySelectorAll('.basket-progress__box-item');
