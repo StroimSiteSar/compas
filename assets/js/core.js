@@ -349,5 +349,37 @@ document.addEventListener('DOMContentLoaded', function () {
         accordeonClass(basketContainers, basketContainers[basketBtnNext.number]);
         basketBtnNext.number++;
     }
-
+    
+    function Pull(...products) {
+        this.getProducts = () => console.log(products);
+    }
+    
+    
+    let basket = document.querySelector('.basket');
+    let products = document.querySelectorAll('.basket-table__item-row');
+    
+    function Basket(obj, products, orderNumber) {
+        const basket = obj;
+        let items = products;
+        let orderN = orderNumber;
+        
+        this.state = {
+            status: 0,
+            quantity: items.length,
+            totalCost: 0,
+            person: {
+                name: '',
+                phone: '',
+                email: ''
+            },
+            delivery: false
+        }
+        
+        Pull.apply(this, products);
+        
+    }
+    
+    const newBasket = new Basket(basket, products, '023');
+    
+    console.log(newBasket.getProducts());
 });
