@@ -1445,6 +1445,8 @@ main {
             
             &-arrows {
                 width: 3em;
+                display: inline-flex;
+                justify-content: space-between;
                 .arrow {
                     font-size: 3em;
                 }
@@ -1463,11 +1465,14 @@ main {
             &-group {
                 position: relative;
                 overflow: hidden;
+                padding: 0;
             }
             
             &-wrapper {
                 flex-wrap: nowrap;
                 position: relative;
+                margin: 0;
+                transition: .4s;
             }
         }
         

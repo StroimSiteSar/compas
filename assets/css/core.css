@@ -1657,7 +1657,13 @@ main {
       padding: 1vw;
       color: #004d73; }
     .catalog-content__category-arrows {
-      width: 3em; }
+      width: 3em;
+      display: -webkit-inline-box;
+      display: -ms-inline-flexbox;
+      display: inline-flex;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between; }
       .catalog-content__category-arrows .arrow {
         font-size: 3em; }
     .catalog-content__category-more {
@@ -1694,11 +1700,15 @@ main {
       margin-left: 3em; }
     .catalog-content__category-group {
       position: relative;
-      overflow: hidden; }
+      overflow: hidden;
+      padding: 0; }
     .catalog-content__category-wrapper {
       -ms-flex-wrap: nowrap;
           flex-wrap: nowrap;
-      position: relative; }
+      position: relative;
+      margin: 0;
+      -webkit-transition: .4s;
+      transition: .4s; }
     .catalog-content__item {
       display: -moz-flex;
       display: -ms-flex;
