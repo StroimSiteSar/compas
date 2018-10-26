@@ -82,7 +82,7 @@ function EasySlider(items, number = 0, time, btnPrev, btnNext) {
     }
 }
 //В данном счетчике используется:
-//1) кнопочное переключение, 2) возможность задать стартовое значение
+//1) кнопочное переключение, 2) возможность задать стартовое значение 3) только положительные числа
 //Подается: первичный итем, инпут отображения, и кнопочки итерации
 //На выходе получаем самый простой счетчик, который при необходимости может отдавать команду при изменении значения
 function EasyCounter(number, display, btnPlus, btnMinus) {
@@ -100,7 +100,7 @@ function EasyCounter(number, display, btnPlus, btnMinus) {
     }
 
     this.display = function() {
-        (that.getCount() >= 0) ? display.value = that.getCount() : display.value = '0';
+        (that.getCount() >= 0) ? display.value = that.getCount() : (display.value = '0', that.setCount(0));
         display.onchange();
     }
 }
@@ -140,15 +140,13 @@ document.addEventListener('DOMContentLoaded', function () {
         return searchActive = false;
     }
 
-
-
     //Счетчики: определяем все счетчики на странице.
     let counterTablets = document.querySelectorAll('.counter-tablet');
 
     for (let i = 0; i < counterTablets.length; i++ ) {
         let counterPlus = counterTablets[i].nextElementSibling;
         let counterMinus = counterTablets[i].previousElementSibling;
-        counterTablets[i].onchange = function() {return null}
+        counterTablets[i].onchange = () => alert('display working!');
 
         const counter = new EasyCounter(counterTablets[i].value, counterTablets[i], counterPlus, counterMinus);
     }
@@ -301,42 +299,12 @@ document.addEventListener('DOMContentLoaded', function () {
 //НЕОБХОДИМЫ СЕРЬЕЗНЫЕ РАБОТЫ ПО СОЗДАНИЮ ОБЪЕКТА КОРЗИНЫ
 //JS for basket
 document.addEventListener('DOMContentLoaded', function () {
-    let counterTablets = document.querySelectorAll('.counter-tablet');
-    let totalCost = document.querySelector('.basket-bottom__info-cost .num');
-    let localCost = document.querySelectorAll('.basket-table__item-cost .num');
-
-    function totalSum() {
-        totalCost.innerText = '0';
-        for (let i = 0; i < localCost.length; i++ ) {
-            totalCost.innerText = +totalCost.innerText + +localCost[i].innerText;
-        }
-    }
-
-    counterTablets.forEach(function(item) {
-        let priceNum = item.parentNode.parentNode.querySelector('.basket-table__item-price .num');
-        let costNum = item.parentNode.parentNode.querySelector('.basket-table__item-cost .num');
-
-        if (costNum) {
-            item.onchange = function() {
-                let quantity = +item.value;
-                costNum.innerText = +priceNum.innerText * quantity;
-                totalSum();
-            }
-        }
-    });
-
-    totalSum();
-
-    let basketDropBtns = document.querySelectorAll('.basket-table__item-cansel');
-    let quantityOfProducts = basketDropBtns.length;
-
-    basketDropBtns.forEach(function(item){
-        item.onclick = function(){
-            this.parentNode.parentNode.remove();
-            quantityOfProducts--;
-            totalSum();
-        }
-    });
+//    function totalSum() {
+//        totalCost.innerText = '0';
+//        for (let i = 0; i < localCost.length; i++ ) {
+//            totalCost.innerText = +totalCost.innerText + +localCost[i].innerText;
+//        }
+//    }
 
     let basketProgressFields = document.querySelectorAll('.basket-progress__box-item');
     let basketContainers = document.querySelectorAll('.basket-container');
@@ -350,8 +318,52 @@ document.addEventListener('DOMContentLoaded', function () {
         basketBtnNext.number++;
     }
     
-    function Pull(...products) {
-        this.getProducts = () => console.log(products);
+    function Product(item, addChanges) {
+        let cost = +item.costDisplay.innerText || 0;
+        let that = this;
+        
+        this.setCost = () => cost = item.price*item.counter.value;
+        
+        item.counter.onchange = () => {
+            that.setCost();
+            item.costDisplay.innerText = cost;
+            this.refresh();
+            
+            return newBasket.setChanges();
+        }
+        
+        this.getCost = () => cost;
+        
+        item.close.onclick = function() {
+            item.product.remove();
+        }
+        
+        this.refresh = () => addChanges(item.id, cost, +item.counter.value);
+    }
+    
+    function Step1(...products) {
+        const costs = [];
+        const quantityes = [];
+        function addChanges(index, cost, quantity) {
+            costs[index] = cost;
+            quantityes[index] = quantity;
+        }
+        
+        products.forEach(function(item){
+            const basketItem = {
+                product: item,
+                counter: item.querySelector('.counter-tablet'),
+                price: +item.querySelector('.basket-table__item-price .num').innerText,
+                close: item.querySelector('.basket-table__item-cansel'),
+                costDisplay: item.querySelector('.basket-table__item-cost .num'),
+                id: products.indexOf(item)
+            }
+            const newProduct = new Product(basketItem, addChanges);
+            newProduct.refresh();
+        });
+        
+        this.getCosts = () => costs;
+        this.getQuantityes = () => quantityes;
     }
     
     
@@ -363,10 +375,11 @@ document.addEventListener('DOMContentLoaded', function () {
         let items = products;
         let orderN = orderNumber;
         
+        //Свойства, которые необходимо отображать
         this.state = {
             status: 0,
-            quantity: items.length,
-            totalCost: 0,
+            totalQuantity: 0,    //Берется значение из Шага 1
+            totalCost: 0,   //Берется значение из Шага 1
             person: {
                 name: '',
                 phone: '',
@@ -375,11 +388,24 @@ document.addEventListener('DOMContentLoaded', function () {
             delivery: false
         }
         
-        Pull.apply(this, products);
+        Step1.apply(this, products);
         
+        this.setChanges = function() {
+            let totalCost = 0;
+            this.getCosts().forEach((cost)=>totalCost = totalCost+cost);
+            this.state.totalCost = totalCost;
+            
+            let totalQuantity = 0;
+            this.getQuantityes().forEach((quantity) => totalQuantity = totalQuantity + quantity);
+            this.state.totalQuantity = totalQuantity;
+            
+            return  this.refresh();
+        };
+        
+        this.refresh = () => console.log(this.state.totalCost, this.state.totalQuantity);
     }
     
     const newBasket = new Basket(basket, products, '023');
     
-    console.log(newBasket.getProducts());
+    console.log();
 });
