@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function () {
     for (let i = 0; i < counterTablets.length; i++ ) {
         let counterPlus = counterTablets[i].nextElementSibling;
         let counterMinus = counterTablets[i].previousElementSibling;
-        counterTablets[i].onchange = () => alert('display working!');
+        counterTablets[i].onchange = () => null;
 
         const counter = new EasyCounter(counterTablets[i].value, counterTablets[i], counterPlus, counterMinus);
     }
@@ -298,33 +298,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
 //НЕОБХОДИМЫ СЕРЬЕЗНЫЕ РАБОТЫ ПО СОЗДАНИЮ ОБЪЕКТА КОРЗИНЫ
 //JS for basket
-document.addEventListener('DOMContentLoaded', function () {
-//    function totalSum() {
-//        totalCost.innerText = '0';
-//        for (let i = 0; i < localCost.length; i++ ) {
-//            totalCost.innerText = +totalCost.innerText + +localCost[i].innerText;
-//        }
-//    }
-
-    let basketProgressFields = document.querySelectorAll('.basket-progress__box-item');
-    let basketContainers = document.querySelectorAll('.basket-container');
-    let basketBtnNext = document.querySelector('.basket-bottom__btn-next');
-
-    basketBtnNext.number = 1;
-
-    basketBtnNext.onclick = function() {
-        accordeonClass(basketProgressFields, basketProgressFields[basketBtnNext.number]);
-        accordeonClass(basketContainers, basketContainers[basketBtnNext.number]);
-        basketBtnNext.number++;
-    }
-    
+document.addEventListener('DOMContentLoaded', function () {    
     function Product(item, addChanges) {
         let cost = +item.costDisplay.innerText || 0;
+        let quantity = +item.counter.value;
         let that = this;
         
-        this.setCost = () => cost = item.price*item.counter.value;
+        this.getQuantity = () => quantity = +item.counter.value;
+        this.setCost = () => cost = item.price*quantity;
+        this.getCost = () => cost;
         
         item.counter.onchange = () => {
+            quantity = this.getQuantity();
             that.setCost();
             item.costDisplay.innerText = cost;
             this.refresh();
@@ -332,18 +317,22 @@ document.addEventListener('DOMContentLoaded', function () {
             return newBasket.setChanges();
         }
         
-        this.getCost = () => cost;
-        
         item.close.onclick = function() {
             item.product.remove();
+            quantity = 0;
+            cost = 0;
+            that.refresh();
+            
+            return newBasket.setChanges();
         }
         
-        this.refresh = () => addChanges(item.id, cost, +item.counter.value);
+        this.refresh = () => addChanges(item.id, cost, quantity);
     }
     
-    function Step1(...products) {
+    function Step1(callback, ...products) {
         const costs = [];
         const quantityes = [];
+        
         function addChanges(index, cost, quantity) {
             costs[index] = cost;
             quantityes[index] = quantity;
@@ -364,8 +353,38 @@ document.addEventListener('DOMContentLoaded', function () {
         
         this.getCosts = () => costs;
         this.getQuantityes = () => quantityes;
+        
+        function reverseFlow() {return callback()};
     }
     
+    function StatusBar(basket, props) {
+        const basketProgressBar = basket.querySelectorAll('.basket-progress__box-item');
+        const basketActivePlace = basket.querySelectorAll('.basket-container');
+        const basketItemsQuantity = basket.querySelectorAll('.quantity');
+        const basketTotalCost = basket.querySelector('.total-cost')
+        
+        let quantity = props.totalQuantity;
+        
+        this.refresh = function() {
+            console.log(this.state.totalCost, this.state.totalQuantity);
+            
+            accordeonClass(basketProgressBar, basketProgressBar[this.state.status]);
+            
+            accordeonClass(basketActivePlace, basketActivePlace[this.state.status]);
+            
+            basketTotalCost.innerHTML = props.totalCost;
+            
+            basketItemsQuantity.forEach(function(text){
+                if (/[0,2-9][1]$/.test(props.totalQuantity)) {
+                    return text.innerHTML = `${props.totalQuantity} товар`;
+                } else if (/[0,2-9][2-4]$/.test(props.totalQuantity)) {
+                    return text.innerHTML = `${props.totalQuantity} товара`;
+                } else {
+                    return text.innerHTML = `${props.totalQuantity} товаров`;
+                }
+            })
+        }
+    }
     
     let basket = document.querySelector('.basket');
     let products = document.querySelectorAll('.basket-table__item-row');
@@ -374,6 +393,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const basket = obj;
         let items = products;
         let orderN = orderNumber;
+        let that=this;
         
         //Свойства, которые необходимо отображать
         this.state = {
@@ -388,8 +408,6 @@ document.addEventListener('DOMContentLoaded', function () {
             delivery: false
         }
         
-        Step1.apply(this, products);
-        
         this.setChanges = function() {
             let totalCost = 0;
             this.getCosts().forEach((cost)=>totalCost = totalCost+cost);
@@ -402,10 +420,24 @@ document.addEventListener('DOMContentLoaded', function () {
             return  this.refresh();
         };
         
-        this.refresh = () => console.log(this.state.totalCost, this.state.totalQuantity);
+        Step1.apply(this, [this.setChanges, ...products]);
+        
+        StatusBar.apply(this, [basket, this.state]);
+        
+        //Переход к следующему шагу корзины
+        const switchStatusBtn = basket.querySelector('.basket-bottom__btn-next');
+        switchStatusBtn.onclick = () => {
+            if (this.state.status === 0 && this.state.totalQuantity === 0) {
+                return this.refresh();
+            }
+            
+            this.state.status++;
+            return this.refresh();
+        }
     }
     
     const newBasket = new Basket(basket, products, '023');
+    newBasket.setChanges();
     
     console.log();
 });
