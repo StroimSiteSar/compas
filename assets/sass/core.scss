@@ -1154,13 +1154,17 @@ main {
         margin: 10px 0;
         
         &__container {
-            display: flex;
+            display: none;
             justify-content: space-between;
             align-items: center;
             flex-direction: column-reverse;
             
             &-right {
                 display: inline-flex;
+            }
+            
+            &.active {
+                display: flex;
             }
         }
         
@@ -1193,8 +1197,17 @@ main {
             margin: 10px 0;
             
             &-next {
-                background-color: $cl_green;
+                background-color: $cl_red;
                 color: $cl_white;
+                
+                &.step2 {
+                    background-color: $cl_green;
+                    
+                    &[disabled="disabled"] {
+                        opacity: 0.6;
+                        cursor: default;
+                    }
+                }
             }
             
             &-back {
@@ -1255,6 +1268,14 @@ main {
             &-input {
                 background-color: $cl_light-blue;
                 padding: 0 15px;
+                
+                &[valid="false"] {
+                    outline: 2px solid rgba(255, 0, 0, 0.3);
+                }
+                
+                &[valid="true"] {
+                    outline: 2px solid rgba(0, 255, 0, 0.3);
+                }
             }
         }
         

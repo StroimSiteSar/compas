@@ -295,8 +295,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-
-//НЕОБХОДИМЫ СЕРЬЕЗНЫЕ РАБОТЫ ПО СОЗДАНИЮ ОБЪЕКТА КОРЗИНЫ
 //JS for basket
 document.addEventListener('DOMContentLoaded', function () {    
     function Product(item, addChanges) {
@@ -357,13 +355,59 @@ document.addEventListener('DOMContentLoaded', function () {
         function reverseFlow() {return callback()};
     }
     
+    function Step2() {
+        let valid = false;
+        let delivery = false;
+        const basketForm = basket.querySelector('.basket-data');
+        const deliveryBtns = basket.querySelectorAll('.basket-data__radio-btn');
+        const formFields = basketForm.querySelectorAll('.basket-data__form input');
+        const chechConfidanse = basketForm.querySelector('input[name="confidance"]');
+        let that=this;
+        
+        for (let i=1; i<deliveryBtns.length; i++) {
+            deliveryBtns[i].onclick = () => delivery = true;
+        }
+        
+        this.required = (selector) => (selector.value === '') ? false : true;
+        
+        this.requiredEmail = (selector) => /^([a-z0-9\.\+_%-]+@[a-z0-9]+\.[a-z]{2,4})$/i.test(selector.value);
+        
+        this.requiredPhone = (selector) => /^((\+?[7-8]?[^\w\s]?[8-9]\d{2}[^\w\s]?\d{1})?([^\w\s]?\d{2}){3})$/.test(selector.value);
+        
+        chechConfidanse.onclick = () => {
+            formFields.forEach(function(input) {
+                if (input.getAttribute("name") === "email") {
+                    input.setAttribute('valid', that.requiredEmail(input));
+                    return valid = valid && that.requiredEmail(input);
+                }
+                if (input.getAttribute("name") === "phone") {
+                    input.setAttribute('valid', that.requiredPhone(input));
+                    return valid = valid && that.requiredPhone(input);
+                }
+                if (input.getAttribute("name") === "comment") {
+                    input.setAttribute('valid', true);
+                    return valid = valid && true;
+                }
+                if (input.getAttribute("name") === "adress" && delivery) {
+                    input.setAttribute('valid', that.required(input));
+                    return valid = valid && that.required(input);
+                }
+                input.setAttribute('valid', that.required(input));
+                return valid = valid && that.required(input);
+            })
+            return console.log(valid);
+        }
+        
+        
+    }
+    
     function StatusBar(basket, props) {
         const basketProgressBar = basket.querySelectorAll('.basket-progress__box-item');
         const basketActivePlace = basket.querySelectorAll('.basket-container');
+        const basketBottom = basket.querySelectorAll('.basket-bottom__container');
         const basketItemsQuantity = basket.querySelectorAll('.quantity');
-        const basketTotalCost = basket.querySelector('.total-cost')
-        
-        let quantity = props.totalQuantity;
+        const basketTotalCost = basket.querySelectorAll('.total-cost');
+        const basketBtnBack = basket.querySelector('.basket-bottom__btn-back');
         
         this.refresh = function() {
             console.log(this.state.totalCost, this.state.totalQuantity);
@@ -372,12 +416,18 @@ document.addEventListener('DOMContentLoaded', function () {
             
             accordeonClass(basketActivePlace, basketActivePlace[this.state.status]);
             
-            basketTotalCost.innerHTML = props.totalCost;
+            accordeonClass(basketBottom, basketBottom[this.state.status]);
+            
+            basketTotalCost.forEach(function(text){
+                text.innerHTML = props.totalCost;
+            })
             
             basketItemsQuantity.forEach(function(text){
-                if (/[0,2-9][1]$/.test(props.totalQuantity)) {
+                if (/[1][\d]$/.test(props.totalQuantity)){
+                    return text.innerHTML = `${props.totalQuantity} товаров`;
+                } else if (/[1]$/.test(props.totalQuantity)) {
                     return text.innerHTML = `${props.totalQuantity} товар`;
-                } else if (/[0,2-9][2-4]$/.test(props.totalQuantity)) {
+                } else if (/[2-4]$/.test(props.totalQuantity)) {
                     return text.innerHTML = `${props.totalQuantity} товара`;
                 } else {
                     return text.innerHTML = `${props.totalQuantity} товаров`;
@@ -405,6 +455,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 phone: '',
                 email: ''
             },
+            valid: true,
             delivery: false
         }
         
@@ -422,17 +473,30 @@ document.addEventListener('DOMContentLoaded', function () {
         
         Step1.apply(this, [this.setChanges, ...products]);
         
+        Step2.apply(this);
+        
         StatusBar.apply(this, [basket, this.state]);
         
         //Переход к следующему шагу корзины
-        const switchStatusBtn = basket.querySelector('.basket-bottom__btn-next');
-        switchStatusBtn.onclick = () => {
-            if (this.state.status === 0 && this.state.totalQuantity === 0) {
-                return this.refresh();
+        const switchStatusBtn = basket.querySelectorAll('.basket-bottom__btn-next');
+        switchStatusBtn.forEach(function(btn){
+            btn.onclick = () => {
+                if (that.state.status === 0 && that.state.totalQuantity === 0) {
+                    return that.refresh();
+                }
+                if (that.state.status === 1 && !that.state.valid) {
+                    return that.refresh();
+                }
+                that.state.status++;
+                return that.refresh();
             }
-            
-            this.state.status++;
-            return this.refresh();
+        });
+        //Возврат в корзину из формы
+        const switchStatusBack = basket.querySelector('button.basket-bottom__btn-back');
+        switchStatusBack.onclick = () => {
+            that.state.status = 0;
+            that.state.delivery = false;
+            return that.refresh();
         }
     }
     

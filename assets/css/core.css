@@ -1373,9 +1373,7 @@ main {
   padding: 30px 0;
   margin: 10px 0; }
   .basket-bottom__container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: none;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
@@ -1390,6 +1388,10 @@ main {
       display: -webkit-inline-box;
       display: -ms-inline-flexbox;
       display: inline-flex; }
+    .basket-bottom__container.active {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
   .basket-bottom__info {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1415,8 +1417,13 @@ main {
     font-size: 13px;
     margin: 10px 0; }
     .basket-bottom__btn-next {
-      background-color: #33a524;
+      background-color: #ff0000;
       color: white; }
+      .basket-bottom__btn-next.step2 {
+        background-color: #33a524; }
+        .basket-bottom__btn-next.step2[disabled="disabled"] {
+          opacity: 0.6;
+          cursor: default; }
     .basket-bottom__btn-back {
       display: -moz-flex;
       display: -ms-flex;
@@ -1503,6 +1510,10 @@ main {
 .basket-data__form-input {
   background-color: #ccdbe3;
   padding: 0 15px; }
+  .basket-data__form-input[valid="false"] {
+    outline: 2px solid rgba(255, 0, 0, 0.3); }
+  .basket-data__form-input[valid="true"] {
+    outline: 2px solid rgba(0, 255, 0, 0.3); }
 .basket-data__conf {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="utf-8">
@@ -221,7 +221,7 @@
                                     <span class="counter-plus counter-box">+</span>
                                 </div>
                                 <div class="col-2 basket-table__item-cell basket-table__item-price"><span class="num">1000</span> Р</div>
-                                <div class="col-2 basket-table__item-cell basket-table__item-cost"><span class="num">2000</span> Р</div>
+                                <div class="col-2 basket-table__item-cell basket-table__item-cost"><span class="num">1000</span> Р</div>
                                 <div class="col basket-table__item-cell">
                                     <span class="basket-table__item-cansel">X</span>
                                 </div>
@@ -270,16 +270,16 @@
                                 <span class="basket-data__form-label basket-data__form-line">Коментарий к заказу</span>
                             </div>
                             <div class="col basket-data__form-col">
-                                <input type="text" class="basket-data__form-input basket-data__form-line">
-                                <input type="text" class="basket-data__form-input basket-data__form-line">
-                                <input type="text" class="basket-data__form-input basket-data__form-line">
-                                <input type="text" class="basket-data__form-input basket-data__form-line">
-                                <input type="text" class="basket-data__form-input basket-data__form-line">
+                                <input type="text" class="basket-data__form-input basket-data__form-line" name="name">
+                                <input type="text" class="basket-data__form-input basket-data__form-line" name="email">
+                                <input type="text" class="basket-data__form-input basket-data__form-line" name="phone">
+                                <input type="text" class="basket-data__form-input basket-data__form-line" name="adress">
+                                <input type="text" class="basket-data__form-input basket-data__form-line" name="comment">
                             </div>
                         </div>
                     </div>
                     <div class="basket-data__conf">
-                        <input type="checkbox" class="basket-data__conf-radio" name="confidance">
+                        <input type="checkbox" class="basket-data__conf-radio" name="confidance" name="check">
                         <label for="confidance" class="basket-data__conf-label">Согласен на обработку персональных данных</label>
                     </div>
                 </div>
@@ -312,19 +312,47 @@
                 </div>
             </div>
             <div class="basket-bottom">
-                <div class="container basket-bottom__container">
-                    <a href="catalog.html" class="basket-bottom__btn basket-bottom__btn basket-bottom__btn basket-bottom__btn-back">Продолжить покупки</a>
+                <div class="container basket-bottom__container active">
+                    <a href="catalog.html" class="basket-bottom__btn basket-bottom__btn-back">Продолжить покупки</a>
                     <div class="basket-bottom__container-right">
                         <div class="basket-bottom__info">
                             <div class="basket-bottom__info-img">
                                 <img src="assets/img/bacsket-hand-img.png" alt="hand">
                             </div>
-                            <div class="d-flex justify-content-between flex-column">
+                            <div class="d-flex justify-content-center flex-column">
                                 <div class="basket-bottom__info-quality"><span class="quantity">N товара</span> на сумму</div>
                                 <div class="basket-bottom__info-cost"><span class="total-cost">5 715</span> Р</div>
                             </div>
                         </div>
-                        <button class="basket-bottom__btn basket-bottom__btn basket-bottom__btn basket-bottom__btn-next">Оформить заказ</button>
+                        <button class="basket-bottom__btn basket-bottom__btn basket-bottom__btn-next">Оформить заказ</button>
+                    </div>
+                </div>
+                <div class="container basket-bottom__container">
+                    <button class="basket-bottom__btn basket-bottom__btn-back">Вернуться в корзину</button>
+                    <div class="basket-bottom__container-right">
+                        <div class="basket-bottom__info">
+                            <div class="basket-bottom__info-img">
+                                <img src="assets/img/bacsket-hand-img.png" alt="hand">
+                            </div>
+                            <div class="d-flex justify-content-center flex-column">
+                                <div class="basket-bottom__info-quality"><span class="quantity">N товара</span> на сумму</div>
+                                <div class="basket-bottom__info-cost"><span class="total-cost">5 715</span> Р</div>
+                            </div>
+                        </div>
+                        <button class="basket-bottom__btn basket-bottom__btn-next step2" disabled="disabled">Завершить заказ</button>
+                    </div>
+                </div>
+                <div class="container basket-bottom__container">
+                    <a href="catalog.html" class="basket-bottom__btn basket-bottom__btn-back">Продолжить покупки</a>
+                    <div class="basket-bottom__container-right">
+                        <div class="basket-bottom__info">
+                            <div class="basket-bottom__info-img">
+                                <img src="assets/img/bacsket-hand-img.png" alt="hand">
+                            </div>
+                            <div class="d-flex justify-content-center flex-column">
+                                <div class="basket-bottom__info-cost">ИТОГО: <span class="total-cost">5 715</span> Р</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
