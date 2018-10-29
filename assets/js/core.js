@@ -355,17 +355,20 @@ document.addEventListener('DOMContentLoaded', function () {
         function reverseFlow() {return callback()};
     }
     
-    function Step2() {
-        let valid = false;
+    function Step2(person) {
         let delivery = false;
         const basketForm = basket.querySelector('.basket-data');
         const deliveryBtns = basket.querySelectorAll('.basket-data__radio-btn');
         const formFields = basketForm.querySelectorAll('.basket-data__form input');
         const chechConfidanse = basketForm.querySelector('input[name="confidance"]');
+        const endBtn = basket.querySelector('.step2');
         let that=this;
         
         for (let i=1; i<deliveryBtns.length; i++) {
-            deliveryBtns[i].onclick = () => delivery = true;
+            deliveryBtns[i].onclick = () => {
+                person.delivery = i;
+                return delivery = true;
+            }
         }
         
         this.required = (selector) => (selector.value === '') ? false : true;
@@ -374,31 +377,43 @@ document.addEventListener('DOMContentLoaded', function () {
         
         this.requiredPhone = (selector) => /^((\+?[7-8]?[^\w\s]?[8-9]\d{2}[^\w\s]?\d{1})?([^\w\s]?\d{2}){3})$/.test(selector.value);
         
-        chechConfidanse.onclick = () => {
+        chechConfidanse.onclick = function() {
+            return this.hasAttribute('checked') ? 
+                (this.setAttribute('checked', ''), endBtn.setAttribute('disabled', 'disabled')) :
+                (this.removeAttribute('checked'), endBtn.removeAttribute('disabled'));
+        }
+        
+        this.validForm = () => {
+            let valid = true;
             formFields.forEach(function(input) {
                 if (input.getAttribute("name") === "email") {
                     input.setAttribute('valid', that.requiredEmail(input));
+                    person.email = input.value;
                     return valid = valid && that.requiredEmail(input);
                 }
                 if (input.getAttribute("name") === "phone") {
                     input.setAttribute('valid', that.requiredPhone(input));
+                    person.phone = input.value;
                     return valid = valid && that.requiredPhone(input);
                 }
                 if (input.getAttribute("name") === "comment") {
                     input.setAttribute('valid', true);
+                    person.comment = input.value;
                     return valid = valid && true;
                 }
-                if (input.getAttribute("name") === "adress" && delivery) {
+                if (input.getAttribute("name") === 'adress') {
+                    !delivery ? input.setAttribute('valid', true) : person.adress = input.value;
                     input.setAttribute('valid', that.required(input));
-                    return valid = valid && that.required(input);
+                    return valid = valid && true;
+                }
+                if (input.getAttribute("name") === "name") {
+                    person.name = input.value;
                 }
                 input.setAttribute('valid', that.required(input));
                 return valid = valid && that.required(input);
-            })
-            return console.log(valid);
+            });
+            return valid;
         }
-        
-        
     }
     
     function StatusBar(basket, props) {
@@ -408,10 +423,15 @@ document.addEventListener('DOMContentLoaded', function () {
         const basketItemsQuantity = basket.querySelectorAll('.quantity');
         const basketTotalCost = basket.querySelectorAll('.total-cost');
         const basketBtnBack = basket.querySelector('.basket-bottom__btn-back');
+        //конечный вывод
+        const basketComplete = basket.querySelector('.basket-complete');
+        const orderNumber = basketComplete.querySelector('.basket-complete__datas-number');
+        const personName = basketComplete.querySelector('.person-name');
+        const personPhone = basketComplete.querySelector('.person-phone');
+        const personEmail = basketComplete.querySelector('.person-email');
+        const orderDelivery = basketComplete.querySelector('.order-delivery');
         
         this.refresh = function() {
-            console.log(this.state.totalCost, this.state.totalQuantity);
-            
             accordeonClass(basketProgressBar, basketProgressBar[this.state.status]);
             
             accordeonClass(basketActivePlace, basketActivePlace[this.state.status]);
@@ -420,7 +440,7 @@ document.addEventListener('DOMContentLoaded', function () {
             
             basketTotalCost.forEach(function(text){
                 text.innerHTML = props.totalCost;
-            })
+            });
             
             basketItemsQuantity.forEach(function(text){
                 if (/[1][\d]$/.test(props.totalQuantity)){
@@ -432,7 +452,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else {
                     return text.innerHTML = `${props.totalQuantity} товаров`;
                 }
-            })
+            });
+            
+            orderNumber.innerHTML = '№ '+props.orderN;
+            personName.innerHTML = props.person.name;
+            personPhone.innerHTML = props.person.phone;
+            personEmail.innerHTML = props.person.email;
+            
+            (props.person.delivery) ? orderDelivery.innerHTML = '+ доставка' : orderDelivery.innerHTML = ' самовывоз';
         }
     }
     
@@ -442,7 +469,6 @@ document.addEventListener('DOMContentLoaded', function () {
     function Basket(obj, products, orderNumber) {
         const basket = obj;
         let items = products;
-        let orderN = orderNumber;
         let that=this;
         
         //Свойства, которые необходимо отображать
@@ -450,13 +476,15 @@ document.addEventListener('DOMContentLoaded', function () {
             status: 0,
             totalQuantity: 0,    //Берется значение из Шага 1
             totalCost: 0,   //Берется значение из Шага 1
+            orderN: orderNumber,
             person: {
                 name: '',
                 phone: '',
-                email: ''
-            },
-            valid: true,
-            delivery: false
+                email: '',
+                adress: '',
+                comment: '',
+                delivery: ''
+            }
         }
         
         this.setChanges = function() {
@@ -473,18 +501,16 @@ document.addEventListener('DOMContentLoaded', function () {
         
         Step1.apply(this, [this.setChanges, ...products]);
         
-        Step2.apply(this);
-        
         StatusBar.apply(this, [basket, this.state]);
         
         //Переход к следующему шагу корзины
-        const switchStatusBtn = basket.querySelectorAll('.basket-bottom__btn-next');
-        switchStatusBtn.forEach(function(btn){
+        const switchStatusBtns = basket.querySelectorAll('.basket-bottom__btn-next');
+        switchStatusBtns.forEach(function(btn){
             btn.onclick = () => {
                 if (that.state.status === 0 && that.state.totalQuantity === 0) {
                     return that.refresh();
                 }
-                if (that.state.status === 1 && !that.state.valid) {
+                if (that.state.status === 1 && !that.validForm()) {
                     return that.refresh();
                 }
                 that.state.status++;
@@ -498,6 +524,8 @@ document.addEventListener('DOMContentLoaded', function () {
             that.state.delivery = false;
             return that.refresh();
         }
+        
+        Step2.apply(this, [this.state.person]);
     }
     
     const newBasket = new Basket(basket, products, '023');

@@ -1513,7 +1513,8 @@ main {
   .basket-data__form-input[valid="false"] {
     outline: 2px solid rgba(255, 0, 0, 0.3); }
   .basket-data__form-input[valid="true"] {
-    outline: 2px solid rgba(0, 255, 0, 0.3); }
+    outline: 2px solid rgba(0, 255, 0, 0.3);
+    background-color: #faffbd; }
 .basket-data__conf {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
