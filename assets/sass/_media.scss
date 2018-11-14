@@ -86,7 +86,6 @@ $extral: 1200px;
             }
         }
         &__catalog {
-            height: 63px;
             color: $cl_blue;
             background-color: $cl_white;
             font-size: 30px;
@@ -110,9 +109,6 @@ $extral: 1200px;
                     }
                 }
             }
-        }
-        &__search {
-            height: 63px;
         }
     }
     .special {
@@ -231,9 +227,14 @@ $extral: 1200px;
     }   
 }
 @media screen and (min-width: $large) {
-    .header__catalog-menu__submenu {
-        width: calc(300% + 90px);
-        columns: 3;
+    .header {
+        &__logo {
+            width: 33%;
+        }
+        &__catalog-menu__submenu {
+            width: calc(300% + 90px);
+            columns: 3;
+        }
     }
     .categoryes-menu {
         height: 220px;

@@ -552,10 +552,16 @@ main {
         -ms-flex-align: center;
             align-items: center;
     font-size: 6vw;
-    color: #004d73;
-    background-color: #ccdbe3; }
+    color: white;
+    background-color: black;
+    opacity: 0.1;
+    position: absolute; }
+    .slider__arrow-right {
+      right: 0; }
+    .slider__arrow:hover {
+      opacity: 0.2; }
   .slider-content {
-    width: 80%;
+    width: 100%;
     height: 30vw;
     max-height: 320px; }
     .slider-content__item {
@@ -2190,7 +2196,6 @@ main {
         text-transform: uppercase;
         font-family: "OpenSansRegular", sans-serif; }
     .header__catalog {
-      height: 63px;
       color: #004d73;
       background-color: white;
       font-size: 30px;
@@ -2209,8 +2214,6 @@ main {
                   columns: 2; }
           .header__catalog-menu__submenu-item {
             font-size: 1em; }
-    .header__search {
-      height: 63px; }
 
   .special-slider__content-column {
     height: 100%;
@@ -2303,6 +2306,8 @@ main {
             justify-content: center;
     overflow-x: visible; } }
 @media screen and (min-width: 992px) {
+  .header__logo {
+    width: 33%; }
   .header__catalog-menu__submenu {
     width: calc(300% + 90px);
     -webkit-columns: 3;
