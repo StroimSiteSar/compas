@@ -396,6 +396,18 @@ body {
             @include center;
         }
     }
+    
+    .scroll-top {
+        position: fixed;
+        right: 10%;
+        bottom: 10%;
+        width: 2vw;
+        height: 2vw;
+        font-size: 2vw;
+        line-height: 0;
+        color: $cl_gray-blue;
+        z-index: 9000;
+    }
 }
 
 main {

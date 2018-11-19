@@ -150,6 +150,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const counter = new EasyCounter(counterTablets[i].value, counterTablets[i], counterPlus, counterMinus);
     }
+    
+    let scrollTop = document.querySelector('.scroll-top');
+    scrollTop.onclick = function() {
+        let i = 0;
+        let scrolling = setInterval(function() {
+            window.scrollBy(0,-100);
+            i++;
+            if (i > 15) {
+                window.scrollTo(0,0);
+                return clearInterval(scrolling);
+            }
+        }, 20);
+    }
 });
 
 //JS for catalog

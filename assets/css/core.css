@@ -451,6 +451,16 @@ body {
       -webkit-box-align: center;
           -ms-flex-align: center;
               align-items: center; }
+  .footer .scroll-top {
+    position: fixed;
+    right: 10%;
+    bottom: 10%;
+    width: 2vw;
+    height: 2vw;
+    font-size: 2vw;
+    line-height: 0;
+    color: #97cef0;
+    z-index: 9000; }
 
 main {
   display: block;
