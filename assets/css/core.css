@@ -434,7 +434,6 @@ body {
     -ms-flex-pack: distribute;
         justify-content: space-around; }
     .footer-social__icon {
-      border: 2px solid white;
       width: 45px;
       height: 45px;
       border-radius: 50%;
@@ -451,6 +450,8 @@ body {
       -webkit-box-align: center;
           -ms-flex-align: center;
               align-items: center; }
+    .footer-social__icon {
+      border: 2px solid white; }
   .footer .scroll-top {
     position: fixed;
     right: 10%;
@@ -2150,6 +2151,74 @@ main {
           display: block; }
         .productpage-desc__text-item > p {
           margin: 1em 0; }
+
+/* ================================ contacts =============================== */
+.contacts .py-2vw {
+  padding-top: 2vw;
+  padding-bottom: 2vw; }
+.contacts-background {
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0 0 6px 1px rgba(30, 15, 0, 0.09);
+          box-shadow: 0 0 6px 1px rgba(30, 15, 0, 0.09);
+  padding-bottom: 2vw; }
+  .contacts-background.p-32vw {
+    padding: 3vw 2vw; }
+.contacts-list {
+  font-size: 1em;
+  list-style-type: none; }
+  .contacts-list__item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    .contacts-list__item div {
+      width: 20%;
+      font-family: "OpenSansRegular", sans-serif; }
+  .contacts-list__item:nth-child(2n) {
+    margin: 1em 0; }
+.contacts .social {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-top: 2vw; }
+  .contacts .social__icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 25px;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+  .contacts .social__icon {
+    color: #97cef0;
+    border: 2px solid #97cef0; }
+.contacts-map {
+  margin-bottom: 1vw; }
 
 @media screen and (min-width: 425px) {
   .categoryes-menu {

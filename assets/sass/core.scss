@@ -70,6 +70,20 @@
         max-width: 90%;
     }
 }
+//@include social;
+@mixin social {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+
+    &__icon {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        font-size: 25px;
+        @include center;
+    }
+}
 
 
 
@@ -383,17 +397,10 @@ body {
     }
     
     &-social {
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
+        @include social;
         
         &__icon {
             border: 2px solid $cl_white;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            font-size: 25px;
-            @include center;
         }
     }
     
@@ -1854,5 +1861,53 @@ main {
     }
 }
 
+/* ================================ contacts =============================== */
+
+.contacts {
+    .py-2vw {
+        padding-top: 2vw;
+        padding-bottom: 2vw;
+    }
+    &-background {
+        @include columnAround;
+        align-items: center;
+        box-shadow: 0 0 6px 1px rgba(30, 15, 0, 0.09);
+        padding-bottom: 2vw;
+        
+        &.p-32vw{
+            padding: 3vw 2vw;
+        }
+    }
+    &-list {
+        font-size: 1em;
+        list-style-type: none;
+
+        &__item {
+            display: flex;
+
+            div {
+                width: 20%;
+                font-family: $OS-R;
+            }
+        }
+
+        &__item:nth-child(2n) {
+            margin: 1em 0;
+        }  
+    }
+    
+    .social {
+        @include social;
+        margin-top: 2vw;
+        &__icon {
+            color: $cl_gray-blue;
+            border: 2px solid $cl_gray-blue;
+        }
+    }
+    
+    &-map {
+        margin-bottom: 1vw;
+    }
+}
 
 @import 'media';
