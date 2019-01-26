@@ -460,6 +460,11 @@ main {
 
 .breadcrumbs {
     color: $cl_blue;
+    list-style-type: none;
+
+    li {
+        display: inline-block;
+    }
 
     &-line {
         display: inline-flex;

@@ -571,6 +571,10 @@ main {
 
 .breadcrumbs {
   color: #004d73;
+  list-style-type: none;
+}
+.breadcrumbs li {
+  display: inline-block;
 }
 .breadcrumbs-line {
   display: -webkit-inline-box;

@@ -126,10 +126,11 @@ document.addEventListener('DOMContentLoaded', function () {
     let searchClose = document.querySelector('.search-panel__close');
     let searchActive = false;
 
-    searchGo.onclick = function () {
+    searchGo.onclick = function (ev) {
         if (searchActive) {
             return console.log('searching...');
         } else {
+            ev.preventDefault();
             search.classList.add('active');
             return searchActive = true;
         }
