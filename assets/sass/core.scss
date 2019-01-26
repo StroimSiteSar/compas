@@ -12,6 +12,7 @@
     justify-content: center;
     align-items: center;
 }
+
 //@include columnBetween;       *** Растянуть в столбец внутри flex блока *** 
 @mixin columnBetween {
     display: -webkit-flex;
@@ -22,6 +23,7 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
 //@include columnAround;       *** Растянуть в столбец внутри flex блока ***
 @mixin columnAround {
     display: -webkit-flex;
@@ -32,14 +34,17 @@
     flex-direction: column;
     justify-content: space-around;
 }
+
 //@include picture;      *** Стилизация круглого изображения ***
 @mixin picture {
     @include center;
+
     &-pic {
         width: 100%;
         border-radius: 50%;
     }
 }
+
 //@include cube;         *** Квадратный блок относительно ширины ***
 @mixin cube {
     &:after {
@@ -48,6 +53,7 @@
         float: left;
     }
 }
+
 //@include link-btn;     *** Ссылка под кнопку *** (!) нужно указывать шрифт (!)
 @mixin link-btn {
     @include center;
@@ -62,14 +68,17 @@
     font-family: $OS-B;
     cursor: pointer;
 }
+
 //@include img-inside;    *** Блок с изображение по центру ***
 @mixin img-inside {
     @include center;
+
     img {
         width: auto;
         max-width: 90%;
     }
 }
+
 //@include social;
 @mixin social {
     width: 100%;
@@ -129,16 +138,15 @@ input[type="checkbox"] {
     border-radius: 50%;
     cursor: pointer;
     outline: none;
-    
-    &:checked::before
-    {
+
+    &:checked::before {
         font: 30px/1 'Open Sans', sans-serif;
         content: '•';
     }
 }
 
 .border-right {
-    border-right: none;   
+    border-right: none;
 }
 
 hr {
@@ -149,24 +157,22 @@ hr {
 body {
     @include fontSize16;
     font-family: $OS-SB;
-    
-    nav li {
-        
-    }
-    
+
+    nav li {}
+
     a {
         color: black;
         text-decoration: none;
         cursor: pointer;
-        
+
         * {
             cursor: pointer;
         }
     }
-    
+
     button {
         cursor: pointer;
-        
+
         * {
             cursor: pointer;
         }
@@ -175,47 +181,47 @@ body {
 
 .header {
     font-weight: bold;
-    
+
     &-bottom {
         background-color: $cl_blue;
         position: relative;
-        
+
         &__icon {
             @include center;
             position: static;
-            
+
             &-btn {
                 color: $cl_white;
                 background-color: transparent;
-                border:none;
+                border: none;
                 outline: none;
                 text-decoration: none;
                 font-size: 1.6em;
             }
         }
     }
-    
+
     &__logo {
         width: 100%;
         @include center;
     }
-    
+
     &__phones {
         text-align: center;
     }
-    
+
     &__worktime-item {
         font-size: 10px;
         text-align: right;
-        
+
         &:last-child {
             color: blue;
         }
     }
-    
+
     &__basket {
         @include center;
-        
+
         &-icon {
             font-size: 20px;
             color: $cl_gray-blue;
@@ -228,39 +234,39 @@ body {
             margin-right: 5px;
         }
     }
-    
+
     &-top {
         padding-left: 0;
         @include columnAround;
     }
-    
+
     &__sandwich {
         @include center;
         color: $cl-blue;
         font-size: 1.8em;
     }
-    
+
     &__nav {
         height: 3em;
-        font-size: 0,8em;
+        font-size: 0, 8em;
         flex-direction: column;
         justify-content: space-around;
         height: 50%;
         display: flex;
         align-items: flex-end;
         padding-bottom: 1em;
-        
+
         &-item {
             margin: 0.5em 0;
             list-style-type: none;
         }
-        
+
         &-link {
             text-transform: uppercase;
             font-family: $OS_B;
         }
     }
-    
+
     &__catalog {
         border-radius: 5px;
         font-weight: bold;
@@ -273,14 +279,15 @@ body {
         background-color: transparent;
         color: $cl_white;
         text-align: left;
-        
+
         &.active {
             border-radius: 0;
-            &+ul {
+
+            & + ul {
                 display: block;
             }
         }
-        
+
         &-menu {
             width: 200%;
             position: absolute;
@@ -290,7 +297,7 @@ body {
             z-index: 1000;
             display: none;
             padding-top: 6%;
-            
+
             li {
                 list-style-type: none;
             }
@@ -309,7 +316,7 @@ body {
                     border-bottom: 1px solid $cl_blue;
                     border-right: 1px solid $cl_blue;
                     position: relative;
-                    
+
                     .open {
                         position: absolute;
                         right: 5%;
@@ -319,14 +326,16 @@ body {
                 }
 
                 &:hover {
-                    &>span {
+                    & > span {
                         border-right: none;
                         color: $cl_black;
+
                         .open {
                             display: none;
                         }
                     }
-                    &>ul {
+
+                    & > ul {
                         display: block;
                     }
                 }
@@ -344,14 +353,15 @@ body {
                 border-bottom: 1px solid $cl_blue;
                 border-right: 1px solid $cl_blue;
                 columns: 2;
+
                 &-item {
                     font-size: 1.2em;
                     font-family: $OS_B;
                 }
             }
-        }   
+        }
     }
-    
+
     &__search {
         width: 100%;
         border-radius: 5px;
@@ -360,14 +370,14 @@ body {
         overflow: hidden;
         border: 1px solid #ffffff;
         background-color: $cl_light-blue;
-        
+
         &-input {
             width: (7/9 * 100%);
             border: none;
             text-align: center;
             background-color: transparent;
         }
-        
+
         &-btn {
             width: (2/9 * 100%);
             border: none;
@@ -384,36 +394,62 @@ body {
     background-color: $cl_blue;
     text-align: center;
     font-family: $OS-L;
-    
+
     &-container {
         div {
             margin-bottom: 15px;
         }
     }
-    
+
     a {
         color: $cl_white;
         font-family: $OS_B;
     }
-    
+
     &-social {
         @include social;
-        
+
         &__icon {
             border: 2px solid $cl_white;
         }
     }
-    
+
     .scroll-top {
         position: fixed;
         right: 10%;
         bottom: 10%;
-        width: 2vw;
-        height: 2vw;
-        font-size: 2vw;
+        width: 20px;
+        height: 20px;
+        font-size: 1.5em;
         line-height: 0;
         color: $cl_gray-blue;
         z-index: 9000;
+    }
+}
+
+.ss-widget {
+    display: inline-flex;
+    align-items: center;
+
+    &__logo {
+        display: inline-block;
+
+        svg {
+            width: 35px;
+            height: 40px;
+        }
+    }
+
+    &__data {
+        padding-left: 10px;
+        text-align: left;
+        display: inline-block;
+
+        span {
+            display: block;
+            line-height: 1.5;
+            font-size: .8em;
+        }
     }
 }
 
@@ -424,11 +460,11 @@ main {
 
 .breadcrumbs {
     color: $cl_blue;
-    
+
     &-line {
         display: inline-flex;
         align-items: center;
-        
+
         &__item-home {
             display: inline-flex;
             align-items: center;
@@ -440,20 +476,20 @@ main {
     height: 100%;
     display: flex;
     align-items: center;
-    
+
     &.active {
         position: absolute;
         right: 0;
         width: 100%;
         justify-content: space-between;
         padding: 0;
-        
+
         .search-panel {
             width: 100%;
             position: relative;
         }
     }
-    
+
     &-panel {
         display: flex;
         position: absolute;
@@ -461,33 +497,63 @@ main {
         transition: 0.6s;
         right: 0;
         overflow: hidden;
-        
+
         &__input {
             width: 100%;
             height: 44px;
             border: none;
             background-color: $cl_gray-blue;
             padding: 10px 20px;
-            
+
             &::placeholder {
                 color: $cl_white;
             }
         }
-        
-        &__go, &__close {
+
+        &__go,
+        &__close {
             width: 20vw;
             max-width: 44px;
             height: 100%;
         }
-        
+
         &__go {
             background-color: $cl_blue;
         }
-        
+
         &__close {
             background-color: $cl_gray-blue;
             height: 44px;
         }
+    }
+}
+
+.bubble {
+    position: fixed;
+    width: 0px;
+    height: 0px;
+    border-radius: 50%;
+    transition: 2s ease-out;
+    z-index: 9999;
+    opacity: .7;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+    }
+
+    &.create {
+        width: 70px;
+        height: 70px;
+    }
+
+    &.fly {
+        transition: right top 3s;
+        right: 50px !important;
+        top: -50px !important;
+        opacity: .2;
+        width: 0px;
+        height: 0px;
     }
 }
 
@@ -497,12 +563,12 @@ main {
     display: flex;
     background-color: $cl_blue;
     margin: 10px 0;
-    
+
     &-container {
         padding: 0;
         position: relative;
     }
-    
+
     &__arrow {
         width: 10%;
         height: 100%;
@@ -512,20 +578,21 @@ main {
         background-color: $cl_black;
         opacity: 0.1;
         position: absolute;
-        
+
         &-right {
             right: 0;
         }
-        
+
         &:hover {
             opacity: 0.2;
         }
     }
+
     &-content {
         width: 100%;
         height: 30vw;
         max-height: 320px; //сделать медиа-запросы
-        
+
         &__item {
             width: 100%;
             height: 100%;
@@ -533,7 +600,7 @@ main {
             background-size: cover;
             background-image: url(../img/slider_img_1.jpg);
             display: none;
-            
+
             &.active {
                 display: block;
             }
@@ -543,11 +610,11 @@ main {
 
 .special {
     padding: 0 0 50px;
-    
+
     h2 {
         color: $cl_red;
     }
-    
+
     &__hot {
         width: 100%;
         @include center;
@@ -555,30 +622,45 @@ main {
         box-shadow: 0 3px 9px 1px rgba(0, 0, 0, 0.11);
         transition: 1s;
         @include cube;
-        
+        height: 100% !important;
+
         img {
             max-width: 90%;
             max-height: 90%;
             opacity: 1;
         }
     }
-    
+
+    &__link-all {
+        text-align: right;
+        float: right;
+        font-size: 0.8em;
+        font-family: $OS-R;
+        color: $cl_gray;
+        line-height: 2;
+        margin-top: 0.5em;
+    }
+
     &-slider {
         position: relative;
         height: 100%;
+
         &__content {
             height: 100%;
             display: flex;
             justify-content: space-between;
+
             &-column {
                 display: none;
                 height: 100%;
                 width: 100%;
+
                 &.active {
                     display: block;
                 }
             }
         }
+
         &__item {
             @include center;
             width: 100%;
@@ -587,7 +669,7 @@ main {
             position: relative;
             overflow: hidden;
             transition: 1s;
-            
+
             &-desc {
                 font-size: 0.7em;
                 width: 100%;
@@ -597,61 +679,60 @@ main {
                 text-align: right;
                 padding: 5%;
                 opacity: 0;
-                transition: 1s;
+                transition: .7s;
             }
-            
+
             &-name {
                 width: 70%;
             }
-            
+
             &-price {
                 font-size: 0.9em;
                 text-decoration: line-through;
             }
-            
+
             &-sale {
                 font-size: 1.2em;
                 color: $cl_red;
                 font-family: $OS-B;
             }
-            
+
             &-link {
                 border-bottom: 1px solid $cl-black;
             }
-            
+
             img {
                 max-width: 100%;
-                transition: 0.5s;
+                transition: 0.8s;
                 position: absolute;
                 max-height: 100%;
             }
-            
+
             &:first-child {
                 margin-bottom: 10%;
             }
-            
+
             &:hover {
                 div {
                     opacity: 1;
                 }
+
                 img {
                     transform: translate(-100%);
                 }
             }
         }
+
         &__arrows {
             position: absolute;
             right: 0;
             top: -1.2em;
             font-size: 3em;
             color: $cl_blue;
-            
-            &-left {
-                
-            }
-            &-right {
-                
-            }
+
+            &-left {}
+
+            &-right {}
         }
     }
 }
@@ -660,12 +741,12 @@ main {
     background-color: $cl_blue;
     padding: 1px 0 50px;
     color: $cl_light-blue;
-    
+
     &-menu {
         background-color: $cl_white;
         position: relative;
         height: 50vw;
-        
+
         &__container {
             padding: 15px 0 15px;
             height: 100%;
@@ -675,7 +756,7 @@ main {
             overflow-y: hidden;
             white-space: nowrap;
         }
-        
+
         &__item {
             position: relative;
             width: 40%;
@@ -685,7 +766,7 @@ main {
             transition: .3s;
             cursor: pointer;
             display: inline-flex;
-            
+
             &-title {
                 width: 100%;
                 height: 100%;
@@ -695,37 +776,38 @@ main {
                 @include fontSize24;
                 text-transform: uppercase;
                 z-index: 99;
-                background-color: rgba(255,255,255,0.7);
+                background-color: rgba(255, 255, 255, 0.7);
                 transition: .3s;
                 font-family: $OS-B;
             }
-            
+
             img {
                 width: 100%;
                 z-index: 98;
                 transition: .3s;
             }
-            
+
             &.active {
                 div {
                     opacity: 0;
                 }
-                
-                img {
-                }
+
+                img {}
             }
         }
     }
-    
+
     &-desc {
         display: none;
+
         &.active {
             display: block;
         }
+
         &__text {
             margin-bottom: 50px;
         }
-        
+
         &__example {
             &-item {
                 width: 100%;
@@ -735,13 +817,13 @@ main {
                 overflow: hidden;
                 @include center;
                 margin: 15px 0;
-                
+
                 img {
                     width: auto;
                     max-width: 100%;
                 }
             }
-            
+
             &-link {
                 @include fontSize20;
                 color: $cl_white;
@@ -754,17 +836,17 @@ main {
 .about {
     margin: 50px 0;
     color: $cl_white;
-    
+
     &-container {
         background-color: $cl_blue;
         display: flex;
         flex-direction: column;
-        
+
         h2 {
             margin: 1em 0;
             opacity: 0.5;
         }
-        
+
         &__item {
             margin-right: -15px;
             width: 100%;
@@ -772,32 +854,33 @@ main {
             flex-direction: column;
             justify-content: center;
             padding: 15px 0;
-            
+
             &-desc {
                 font-family: $OS-L;
                 text-align: justify;
             }
-            
+
             img {
                 width: auto;
                 max-width: 100%;
             }
         }
     }
-    
+
     p:nth-child(2n+1) {
         margin: 2em 0;
     }
-    
+
     .col:last-child {
         padding: 0 0 0 0;
     }
-    
+
     &__link {
         @include fontSize16;
         color: $cl_white;
         @include link-btn;
         max-width: 230px;
+        background-color: transparent;
     }
 }
 
@@ -805,6 +888,7 @@ main {
     h2 {
         color: $cl_blue;
     }
+
     &__item {
         background-color: $cl_blue;
         flex-direction: column;
@@ -814,7 +898,7 @@ main {
         color: $cl_white;
         text-align: center;
         max-width: 163px;
-        
+
         &-img {
             width: 100%;
             height: 150px;
@@ -828,7 +912,7 @@ main {
                 width: auto;
                 max-width: 100%;
             }
-            
+
             button {
                 position: absolute;
                 bottom: 1em;
@@ -841,23 +925,23 @@ main {
                 width: 86%;
                 max-width: 130px;
                 height: 21px;
-                font-size: 12px;//при увеличении экрана 576px поставить padding: 0.5em 2em;
+                font-size: 12px; //при увеличении экрана 576px поставить padding: 0.5em 2em;
             }
         }
-        
+
         &-desc {
             padding: 15px;
         }
-        
+
         &-title {
             font-family: $OS-B;
         }
-        
+
         &-props {
             margin: 1em 0;
             font-family: $OS-R;
         }
-        
+
         &-link {
             background-color: $cl_white;
             @include link-btn;
@@ -865,7 +949,7 @@ main {
             width: 100%;
             max-width: 130px;
             height: 21px;
-            text-align: center;//при увеличении экрана 576px поставить padding: 0.5em 2em;
+            text-align: center; //при увеличении экрана 576px поставить padding: 0.5em 2em;
         }
     }
 }
@@ -873,7 +957,7 @@ main {
 .news {
     padding: 30px 0;
     font-size: 14px;
-    
+
     &-item {
         position: relative;
         width: 100%;
@@ -883,18 +967,23 @@ main {
         background-position: center;
         background-size: cover;
         margin: 1em 0;
-        
+
         &-wrapper {
             position: relative;
             width: 100%;
             height: 100%;
-            background-color: rgba(100, 100, 100, 0.7);
+            background-color: rgba(100, 100, 100, 0.0);
             color: $cl_white;
             text-align: center;
             @include center;
             flex-direction: column;
+            transition: background-color 0.5s;
+
+            &:hover {
+                background-color: rgba(100, 100, 100, 0.7);
+            }
         }
-        
+
         &__link {
             font-size: 12px;
             position: absolute;
@@ -902,26 +991,26 @@ main {
             width: 100px;
             padding: none;
             top: 10%;
-            
+
             &-more {
                 right: 10%;
                 color: $cl_white;
                 font-family: $OS-SB;
             }
-            
+
             &-type {
                 left: 10%;
                 border-color: $cl_light-blue;
                 background-color: $cl_light-blue;
             }
         }
-        
+
         &__title {
             margin: 15px 0;
             max-width: 80%;
             font-family: $OS-B;
         }
-        
+
         &__desc {
             max-width: 80%;
             margin: 15px 0;
@@ -936,7 +1025,7 @@ main {
     border-bottom: 25px solid $cl_blue;
     height: 180px;
     padding: 15px 0;
-    
+
     &-container {
         position: relative;
         display: block;
@@ -945,7 +1034,7 @@ main {
         overflow-y: hidden;
         white-space: nowrap;
     }
-    
+
     &-item {
         height: 100px;
         width: 130px;
@@ -956,7 +1045,7 @@ main {
         border-radius: 5px;
         display: inline-flex;
         vertical-align: top;
-        
+
         img {
             width: auto;
             max-width: 90%;
@@ -974,19 +1063,22 @@ main {
 .delivery {
     color: $cl_blue;
     padding-bottom: 30px;
-    
-    &-point{
+
+    &-point {
         &__title {
             display: flex;
             align-items: center;
+
             &-icon {
                 margin-right: 3vw;
                 width: 3em;
                 min-width: 3em;
-                &>img {
+
+                & > img {
                     width: 100%;
                 }
             }
+
             h3 {
                 margin-top: 2em;
             }
@@ -1001,20 +1093,21 @@ main {
         color: $cl_red;
         margin-top: 0;
     }
-    
-    &__img{
+
+    &__img {
         @include center;
-        img{
+
+        img {
             width: auto;
             max-width: 100%;
         }
-    } 
-    
+    }
+
     &__text {
         color: $cl_blue;
         text-align: justify;
     }
-    
+
     &__link {
         float: right;
         text-decoration: underline;
@@ -1025,36 +1118,36 @@ main {
 
 .sales {
     color: $cl_blue;
-    
+
     &-point {
         margin: 15px;
     }
-    
+
     h2 {
         color: $cl_red;
         margin: 1em 0;
     }
-    
-    &__img{
+
+    &__img {
         @include center;
         border: 3px solid $cl_blue;
-        
-        img{
+
+        img {
             width: auto;
             max-width: 100%;
         }
     }
-    
+
     &-container {
         @include columnBetween;
     }
-    
+
     p {
         color: $cl_blue;
         text-align: justify;
         font-family: $OS-R;
     }
-    
+
     &__date {
         font-family: $OS-B;
         margin: 1em 0;
@@ -1068,14 +1161,14 @@ main {
         position: relative;
         height: 72px;
         background-color: $cl_disable;
-        
+
         &__box {
             position: absolute;
             overflow: hidden;
             white-space: nowrap;
             width: 100%;
             height: 100%;
-            
+
             &-item {
                 width: 40%;
                 height: 100%;
@@ -1083,81 +1176,81 @@ main {
                 border-radius: 0 36px 36px 0;
                 background-color: $cl_disable;
                 display: inline-block;
-                
+
                 &:first-child {
                     z-index: 4;
                     left: 0;
                 }
-                
+
                 &:nth-child(2) {
                     left: -10%;
                     max-width: 600px;
                     z-index: 3;
                 }
-                
+
                 &:last-child {
                     width: 100%;
                     left: -20%;
                     border-radius: 0;
                     z-index: 2;
                 }
-                
+
                 &.active {
                     background-color: $cl_blue;
                 }
             }
         }
-        
+
         &__text {
             color: $cl_white;
             height: 100%;
         }
-        
+
         &__item {
             position: relative;
             z-index: 5;
             @include columnAround;
-            
+
             &-path {
                 color: $cl_light-blue;
                 font-size: 0.7em;
             }
-            
-            &-title {
-            }
+
+            &-title {}
         }
     }
-    
+
     &-table {
         font-size: 0.7em;
-        
+
         &__item {
-            &-row { 
+            &-row {
                 padding: 10px 0;
                 min-height: 80px;
                 border-bottom: 1px solid $cl_black;
-            
+
                 &:last-child {
                     border: none;
                 }
             }
-            
+
             &-cell {
                 @include center;
                 padding: 0 1vw;
             }
-            
+
             &-img {
                 img {
                     width: auto;
                     max-width: 100%;
                 }
             }
-            
-            &-price, &-cost {
+
+            &-price,
+            &-cost {
                 font-family: $OS-B;
             }
-            
+
             &-cansel {
                 @include center;
                 color: $cl_disable;
@@ -1168,52 +1261,55 @@ main {
                 border: 2px solid $cl_disable;
             }
         }
-        
-        
+
+
         &__title {
             height: 50px;
             border-bottom: 1px solid $cl_black;
         }
     }
-    
+
     &-bottom {
         background-color: $cl_light-blue;
         padding: 30px 0;
         margin: 10px 0;
-        
+
         &__container {
             display: none;
             justify-content: space-between;
             align-items: center;
             flex-direction: column-reverse;
-            
+
             &-right {
                 display: inline-flex;
             }
-            
+
             &.active {
                 display: flex;
             }
         }
-        
+
         &__info {
             display: flex;
             margin-right: 10px;
             height: 100%;
-            &-quality{
+
+            &-quality {
                 font-size: 0.8em;
                 font-family: $OS_R;
             }
+
             &-cost {
                 font-size: 18px;
                 font-family: $OS_B;
             }
+
             &-img {
                 height: 100%;
                 margin-right: 10px;
             }
         }
-        
+
         &__btn {
             padding: 0 1em;
             border: none;
@@ -1223,109 +1319,110 @@ main {
             width: 153px;
             font-size: 13px;
             margin: 10px 0;
-            
+
             &-next {
-                background-color: $cl_red;
+                background-color: $cl_green;
                 color: $cl_white;
-                
+
                 &.step2 {
-                    background-color: $cl_green;
-                    
                     &[disabled="disabled"] {
                         opacity: 0.6;
                         cursor: default;
                     }
                 }
             }
-            
+
             &-back {
                 @include center;
                 font-size: 11px;
             }
         }
     }
-    
+
     &-data {
         &__head {
             @include fontSize20;
             margin: 1em 0;
             color: $cl_blue;
         }
-        
+
         &__radio {
             padding: 1em 0;
             border-bottom: 1px solid $cl_blue;
-            
+
             &-col {
                 padding: 0 1vw;
             }
-            
+
             &-btn {
                 margin-right: 1vw;
                 min-width: 13px;
                 position: relative;
                 top: 10px;
             }
+
             &-days {
                 font-family: $OS_B;
             }
+
             &-comment {
                 color: $cl_gray;
                 font-family: $OS_R;
                 font-size: 0.6em;
             }
         }
-        
+
         &__form {
             &-col {
                 display: flex;
                 flex-direction: column;
             }
-            
+
             &-label {
                 vertical-align: center;
             }
-            
+
             &-line {
                 @include fontSize14;
                 border: none;
                 margin: 5px 0;
                 height: 2em;
             }
-            
+
             &-input {
                 background-color: $cl_light-blue;
                 padding: 0 15px;
-                
+
                 &[valid="false"] {
                     outline: 2px solid rgba(255, 0, 0, 0.3);
                 }
-                
+
                 &[valid="true"] {
                     outline: 2px solid rgba(0, 255, 0, 0.3);
                     background-color: rgb(250, 255, 189);
                 }
             }
         }
-        
+
         &__conf {
             display: inline-flex;
             align-items: center;
             height: 30px;
-            
+
             &-radio {
                 margin-right: 5px;
             }
         }
     }
-    
+
     .counter {
         &-box {
             @include center;
-            padding: 0 0.5em; 
+            padding: 0 0.5em;
             border: 2px solid $cl_disable;
             background-color: $cl_white;
         }
+
         &-tablet {
             margin: 0 3px;
             width: 20%;
@@ -1334,37 +1431,41 @@ main {
             text-align: center;
         }
     }
-    
+
     .press-to-end {
         background-color: $cl_red;
         content: 'Завершить заказ';
     }
-    
+
     &-complete {
         &__head {
             margin-left: 15px;
         }
+
         &__text {
             font-size: 0.9em;
             font-family: $OS-R;
             color: $cl_gray;
             margin-bottom: 20px;
-            
+
             &-bold {
                 font-size: 1.2em;
                 font-family: $OS_B;
                 color: $cl_black;
             }
         }
-        
+
         &__datas {
             color: $cl_blue;
+
             &-number {
                 font-size: 1.5em;
             }
+
             &-person {
                 font-size: 1.1em;
             }
+
             &-pack {
                 font-size: 0.9em;
                 font-family: $OS-R;
@@ -1372,10 +1473,10 @@ main {
             }
         }
     }
-    
+
     &-container {
         display: none;
-        
+
         &.active {
             display: block;
         }
@@ -1386,23 +1487,24 @@ main {
 
 .catalog {
     padding-top: 2vw;
-    
+
     &-menu {
         padding: 0;
         margin: 0;
-        
+
         li {
             list-style-type: none;
         }
-        
+
         &__item {
             height: 3vw;
             min-height: 35px;
             margin: 7px 0;
+
             &:first-child {
                 margin-top: 0;
             }
-            
+
             &-title {
                 width: 100%;
                 height: 100%;
@@ -1411,7 +1513,7 @@ main {
                 color: $cl_white;
                 background-color: $cl_blue;
                 position: relative;
-                
+
                 .arrow {
                     position: absolute;
                     left: 10%;
@@ -1422,26 +1524,28 @@ main {
                     transform-origin: 0px 50%;
                 }
             }
-            
+
             &.active {
                 height: auto;
-                &>div {
+
+                & > div {
                     height: 3vw;
                     min-height: 35px;
                 }
-                
+
                 .arrow {
                     transform: rotate(90deg);
                 }
-                
-                &>ul {
+
+                & > ul {
                     height: auto;
                     padding: 10px 0;
                 }
             }
         }
-        
-        &__submenu, &__group {
+
+        &__submenu,
+        &__group {
             top: 100%;
             width: 100%;
             height: 0;
@@ -1449,32 +1553,33 @@ main {
             background-color: $cl_light-blue;
             padding: 0;
             margin: 0;
-            
+
             &-item {
                 padding: 5px 10px;
                 color: $cl_blue;
                 font-family: $OS_B;
-                
+
                 &.active {
                     height: auto;
 
-                    &>ul {
+                    & > ul {
                         height: auto;
                         padding: 10px 0 10px 5%;
                     }
                 }
             }
         }
+
         &__group {
             &-item {
                 font-family: $OS_R;
             }
         }
     }
-    
+
     &-content {
         padding: 0 0.1vw;
-        
+
         &__banner {
             width: 100%;
             height: 166px;
@@ -1482,9 +1587,9 @@ main {
             background-repeat: no-repeat;
             background-size: cover;
         }
-        
+
         &__category {
-            
+
             &-top {
                 display: flex;
                 justify-content: space-between;
@@ -1492,16 +1597,17 @@ main {
                 padding: 1vw;
                 color: $cl_blue;
             }
-            
+
             &-arrows {
                 width: 3em;
                 display: inline-flex;
                 justify-content: space-between;
+
                 .arrow {
                     font-size: 3em;
                 }
             }
-            
+
             &-more {
                 @include link-btn;
                 color: $cl_white;
@@ -1511,13 +1617,13 @@ main {
                 padding: 0.3em 1em;
                 margin-left: 3em;
             }
-            
+
             &-group {
                 position: relative;
                 overflow: hidden;
                 padding: 0;
             }
-            
+
             &-wrapper {
                 flex-wrap: nowrap;
                 position: relative;
@@ -1525,7 +1631,7 @@ main {
                 transition: .4s;
             }
         }
-        
+
         &__item {
             @include columnBetween;
             padding: 0;
@@ -1533,26 +1639,27 @@ main {
             z-index: 10;
             border: 1px solid rgba(0, 0, 0, 0.09);
             padding: 1vw 0;
-            
+
             &:hover {
                 z-index: 12;
                 box-shadow: 0 3px 9px 9px rgba(0, 0, 0, 0.09);
+
                 .price-btn-buy {
                     display: block;
                 }
-                
-                &>div:nth-child(2) {
-                    color:$cl_red;
+
+                & > div:nth-child(2) {
+                    color: $cl_red;
                 }
             }
-            
+
             &-img {
                 width: 100%;
                 position: relative;
                 height: 150px;
                 overflow: hidden;
                 @include img-inside;
-                
+
                 span {
                     position: absolute;
                     top: 10%;
@@ -1565,30 +1672,32 @@ main {
                     padding: 0.5em;
                 }
             }
-            
+
             &-name {
                 text-align: center;
                 color: $cl_blue;
                 font-size: 1.1em;
                 margin: 1em 0;
             }
-            
+
             &-price {
                 padding: 0 15px;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                
+
                 .price {
                     &-cost {
                         font-size: 1.5em;
                         font-family: $OS_B;
                     }
+
                     &-sale {
                         font-family: $OS_R;
                         text-decoration: line-through;
                         color: $cl_gray;
                     }
+
                     &-btn-buy {
                         @include link-btn;
                         font-size: 1.2em;
@@ -1597,7 +1706,7 @@ main {
                         background-color: $cl_gray-blue;
                         color: $cl_white;
                         outline: none;
-                        
+
                         &:hover {
                             color: $cl_gray-blue;
                             background-color: $cl_white;
@@ -1608,7 +1717,7 @@ main {
             }
         }
     }
-    
+
     &-seo {
         background-color: $cl_blue;
         color: $cl_white;
@@ -1617,11 +1726,13 @@ main {
         font-size: 0.66em;
         line-height: 2em;
         text-align-last: right;
-        margin-top: 3vw; 
-        p{
+        margin-top: 3vw;
+
+        p {
             text-align-last: left;
             padding: 0.5em 0;
         }
+
         a {
             color: $cl_white;
             text-decoration: underline;
@@ -1633,14 +1744,17 @@ main {
 
 .productpage {
     overflow: hidden;
+
     h1 {
         color: $cl_blue;
     }
+
     &-img {
         @include img-inside;
         position: relative;
         height: 100%;
         width: 100%;
+
         &__btn {
             position: absolute;
             left: 0;
@@ -1655,9 +1769,9 @@ main {
             border-radius: 50%;
             outline: none;
             background-color: transparent;
-        } 
+        }
     }
-    
+
     &-gallery {
         position: fixed;
         left: 0;
@@ -1667,9 +1781,9 @@ main {
         max-width: 100vw;
         @include center;
         z-index: 9999;
-        background-color: rgba(0,0,0,0.3);
+        background-color: rgba(0, 0, 0, 0.3);
         display: none;
-        
+
         &__wrapper {
             position: relative;
             transition: .3s;
@@ -1678,24 +1792,24 @@ main {
             max-height: 800px;
             @include center;
             background-color: $cl_white;
-            
+
             img {
                 max-width: 100%;
                 max-height: 100%;
             }
         }
-        
+
         &__item {
             display: none;
             opacity: 0;
-            
+
             &.active {
                 display: block;
                 opacity: 1;
                 transition: .3s;
             }
         }
-        
+
         &__arrows {
             position: absolute;
             width: 100%;
@@ -1705,18 +1819,18 @@ main {
             display: flex;
             justify-content: space-between;
             z-index: 1;
-            
+
             .arrow {
                 width: 20%;
                 height: 100%;
                 @include center;
-                
+
                 &:hover {
-                    background-color: rgba(60,60,150,0.1);
+                    background-color: rgba(60, 60, 150, 0.1);
                 }
             }
         }
-        
+
         &__btn-close {
             position: absolute;
             right: 1%;
@@ -1733,17 +1847,17 @@ main {
             outline: none;
         }
     }
-    
+
     &-panel {
         border: 2px solid $cl_blue;
         color: $cl_blue;
-        
+
         &__props {
             margin: 30px 10% 0 0;
             display: flex;
             justify-content: space-between;
             align-content: center;
-            
+
             &-item {
                 &:first-child {
                     width: 50%;
@@ -1751,22 +1865,23 @@ main {
                     color: $cl_white;
                     text-align: center;
                 }
+
                 &:last-child {
                     width: 30%;
                 }
             }
-            
+
             &-number {
                 font-size: 0.8em;
                 font-family: $OS_R;
                 line-height: 3em;
             }
-            
+
             &-price {
                 font-size: 1.6em;
                 line-height: 2em;
             }
-            
+
             &-btn {
                 @include link-btn;
                 font-size: 1.33em;
@@ -1778,11 +1893,11 @@ main {
                 outline: none;
                 background-color: transparent;
             }
-            
+
             &-counter {
                 @include center;
             }
-            
+
             .counter {
                 &-box {
                     @include center;
@@ -1793,6 +1908,7 @@ main {
                     font-family: $OS_R;
                     font-size: 1.7em;
                 }
+
                 &-tablet {
                     margin: 0 5%;
                     text-align: center;
@@ -1800,15 +1916,15 @@ main {
                 }
             }
         }
-        
+
         &__sup {
             padding: 20px;
-            
+
             p {
                 color: $cl_blue-2;
                 font-size: 0.8em;
             }
-            
+
             &-phone {
                 color: $cl_black;
                 text-align: center;
@@ -1816,16 +1932,16 @@ main {
             }
         }
     }
-    
+
     &-desc {
         margin: 5vw 0 2vw;
-        
+
         &__points {
             color: $cl_disable;
-            
+
             &-item {
                 margin-bottom: 2px;
-                
+
                 &.active {
                     color: $cl_blue-2;
                     border-bottom: 2px solid $cl_blue-2;
@@ -1833,7 +1949,7 @@ main {
                 }
             }
         }
-        
+
         &__line {
             position: relative;
             left: -100vw;
@@ -1841,19 +1957,19 @@ main {
             height: 0;
             border-top: 2px solid $cl_blue;
         }
-        
+
         &__text {
             color: $cl_blue-2;
-            
+
             &-item {
                 display: none;
                 padding: 1em 0;
-                
+
                 &.active {
                     display: block;
                 }
-            
-                &>p {
+
+                & > p {
                     margin: 1em 0;
                 }
             }
@@ -1868,16 +1984,18 @@ main {
         padding-top: 2vw;
         padding-bottom: 2vw;
     }
+
     &-background {
         @include columnAround;
         align-items: center;
         box-shadow: 0 0 6px 1px rgba(30, 15, 0, 0.09);
         padding-bottom: 2vw;
-        
-        &.p-32vw{
+
+        &.p-32vw {
             padding: 3vw 2vw;
         }
     }
+
     &-list {
         font-size: 1em;
         list-style-type: none;
@@ -1888,23 +2006,25 @@ main {
             div {
                 width: 20%;
                 font-family: $OS-R;
+                margin-right: 1em;
             }
         }
 
         &__item:nth-child(2n) {
             margin: 1em 0;
-        }  
+        }
     }
-    
+
     .social {
         @include social;
         margin-top: 2vw;
+
         &__icon {
             color: $cl_gray-blue;
             border: 2px solid $cl_gray-blue;
         }
     }
-    
+
     &-map {
         margin-bottom: 1vw;
     }
