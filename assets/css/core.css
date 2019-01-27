@@ -530,12 +530,25 @@ body button * {
   position: fixed;
   right: 10%;
   bottom: 10%;
-  width: 20px;
-  height: 20px;
+  width: 2.2em;
+  height: 2.2em;
+  border-radius: 50%;
   font-size: 1.5em;
   line-height: 0;
-  color: #97cef0;
+  color: white;
   z-index: 9000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #0f587c;
+  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.8);
+          box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 .ss-widget {
@@ -680,7 +693,7 @@ main {
   -webkit-transition: right top 3s;
   transition: right top 3s;
   right: 50px !important;
-  top: -50px !important;
+  top: -150px !important;
   opacity: .2;
   width: 0px;
   height: 0px;

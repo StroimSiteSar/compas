@@ -325,9 +325,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function createBubble(event) {
         let bubble = document.createElement('div');
+        let basketIcon = document.querySelector(".header__basket");
 
-        bubble.style.right = `${event.screenX*(-1)-50}px`;
-        bubble.style.top = `${event.screenY-50}px`;
+        console.dir(basketIcon)
+
+        bubble.style.right = `${window.innerWidth-event.clientX}px`;
+        bubble.style.top = `${event.clientY-100}px`;
 
         let prodImg = document.createElement('img');
         prodImg.src = this.previousElementSibling.src;
