@@ -169,6 +169,17 @@ document.addEventListener('DOMContentLoaded', function () {
 //JS for catalog
 document.addEventListener('DOMContentLoaded', function () {
     "use strict";
+    const labels = document.querySelectorAll('.catalog-filter__label')
+
+    labels.forEach(label => label.onclick = function () {
+        this.classList.toggle('active')
+    })
+
+    document.querySelector('.catalog-filter__open').onclick = function () {
+        this.previousElementSibling.style.height = 'auto';
+        this.style.display = 'none';
+    }
+
     let catalogMenuItems = document.querySelectorAll('.catalog-menu__item');
     let catalogSubmenuItems = document.querySelectorAll('.catalog-menu__submenu-item');
 
