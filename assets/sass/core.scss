@@ -356,7 +356,14 @@ body {
 
                 &-item {
                     font-size: 1.2em;
-                    font-family: $OS_B;
+                    font-family: $OS_R;
+                }
+                
+                &-link {
+                    font-size: 0.8em;
+                    font-family: $OS_L;
+                    display: block;
+                    color: $cl_gray-blue;
                 }
             }
         }

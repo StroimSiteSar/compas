@@ -456,7 +456,13 @@ body button * {
 }
 .header__catalog-menu__submenu-item {
   font-size: 1.2em;
-  font-family: "OpenSansBold", sans-serif;
+  font-family: "OpenSansRegular", sans-serif;
+}
+.header__catalog-menu__submenu-link {
+  font-size: 0.8em;
+  font-family: "OpenSansLight", sans-serif;
+  display: block;
+  color: #97cef0;
 }
 .header__search {
   width: 100%;
