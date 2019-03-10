@@ -6,7 +6,6 @@
       {
         "id": "1.1",
         "title": "Катушки",
-        "link": "/catalog",
         "subgroup": [
           {
             "id": "1.1.1",
@@ -38,7 +37,6 @@
       {
         "id": "1.2",
         "title": "Катушки",
-        "link": "/catalog",
         "subgroup": [
           {
             "id": "1.2.1",
@@ -138,7 +136,6 @@
       {
         "id": "2.2",
         "title": "Ловушки",
-        "link": "/catalog",
         "subgroup": [
           {
             "id": "2.2.1",

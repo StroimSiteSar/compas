@@ -1,27 +1,38 @@
 'use strict';
+//==================== Пользовательские настройки =============================
+
+const apiUrl = 'catalog.json';
+
+const classPrefix = 'header__catalog' 
+
+//=============================================================================
+
+//======================= Расширенные настройки ===============================
+const dropdown = document.querySelector(`.${classPrefix}`);
 
 const catalogLayout = {
     menu: {
         tag: 'ul',
-        className: 'header__catalog-menu',
+        className: `${classPrefix}-menu`,
     },
     menuItem: {
         tag: 'li',
-        className: 'header__catalog-menu__item' 
+        className: `${classPrefix}-menu__item`,
     },
     submenu: {
         tag: 'ul',
-        className: 'header__catalog-menu__submenu', 
+        className: `${classPrefix}-menu__submenu`, 
     },
     list: {
         tag: 'li',
-        className: 'header__catalog-menu__submenu-item'
+        className: `${classPrefix}-menu__submenu-item`,
     },
     link: {
         tag: 'a',
-        className: 'header__catalog-menu__submenu-link'
+        className: `${classPrefix}-menu__submenu-link`
     }
 }
+//=============================================================================
 
 const normalizeData = data => {
     let parsed = {
@@ -60,18 +71,28 @@ function createElement(inputElement) {
         onClick: inputElement.click || null
     }
     
-    const outputEl = !element.link || element.tag
-        ? document.createElement(element.tag)
-        : (document.createElement('a'), outputEl.href = element.link)
-    outputEl.classList.add(element.className);
+    console.log(element.link || element.tag === 'a')
+    
+    const outputEl = element.link && element.tag === 'a'
+        ? document.createElement('a')
+        : document.createElement(element.tag)
+    
+    const classNames = element.className ? element.className.split(' ') : []
+    
+    classNames.forEach(classTxt => outputEl.classList.add(classTxt))
     outputEl.onclick = element.onClick;
     outputEl.setAttribute('data-id', element.id)
     
-    const title = document.createElement('span');
-    title.classList.add(element.className + '-title');
-    title.innerText = element.title
-    
-    outputEl.appendChild(title)
+    if (element.link && element.tag === 'a') {
+        outputEl.href = element.link;
+        outputEl.innerText = element.title;
+    } else {
+        const title = element.link ? document.createElement('a') : document.createElement('span');
+        if (element.link) title.href = element.link;
+        title.classList.add(classNames.length ? classNames[0] + '-title' : '-title');
+        title.innerText = element.title
+        outputEl.appendChild(title)
+    }
     
     if (element.childEl) outputEl.appendChild(element.childEl)
     
@@ -93,7 +114,10 @@ class List {
             ...this.list
         })
         this.list.elements.forEach(item => {
-            currentList.appendChild(createElement({...item}))
+            currentList.appendChild(createElement({
+                ...item, 
+                link: item.subgroup && item.subgroup.length ? '' : item.link
+            }))
         })
         return currentList
     }
@@ -155,9 +179,102 @@ class Catalog {
     }
 }
 
-let menuData = '';
+class DesktopCatalog {
+    constructor(container, cat) {
+        this.container = container
+        this.heads = cat.heads
+        this.subs = cat.subs
+        this.links = cat.links
+    }
+    
+    render() {
+        this.container.parentNode.appendChild(new Catalog(this.heads, this.subs, this.links).createLvl)
+    }
+}
 
-fetch("catalog.json")
+class MobileCatalog {
+    constructor(container, cat) {
+        this.container = container
+        this.data = this.createData(cat)
+        this.state = 'catalog'
+    }
+    
+    createData = (data) => ({
+        catalog: {
+            id: 'catalog',
+            title: 'Каталог',
+            subgroup: Object.keys(data.heads),
+        },
+        ...data.heads,
+        ...data.subs,
+        ...data.links
+    });
+
+    getDropdown = () => {
+        if (!this.data[this.state].subgroup) return {}
+        return this.data[this.state].subgroup.reduce((acc, id) => {
+            return {
+                ...acc,
+                [id]: {
+                    ...this.data[id],
+                    click: () => this.setState(id)
+                }
+            }
+        }, {})
+    }
+    
+    setState = id =>  {
+        if (!id) return
+        this.state = id;
+        this.render()
+    }
+    
+    createControls = () => {
+        let backBtn = createElement({
+            tag: 'button',
+            title: '',
+            className: `${classPrefix}-menu-title-btn`,
+            childEl: createElement({
+                tag: 'i',
+                className: 'fal fa-caret-left' 
+            }),
+            click: () => this.setState(this.data[this.state].parent)
+        })
+        let currentGroupTitle = createElement({
+            tag: 'span',
+            title: this.data[this.state].title,
+            click: null
+        })
+        let closeBtn = createElement({
+            tag: 'button',
+            title: '',
+            className: `${classPrefix}-menu-title-btn`,
+            childEl: createElement({
+                tag: 'i',
+                className: 'fal fa-times' 
+            }),
+            click: () => {
+                this.setState('catalog')
+                dropdown.classList.remove('active')
+            }
+        })
+        return [backBtn, currentGroupTitle, closeBtn]
+    }
+        
+    render = () => {
+        document.querySelector('.header__catalog-menu') 
+            && document.querySelector('.header__catalog-menu').remove()
+        this.container.parentNode.appendChild(new Catalog(this.getDropdown()).createLvl)
+        this.createControls().forEach(node => {
+            document.querySelector('.header__catalog-menu-title').appendChild(node)
+        })
+    }
+}
+
+let menuData = '';
+let flagDesktopSize = false;
+
+fetch(apiUrl)
     .then(res => res.json())
     .then(response => menuData = normalizeData(response))
     .then(() => createCatalog(menuData))
@@ -167,21 +284,23 @@ fetch("catalog.json")
     })
 
 function createCatalog(catalog) {
-    if (!catalog) return setTimeout(() => {createCatalog(menuData)}, 1000);
+    if (!catalog) return setTimeout(() => createCatalog(menuData), 1000);
     
-    let dropdown = document.querySelector('.header__catalog');
-
-    let DesktopCatalog = new Catalog(catalog.heads, catalog.subs, catalog.links)
-    let MobileCatalog = new Catalog(catalog.heads)
+    console.log(catalog)
     
-    console.log(DesktopCatalog.createLvl)
-    
-    
-    if (window.matchMedia("(min-width: 992px)").matches) {
-        dropdown.parentNode.appendChild(DesktopCatalog.createLvl)
+    if (window.innerWidth >= 768) {
+        flagDesktopSize = true;
+        document.querySelector(`.${catalogLayout.menu.className}`) 
+            && document.querySelector(`.${catalogLayout.menu.className}`).remove()
+        new DesktopCatalog(dropdown, catalog).render()
     } else {
-        dropdown.parentNode.appendChild(MobileCatalog.createLvl)
+        flagDesktopSize = false;
+        document.querySelector(`.${catalogLayout.menu.className}`) 
+            && document.querySelector(`.${catalogLayout.menu.className}`).remove()
+        new MobileCatalog(dropdown, catalog).render()
     }
 }
             
-window.onresize = () => createCatalog(menuData);
+window.onresize = () => (window.innerWidth >= 768)
+                            ? !flagDesktopSize && createCatalog(menuData) 
+                            : flagDesktopSize && createCatalog(menuData)

@@ -106,8 +106,14 @@ $extral: 1200px;
             text-align: center;
 
             &-menu {
+                top: 100%;
                 width: calc(100% - 30px);
                 left: auto;
+                padding-top: 6%;
+                
+                &-title {
+                    display: none;
+                }
 
                 &__item {
                     &-title {

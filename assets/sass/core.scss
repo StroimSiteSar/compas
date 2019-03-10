@@ -291,12 +291,40 @@ body {
         &-menu {
             width: 200%;
             position: absolute;
-            top: 100%;
+            top: 0;
             left: 0;
             background-color: rgba(255, 255, 255, 1);
             z-index: 1000;
             display: none;
-            padding-top: 6%;
+            padding-top: 0;
+            
+            &-title {
+                background-color: $cl_blue;
+                position: relative;
+                height: 44px;
+                display: -webkit-inline-flex;
+                display: -moz-inline-flex;
+                display: -ms-inline-flex;
+                display: -o-inline-flex;
+                display: inline-flex;
+                width: 100%;
+                align-items: center;
+                justify-content: space-between;
+                font-size: 1.6em;
+                color: $cl_white;
+                
+                &-btn {
+                    color: inherit;
+                    font-size: 1.2em;
+                    height: 100%;
+                    padding: 0 15px;
+                    background-color: transparent;
+                    border: none;
+                    outline: none;
+                    text-decoration: none;
+                }
+                
+            }
 
             li {
                 list-style-type: none;
@@ -363,7 +391,7 @@ body {
                     font-size: 0.8em;
                     font-family: $OS_L;
                     display: block;
-                    color: $cl_gray-blue;
+                    color: rgba(0, 100, 200, 1);
                 }
             }
         }
