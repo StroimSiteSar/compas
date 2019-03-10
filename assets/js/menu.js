@@ -1,7 +1,7 @@
 'use strict';
 //==================== Пользовательские настройки =============================
 
-const apiUrl = 'сюда пишем url для api каталога';
+const apiUrl = 'https://randomuser.me/api/';
 
 const classPrefix = 'header__catalog' 
 
@@ -273,13 +273,13 @@ let menuData = '';
 let flagDesktopSize = false;
 
 fetch(apiUrl)
-    .then(res => res.json())
+    .then(res => {
+        if (res.status >= 400) alert(`Ошибка сервера ${res.status}`)
+        res.json()
+    })
     .then(response => menuData = normalizeData(response))
     .then(() => createCatalog(menuData))
-    .catch(error => {
-        menuData = normalizeData(initCatalog)
-        return createCatalog(menuData)
-    })
+    .catch(error => console.error(error))
 
 function createCatalog(catalog) {
     if (!catalog) return setTimeout(() => createCatalog(menuData), 1000);
