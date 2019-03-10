@@ -1,7 +1,7 @@
 'use strict';
 //==================== Пользовательские настройки =============================
 
-const apiUrl = 'catalog.json';
+const apiUrl = 'сюда пишем url для api каталога';
 
 const classPrefix = 'header__catalog' 
 
@@ -70,8 +70,6 @@ function createElement(inputElement) {
         childEl: inputElement.childEl || null,
         onClick: inputElement.click || null
     }
-    
-    console.log(element.link || element.tag === 'a')
     
     const outputEl = element.link && element.tag === 'a'
         ? document.createElement('a')
@@ -262,11 +260,11 @@ class MobileCatalog {
     }
         
     render = () => {
-        document.querySelector('.header__catalog-menu') 
-            && document.querySelector('.header__catalog-menu').remove()
+        document.querySelector(`.${classPrefix}-menu`) 
+            && document.querySelector(`.${classPrefix}-menu`).remove()
         this.container.parentNode.appendChild(new Catalog(this.getDropdown()).createLvl)
         this.createControls().forEach(node => {
-            document.querySelector('.header__catalog-menu-title').appendChild(node)
+            document.querySelector(`.${classPrefix}-menu-title`).appendChild(node)
         })
     }
 }
